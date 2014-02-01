@@ -1,0 +1,70 @@
+syntax = "proto2";
+
+package com.communication;
+
+message UserData {
+	optional User me = 1;
+	required UserStatistics statistics = 2;
+	repeated GameDescription invites = 3;
+	repeated GameContext joinedGames = 4;
+}
+
+message User {
+	required int64 userId = 1;
+	optional int64 facebookId = 2;
+}
+
+message Player {
+	required User user = 1;
+	required int32 color = 2;
+	required bool isPlayedMove = 3;
+	repeated int32 cards = 4;
+	optional int32 numberOfReinforcments = 5;
+}
+
+message UserStatistics {
+	required int32 numberOfGames = 1;
+	required int32 numberOfWins = 2;
+}
+
+message GameContext {
+	required GameDescription gameDescription = 1;
+	required LightGameContext lightGameContext = 2;
+	repeated Territory torritories = 3;
+	repeated Alliance alliances = 4;
+	repeated Command pendingComands = 5;
+}
+
+message LightGameContext {
+	required GameDescription gameDescription = 1;
+	required int32 round = 2;
+	required int32 phase = 3;
+	repeated Player playersInGame = 4;
+}
+
+message GameDescription {
+	optional int64 gameId = 1;
+	required string gameName = 2;
+	required int32 numberOfPlayers = 3;
+	required int32 numberOfJoinedPlayers = 4;
+	required int32 objective = 5;
+}
+
+message Territory {
+	required int32 id = 1;
+	required int32 troopsOnIt = 2;
+	required int64 userId = 3;
+}
+
+message Alliance {
+	required int64 userId1 = 1;
+	required int64 userId2 = 2;
+	required int32 type = 3;
+}
+
+message Command {
+	optional int32 commandId = 1;
+	required int32 sourceTerritory = 2;
+	required int32 destinationTerritory = 3;
+	required int32 numberOfUnits = 4;
+}

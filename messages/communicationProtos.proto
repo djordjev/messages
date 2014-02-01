@@ -1,0 +1,133 @@
+syntax = "proto2";
+
+import public "dataProtos.proto";
+
+package com.communication;
+
+message RegisterRequest {
+	required string username = 1;
+	required string passwordHash = 2;
+}
+
+message RegisterResponse {
+	required bool isSuccessfull = 1;
+}
+
+message NoFacebookLoginRequest {
+	required string username = 1;
+	required string passwordHash = 2;
+}
+
+message NoFacebookLoginResponse {
+	required int64 userId = 1;
+}
+
+message FacebookLoginRequest {
+	required int64 facebookId = 1;
+}
+
+message FacebookLoginResponse {
+	required UserData userData = 1;
+}
+
+message GetUserDataRequest {
+	required int64 userId = 1;
+}
+
+message GetUserDataResponse {
+	required UserData userData = 1;
+}
+
+message FilterFriendsRequest {
+	repeated int64 facebookIds = 1;
+}
+
+message FilterFriendsResponse {
+	repeated User friends = 1;
+}
+
+message CreateGameRequest {
+	required string gameName = 1;
+	required int32 numberOfPlayers = 2;
+	required int32 objectiveCode = 3;
+	repeated int32 userIds = 4;
+}
+
+message CreateGameResponse {
+	required GameContext gameContext = 1;
+}
+
+message GetOpenGamesRequest {
+}
+
+message GetOpenGamesResponse {
+	repeated GameDescription gameDescription = 1;
+}
+
+message JoinGameRequest {
+	required int32 gameId = 1;
+}
+
+message JoinGameResponse {
+	required GameContext gameContext = 1;
+}
+
+message InvokeAllianceRequest {
+	required int32 userId = 1;
+}
+
+message InvokeAllianceResponse {
+}
+
+message AnswerAllianceRequest {
+	required int32 userId = 1;
+	required bool isAccepted = 2;
+}
+
+message AnswerAllianceResponse {
+}
+
+message AllianceNotification {
+	required Alliance alliance = 1;
+}
+
+message TradeCardsRequest {
+	required int32 cardId1 = 1;
+	required int32 cardId2 = 2;
+	required int32 cardId3 = 3;
+}
+
+message TradeCardsResponse {
+	required int32 numberOfReinforcements = 1;
+}
+
+message AddUnitRequest {
+	required int32 territoryId = 1;
+}
+
+message AddUnitResponse {
+	required bool isSuccessfull = 1;
+}
+
+message MoveUnitsRequest {
+	required Command command = 1;
+}
+
+message MoveUnitsResponse {
+	required Command command = 1;
+}
+
+message AttackRequest {
+	required Command command = 1;
+}
+
+message AttackResponse {
+	required Command command = 1;
+}
+
+message RollDiceRequest {
+}
+
+message RollDiceResponse {
+	required int32 number = 1;
+}
