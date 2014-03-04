@@ -2,7 +2,7 @@ syntax = "proto2";
 
 import public "dataProtos.proto";
 
-package com.communication;
+package communication.protos;
 
 message RegisterRequest {
 	required string username = 1;
