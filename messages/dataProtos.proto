@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package com.communication;
+package communication.protos;
 
 message UserData {
 	optional User me = 1;
