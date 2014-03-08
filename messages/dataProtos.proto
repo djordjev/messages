@@ -28,7 +28,6 @@ message UserStatistics {
 }
 
 message GameContext {
-	required GameDescription gameDescription = 1;
 	required LightGameContext lightGameContext = 2;
 	repeated Territory torritories = 3;
 	repeated Alliance alliances = 4;

@@ -3403,20 +3403,6 @@ public final class DataProtos {
   public interface GameContextOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .com.communication.GameDescription gameDescription = 1;
-    /**
-     * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-     */
-    boolean hasGameDescription();
-    /**
-     * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-     */
-    com.communication.DataProtos.GameDescription getGameDescription();
-    /**
-     * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-     */
-    com.communication.DataProtos.GameDescriptionOrBuilder getGameDescriptionOrBuilder();
-
     // required .com.communication.LightGameContext lightGameContext = 2;
     /**
      * <code>required .com.communication.LightGameContext lightGameContext = 2;</code>
@@ -3557,22 +3543,9 @@ public final class DataProtos {
               }
               break;
             }
-            case 10: {
-              com.communication.DataProtos.GameDescription.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = gameDescription_.toBuilder();
-              }
-              gameDescription_ = input.readMessage(com.communication.DataProtos.GameDescription.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(gameDescription_);
-                gameDescription_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
             case 18: {
               com.communication.DataProtos.LightGameContext.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = lightGameContext_.toBuilder();
               }
               lightGameContext_ = input.readMessage(com.communication.DataProtos.LightGameContext.PARSER, extensionRegistry);
@@ -3580,29 +3553,29 @@ public final class DataProtos {
                 subBuilder.mergeFrom(lightGameContext_);
                 lightGameContext_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 torritories_ = new java.util.ArrayList<com.communication.DataProtos.Territory>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000002;
               }
               torritories_.add(input.readMessage(com.communication.DataProtos.Territory.PARSER, extensionRegistry));
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 alliances_ = new java.util.ArrayList<com.communication.DataProtos.Alliance>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000004;
               }
               alliances_.add(input.readMessage(com.communication.DataProtos.Alliance.PARSER, extensionRegistry));
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 pendingComands_ = new java.util.ArrayList<com.communication.DataProtos.Command>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000008;
               }
               pendingComands_.add(input.readMessage(com.communication.DataProtos.Command.PARSER, extensionRegistry));
               break;
@@ -3615,13 +3588,13 @@ public final class DataProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           torritories_ = java.util.Collections.unmodifiableList(torritories_);
         }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           alliances_ = java.util.Collections.unmodifiableList(alliances_);
         }
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           pendingComands_ = java.util.Collections.unmodifiableList(pendingComands_);
         }
         this.unknownFields = unknownFields.build();
@@ -3656,28 +3629,6 @@ public final class DataProtos {
     }
 
     private int bitField0_;
-    // required .com.communication.GameDescription gameDescription = 1;
-    public static final int GAMEDESCRIPTION_FIELD_NUMBER = 1;
-    private com.communication.DataProtos.GameDescription gameDescription_;
-    /**
-     * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-     */
-    public boolean hasGameDescription() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-     */
-    public com.communication.DataProtos.GameDescription getGameDescription() {
-      return gameDescription_;
-    }
-    /**
-     * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-     */
-    public com.communication.DataProtos.GameDescriptionOrBuilder getGameDescriptionOrBuilder() {
-      return gameDescription_;
-    }
-
     // required .com.communication.LightGameContext lightGameContext = 2;
     public static final int LIGHTGAMECONTEXT_FIELD_NUMBER = 2;
     private com.communication.DataProtos.LightGameContext lightGameContext_;
@@ -3685,7 +3636,7 @@ public final class DataProtos {
      * <code>required .com.communication.LightGameContext lightGameContext = 2;</code>
      */
     public boolean hasLightGameContext() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required .com.communication.LightGameContext lightGameContext = 2;</code>
@@ -3809,7 +3760,6 @@ public final class DataProtos {
     }
 
     private void initFields() {
-      gameDescription_ = com.communication.DataProtos.GameDescription.getDefaultInstance();
       lightGameContext_ = com.communication.DataProtos.LightGameContext.getDefaultInstance();
       torritories_ = java.util.Collections.emptyList();
       alliances_ = java.util.Collections.emptyList();
@@ -3820,15 +3770,7 @@ public final class DataProtos {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasGameDescription()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (!hasLightGameContext()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getGameDescription().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3862,9 +3804,6 @@ public final class DataProtos {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, gameDescription_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, lightGameContext_);
       }
       for (int i = 0; i < torritories_.size(); i++) {
@@ -3886,10 +3825,6 @@ public final class DataProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, gameDescription_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, lightGameContext_);
       }
@@ -4013,7 +3948,6 @@ public final class DataProtos {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getGameDescriptionFieldBuilder();
           getLightGameContextFieldBuilder();
           getTorritoriesFieldBuilder();
           getAlliancesFieldBuilder();
@@ -4026,33 +3960,27 @@ public final class DataProtos {
 
       public Builder clear() {
         super.clear();
-        if (gameDescriptionBuilder_ == null) {
-          gameDescription_ = com.communication.DataProtos.GameDescription.getDefaultInstance();
-        } else {
-          gameDescriptionBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (lightGameContextBuilder_ == null) {
           lightGameContext_ = com.communication.DataProtos.LightGameContext.getDefaultInstance();
         } else {
           lightGameContextBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (torritoriesBuilder_ == null) {
           torritories_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           torritoriesBuilder_.clear();
         }
         if (alliancesBuilder_ == null) {
           alliances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           alliancesBuilder_.clear();
         }
         if (pendingComandsBuilder_ == null) {
           pendingComands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           pendingComandsBuilder_.clear();
         }
@@ -4087,41 +4015,33 @@ public final class DataProtos {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        if (gameDescriptionBuilder_ == null) {
-          result.gameDescription_ = gameDescription_;
-        } else {
-          result.gameDescription_ = gameDescriptionBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         if (lightGameContextBuilder_ == null) {
           result.lightGameContext_ = lightGameContext_;
         } else {
           result.lightGameContext_ = lightGameContextBuilder_.build();
         }
         if (torritoriesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             torritories_ = java.util.Collections.unmodifiableList(torritories_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.torritories_ = torritories_;
         } else {
           result.torritories_ = torritoriesBuilder_.build();
         }
         if (alliancesBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             alliances_ = java.util.Collections.unmodifiableList(alliances_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.alliances_ = alliances_;
         } else {
           result.alliances_ = alliancesBuilder_.build();
         }
         if (pendingComandsBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
             pendingComands_ = java.util.Collections.unmodifiableList(pendingComands_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.pendingComands_ = pendingComands_;
         } else {
@@ -4143,9 +4063,6 @@ public final class DataProtos {
 
       public Builder mergeFrom(com.communication.DataProtos.GameContext other) {
         if (other == com.communication.DataProtos.GameContext.getDefaultInstance()) return this;
-        if (other.hasGameDescription()) {
-          mergeGameDescription(other.getGameDescription());
-        }
         if (other.hasLightGameContext()) {
           mergeLightGameContext(other.getLightGameContext());
         }
@@ -4153,7 +4070,7 @@ public final class DataProtos {
           if (!other.torritories_.isEmpty()) {
             if (torritories_.isEmpty()) {
               torritories_ = other.torritories_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureTorritoriesIsMutable();
               torritories_.addAll(other.torritories_);
@@ -4166,7 +4083,7 @@ public final class DataProtos {
               torritoriesBuilder_.dispose();
               torritoriesBuilder_ = null;
               torritories_ = other.torritories_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               torritoriesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getTorritoriesFieldBuilder() : null;
@@ -4179,7 +4096,7 @@ public final class DataProtos {
           if (!other.alliances_.isEmpty()) {
             if (alliances_.isEmpty()) {
               alliances_ = other.alliances_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureAlliancesIsMutable();
               alliances_.addAll(other.alliances_);
@@ -4192,7 +4109,7 @@ public final class DataProtos {
               alliancesBuilder_.dispose();
               alliancesBuilder_ = null;
               alliances_ = other.alliances_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
               alliancesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getAlliancesFieldBuilder() : null;
@@ -4205,7 +4122,7 @@ public final class DataProtos {
           if (!other.pendingComands_.isEmpty()) {
             if (pendingComands_.isEmpty()) {
               pendingComands_ = other.pendingComands_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensurePendingComandsIsMutable();
               pendingComands_.addAll(other.pendingComands_);
@@ -4218,7 +4135,7 @@ public final class DataProtos {
               pendingComandsBuilder_.dispose();
               pendingComandsBuilder_ = null;
               pendingComands_ = other.pendingComands_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000008);
               pendingComandsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getPendingComandsFieldBuilder() : null;
@@ -4232,15 +4149,7 @@ public final class DataProtos {
       }
 
       public final boolean isInitialized() {
-        if (!hasGameDescription()) {
-          
-          return false;
-        }
         if (!hasLightGameContext()) {
-          
-          return false;
-        }
-        if (!getGameDescription().isInitialized()) {
           
           return false;
         }
@@ -4288,123 +4197,6 @@ public final class DataProtos {
       }
       private int bitField0_;
 
-      // required .com.communication.GameDescription gameDescription = 1;
-      private com.communication.DataProtos.GameDescription gameDescription_ = com.communication.DataProtos.GameDescription.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          com.communication.DataProtos.GameDescription, com.communication.DataProtos.GameDescription.Builder, com.communication.DataProtos.GameDescriptionOrBuilder> gameDescriptionBuilder_;
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public boolean hasGameDescription() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public com.communication.DataProtos.GameDescription getGameDescription() {
-        if (gameDescriptionBuilder_ == null) {
-          return gameDescription_;
-        } else {
-          return gameDescriptionBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public Builder setGameDescription(com.communication.DataProtos.GameDescription value) {
-        if (gameDescriptionBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          gameDescription_ = value;
-          onChanged();
-        } else {
-          gameDescriptionBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public Builder setGameDescription(
-          com.communication.DataProtos.GameDescription.Builder builderForValue) {
-        if (gameDescriptionBuilder_ == null) {
-          gameDescription_ = builderForValue.build();
-          onChanged();
-        } else {
-          gameDescriptionBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public Builder mergeGameDescription(com.communication.DataProtos.GameDescription value) {
-        if (gameDescriptionBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              gameDescription_ != com.communication.DataProtos.GameDescription.getDefaultInstance()) {
-            gameDescription_ =
-              com.communication.DataProtos.GameDescription.newBuilder(gameDescription_).mergeFrom(value).buildPartial();
-          } else {
-            gameDescription_ = value;
-          }
-          onChanged();
-        } else {
-          gameDescriptionBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public Builder clearGameDescription() {
-        if (gameDescriptionBuilder_ == null) {
-          gameDescription_ = com.communication.DataProtos.GameDescription.getDefaultInstance();
-          onChanged();
-        } else {
-          gameDescriptionBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public com.communication.DataProtos.GameDescription.Builder getGameDescriptionBuilder() {
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return getGameDescriptionFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      public com.communication.DataProtos.GameDescriptionOrBuilder getGameDescriptionOrBuilder() {
-        if (gameDescriptionBuilder_ != null) {
-          return gameDescriptionBuilder_.getMessageOrBuilder();
-        } else {
-          return gameDescription_;
-        }
-      }
-      /**
-       * <code>required .com.communication.GameDescription gameDescription = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          com.communication.DataProtos.GameDescription, com.communication.DataProtos.GameDescription.Builder, com.communication.DataProtos.GameDescriptionOrBuilder> 
-          getGameDescriptionFieldBuilder() {
-        if (gameDescriptionBuilder_ == null) {
-          gameDescriptionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.communication.DataProtos.GameDescription, com.communication.DataProtos.GameDescription.Builder, com.communication.DataProtos.GameDescriptionOrBuilder>(
-                  gameDescription_,
-                  getParentForChildren(),
-                  isClean());
-          gameDescription_ = null;
-        }
-        return gameDescriptionBuilder_;
-      }
-
       // required .com.communication.LightGameContext lightGameContext = 2;
       private com.communication.DataProtos.LightGameContext lightGameContext_ = com.communication.DataProtos.LightGameContext.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
@@ -4413,7 +4205,7 @@ public final class DataProtos {
        * <code>required .com.communication.LightGameContext lightGameContext = 2;</code>
        */
       public boolean hasLightGameContext() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required .com.communication.LightGameContext lightGameContext = 2;</code>
@@ -4438,7 +4230,7 @@ public final class DataProtos {
         } else {
           lightGameContextBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -4452,7 +4244,7 @@ public final class DataProtos {
         } else {
           lightGameContextBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -4460,7 +4252,7 @@ public final class DataProtos {
        */
       public Builder mergeLightGameContext(com.communication.DataProtos.LightGameContext value) {
         if (lightGameContextBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
               lightGameContext_ != com.communication.DataProtos.LightGameContext.getDefaultInstance()) {
             lightGameContext_ =
               com.communication.DataProtos.LightGameContext.newBuilder(lightGameContext_).mergeFrom(value).buildPartial();
@@ -4471,7 +4263,7 @@ public final class DataProtos {
         } else {
           lightGameContextBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -4484,14 +4276,14 @@ public final class DataProtos {
         } else {
           lightGameContextBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
        * <code>required .com.communication.LightGameContext lightGameContext = 2;</code>
        */
       public com.communication.DataProtos.LightGameContext.Builder getLightGameContextBuilder() {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         onChanged();
         return getLightGameContextFieldBuilder().getBuilder();
       }
@@ -4526,9 +4318,9 @@ public final class DataProtos {
       private java.util.List<com.communication.DataProtos.Territory> torritories_ =
         java.util.Collections.emptyList();
       private void ensureTorritoriesIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           torritories_ = new java.util.ArrayList<com.communication.DataProtos.Territory>(torritories_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -4677,7 +4469,7 @@ public final class DataProtos {
       public Builder clearTorritories() {
         if (torritoriesBuilder_ == null) {
           torritories_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           torritoriesBuilder_.clear();
@@ -4754,7 +4546,7 @@ public final class DataProtos {
           torritoriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.communication.DataProtos.Territory, com.communication.DataProtos.Territory.Builder, com.communication.DataProtos.TerritoryOrBuilder>(
                   torritories_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           torritories_ = null;
@@ -4766,9 +4558,9 @@ public final class DataProtos {
       private java.util.List<com.communication.DataProtos.Alliance> alliances_ =
         java.util.Collections.emptyList();
       private void ensureAlliancesIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           alliances_ = new java.util.ArrayList<com.communication.DataProtos.Alliance>(alliances_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -4917,7 +4709,7 @@ public final class DataProtos {
       public Builder clearAlliances() {
         if (alliancesBuilder_ == null) {
           alliances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           alliancesBuilder_.clear();
@@ -4994,7 +4786,7 @@ public final class DataProtos {
           alliancesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.communication.DataProtos.Alliance, com.communication.DataProtos.Alliance.Builder, com.communication.DataProtos.AllianceOrBuilder>(
                   alliances_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           alliances_ = null;
@@ -5006,9 +4798,9 @@ public final class DataProtos {
       private java.util.List<com.communication.DataProtos.Command> pendingComands_ =
         java.util.Collections.emptyList();
       private void ensurePendingComandsIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           pendingComands_ = new java.util.ArrayList<com.communication.DataProtos.Command>(pendingComands_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -5157,7 +4949,7 @@ public final class DataProtos {
       public Builder clearPendingComands() {
         if (pendingComandsBuilder_ == null) {
           pendingComands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           pendingComandsBuilder_.clear();
@@ -5234,7 +5026,7 @@ public final class DataProtos {
           pendingComandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.communication.DataProtos.Command, com.communication.DataProtos.Command.Builder, com.communication.DataProtos.CommandOrBuilder>(
                   pendingComands_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           pendingComands_ = null;
@@ -9053,27 +8845,25 @@ public final class DataProtos {
       "\014isPlayedMove\030\003 \002(\010\022\r\n\005cards\030\004 \003(\005\022\035\n\025nu",
       "mberOfReinforcments\030\005 \001(\005\"=\n\016UserStatist" +
       "ics\022\025\n\rnumberOfGames\030\001 \002(\005\022\024\n\014numberOfWi" +
-      "ns\030\002 \002(\005\"\240\002\n\013GameContext\022;\n\017gameDescript" +
-      "ion\030\001 \002(\0132\".com.communication.GameDescri" +
-      "ption\022=\n\020lightGameContext\030\002 \002(\0132#.com.co" +
-      "mmunication.LightGameContext\0221\n\013torritor" +
-      "ies\030\003 \003(\0132\034.com.communication.Territory\022" +
-      ".\n\talliances\030\004 \003(\0132\033.com.communication.A" +
-      "lliance\0222\n\016pendingComands\030\005 \003(\0132\032.com.co" +
-      "mmunication.Command\"\237\001\n\020LightGameContext",
-      "\022;\n\017gameDescription\030\001 \002(\0132\".com.communic" +
-      "ation.GameDescription\022\r\n\005round\030\002 \002(\005\022\r\n\005" +
-      "phase\030\003 \002(\005\0220\n\rplayersInGame\030\004 \003(\0132\031.com" +
-      ".communication.Player\"~\n\017GameDescription" +
-      "\022\016\n\006gameId\030\001 \001(\003\022\020\n\010gameName\030\002 \002(\t\022\027\n\017nu" +
-      "mberOfPlayers\030\003 \002(\005\022\035\n\025numberOfJoinedPla" +
-      "yers\030\004 \002(\005\022\021\n\tobjective\030\005 \002(\005\";\n\tTerrito" +
-      "ry\022\n\n\002id\030\001 \002(\005\022\022\n\ntroopsOnIt\030\002 \002(\005\022\016\n\006us" +
-      "erId\030\003 \002(\003\":\n\010Alliance\022\017\n\007userId1\030\001 \002(\003\022" +
-      "\017\n\007userId2\030\002 \002(\003\022\014\n\004type\030\003 \002(\005\"j\n\007Comman",
-      "d\022\021\n\tcommandId\030\001 \001(\005\022\027\n\017sourceTerritory\030" +
-      "\002 \002(\005\022\034\n\024destinationTerritory\030\003 \002(\005\022\025\n\rn" +
-      "umberOfUnits\030\004 \002(\005"
+      "ns\030\002 \002(\005\"\343\001\n\013GameContext\022=\n\020lightGameCon" +
+      "text\030\002 \002(\0132#.com.communication.LightGame" +
+      "Context\0221\n\013torritories\030\003 \003(\0132\034.com.commu" +
+      "nication.Territory\022.\n\talliances\030\004 \003(\0132\033." +
+      "com.communication.Alliance\0222\n\016pendingCom" +
+      "ands\030\005 \003(\0132\032.com.communication.Command\"\237" +
+      "\001\n\020LightGameContext\022;\n\017gameDescription\030\001" +
+      " \002(\0132\".com.communication.GameDescription",
+      "\022\r\n\005round\030\002 \002(\005\022\r\n\005phase\030\003 \002(\005\0220\n\rplayer" +
+      "sInGame\030\004 \003(\0132\031.com.communication.Player" +
+      "\"~\n\017GameDescription\022\016\n\006gameId\030\001 \001(\003\022\020\n\010g" +
+      "ameName\030\002 \002(\t\022\027\n\017numberOfPlayers\030\003 \002(\005\022\035" +
+      "\n\025numberOfJoinedPlayers\030\004 \002(\005\022\021\n\tobjecti" +
+      "ve\030\005 \002(\005\";\n\tTerritory\022\n\n\002id\030\001 \002(\005\022\022\n\ntro" +
+      "opsOnIt\030\002 \002(\005\022\016\n\006userId\030\003 \002(\003\":\n\010Allianc" +
+      "e\022\017\n\007userId1\030\001 \002(\003\022\017\n\007userId2\030\002 \002(\003\022\014\n\004t" +
+      "ype\030\003 \002(\005\"j\n\007Command\022\021\n\tcommandId\030\001 \001(\005\022" +
+      "\027\n\017sourceTerritory\030\002 \002(\005\022\034\n\024destinationT",
+      "erritory\030\003 \002(\005\022\025\n\rnumberOfUnits\030\004 \002(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -9109,7 +8899,7 @@ public final class DataProtos {
           internal_static_com_communication_GameContext_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_communication_GameContext_descriptor,
-              new java.lang.String[] { "GameDescription", "LightGameContext", "Torritories", "Alliances", "PendingComands", });
+              new java.lang.String[] { "LightGameContext", "Torritories", "Alliances", "PendingComands", });
           internal_static_com_communication_LightGameContext_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_com_communication_LightGameContext_fieldAccessorTable = new
