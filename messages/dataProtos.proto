@@ -29,7 +29,7 @@ message UserStatistics {
 
 message GameContext {
 	required LightGameContext lightGameContext = 2;
-	repeated Territory torritories = 3;
+	repeated Territory territories = 3;
 	repeated Alliance alliances = 4;
 	repeated Command pendingComands = 5;
 }
