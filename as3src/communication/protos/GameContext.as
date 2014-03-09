@@ -9,20 +9,12 @@ package communication.protos {
 	import flash.errors.IOError;
 	import communication.protos.Command;
 	import communication.protos.Territory;
-	import communication.protos.GameDescription;
 	import communication.protos.LightGameContext;
 	import communication.protos.Alliance;
 	// @@protoc_insertion_point(imports)
 
 	// @@protoc_insertion_point(class_metadata)
 	public dynamic final class GameContext extends com.netease.protobuf.Message {
-		/**
-		 *  @private
-		 */
-		public static const GAMEDESCRIPTION:FieldDescriptor$TYPE_MESSAGE = new FieldDescriptor$TYPE_MESSAGE("communication.protos.GameContext.gameDescription", "gameDescription", (1 << 3) | com.netease.protobuf.WireType.LENGTH_DELIMITED, function():Class { return communication.protos.GameDescription; });
-
-		public var gameDescription:communication.protos.GameDescription;
-
 		/**
 		 *  @private
 		 */
@@ -58,8 +50,6 @@ package communication.protos {
 		 *  @private
 		 */
 		override com.netease.protobuf.used_by_generated_code final function writeToBuffer(output:com.netease.protobuf.WritingBuffer):void {
-			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.LENGTH_DELIMITED, 1);
-			com.netease.protobuf.WriteUtils.write$TYPE_MESSAGE(output, this.gameDescription);
 			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.LENGTH_DELIMITED, 2);
 			com.netease.protobuf.WriteUtils.write$TYPE_MESSAGE(output, this.lightGameContext);
 			for (var torritories$index:uint = 0; torritories$index < this.torritories.length; ++torritories$index) {
@@ -83,19 +73,10 @@ package communication.protos {
 		 *  @private
 		 */
 		override com.netease.protobuf.used_by_generated_code final function readFromSlice(input:flash.utils.IDataInput, bytesAfterSlice:uint):void {
-			var gameDescription$count:uint = 0;
 			var lightGameContext$count:uint = 0;
 			while (input.bytesAvailable > bytesAfterSlice) {
 				var tag:uint = com.netease.protobuf.ReadUtils.read$TYPE_UINT32(input);
 				switch (tag >> 3) {
-				case 1:
-					if (gameDescription$count != 0) {
-						throw new flash.errors.IOError('Bad data format: GameContext.gameDescription cannot be set twice.');
-					}
-					++gameDescription$count;
-					this.gameDescription = new communication.protos.GameDescription();
-					com.netease.protobuf.ReadUtils.read$TYPE_MESSAGE(input, this.gameDescription);
-					break;
 				case 2:
 					if (lightGameContext$count != 0) {
 						throw new flash.errors.IOError('Bad data format: GameContext.lightGameContext cannot be set twice.');
