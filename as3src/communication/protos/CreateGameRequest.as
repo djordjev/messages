@@ -35,9 +35,9 @@ package communication.protos {
 		/**
 		 *  @private
 		 */
-		public static const USERIDS:RepeatedFieldDescriptor$TYPE_INT32 = new RepeatedFieldDescriptor$TYPE_INT32("communication.protos.CreateGameRequest.userIds", "userIds", (4 << 3) | com.netease.protobuf.WireType.VARINT);
+		public static const USERIDS:RepeatedFieldDescriptor$TYPE_INT64 = new RepeatedFieldDescriptor$TYPE_INT64("communication.protos.CreateGameRequest.userIds", "userIds", (4 << 3) | com.netease.protobuf.WireType.VARINT);
 
-		[ArrayElementType("int")]
+		[ArrayElementType("Int64")]
 		public var userIds:Array = [];
 
 		/**
@@ -52,7 +52,7 @@ package communication.protos {
 			com.netease.protobuf.WriteUtils.write$TYPE_INT32(output, this.objectiveCode);
 			for (var userIds$index:uint = 0; userIds$index < this.userIds.length; ++userIds$index) {
 				com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.VARINT, 4);
-				com.netease.protobuf.WriteUtils.write$TYPE_INT32(output, this.userIds[userIds$index]);
+				com.netease.protobuf.WriteUtils.write$TYPE_INT64(output, this.userIds[userIds$index]);
 			}
 			for (var fieldKey:* in this) {
 				super.writeUnknown(output, fieldKey);
@@ -92,10 +92,10 @@ package communication.protos {
 					break;
 				case 4:
 					if ((tag & 7) == com.netease.protobuf.WireType.LENGTH_DELIMITED) {
-						com.netease.protobuf.ReadUtils.readPackedRepeated(input, com.netease.protobuf.ReadUtils.read$TYPE_INT32, this.userIds);
+						com.netease.protobuf.ReadUtils.readPackedRepeated(input, com.netease.protobuf.ReadUtils.read$TYPE_INT64, this.userIds);
 						break;
 					}
-					this.userIds.push(com.netease.protobuf.ReadUtils.read$TYPE_INT32(input));
+					this.userIds.push(com.netease.protobuf.ReadUtils.read$TYPE_INT64(input));
 					break;
 				default:
 					super.readUnknown(input, tag);
