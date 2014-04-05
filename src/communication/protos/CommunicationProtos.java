@@ -5149,19 +5149,19 @@ public final class CommunicationProtos {
      */
     int getObjectiveCode();
 
-    // repeated int32 userIds = 4;
+    // repeated int64 userIds = 4;
     /**
-     * <code>repeated int32 userIds = 4;</code>
+     * <code>repeated int64 userIds = 4;</code>
      */
-    java.util.List<java.lang.Integer> getUserIdsList();
+    java.util.List<java.lang.Long> getUserIdsList();
     /**
-     * <code>repeated int32 userIds = 4;</code>
+     * <code>repeated int64 userIds = 4;</code>
      */
     int getUserIdsCount();
     /**
-     * <code>repeated int32 userIds = 4;</code>
+     * <code>repeated int64 userIds = 4;</code>
      */
-    int getUserIds(int index);
+    long getUserIds(int index);
   }
   /**
    * Protobuf type {@code communication.protos.CreateGameRequest}
@@ -5231,21 +5231,21 @@ public final class CommunicationProtos {
             }
             case 32: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                userIds_ = new java.util.ArrayList<java.lang.Integer>();
+                userIds_ = new java.util.ArrayList<java.lang.Long>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              userIds_.add(input.readInt32());
+              userIds_.add(input.readInt64());
               break;
             }
             case 34: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                userIds_ = new java.util.ArrayList<java.lang.Integer>();
+                userIds_ = new java.util.ArrayList<java.lang.Long>();
                 mutable_bitField0_ |= 0x00000008;
               }
               while (input.getBytesUntilLimit() > 0) {
-                userIds_.add(input.readInt32());
+                userIds_.add(input.readInt64());
               }
               input.popLimit(limit);
               break;
@@ -5368,26 +5368,26 @@ public final class CommunicationProtos {
       return objectiveCode_;
     }
 
-    // repeated int32 userIds = 4;
+    // repeated int64 userIds = 4;
     public static final int USERIDS_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> userIds_;
+    private java.util.List<java.lang.Long> userIds_;
     /**
-     * <code>repeated int32 userIds = 4;</code>
+     * <code>repeated int64 userIds = 4;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<java.lang.Long>
         getUserIdsList() {
       return userIds_;
     }
     /**
-     * <code>repeated int32 userIds = 4;</code>
+     * <code>repeated int64 userIds = 4;</code>
      */
     public int getUserIdsCount() {
       return userIds_.size();
     }
     /**
-     * <code>repeated int32 userIds = 4;</code>
+     * <code>repeated int64 userIds = 4;</code>
      */
-    public int getUserIds(int index) {
+    public long getUserIds(int index) {
       return userIds_.get(index);
     }
 
@@ -5431,7 +5431,7 @@ public final class CommunicationProtos {
         output.writeInt32(3, objectiveCode_);
       }
       for (int i = 0; i < userIds_.size(); i++) {
-        output.writeInt32(4, userIds_.get(i));
+        output.writeInt64(4, userIds_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -5458,7 +5458,7 @@ public final class CommunicationProtos {
         int dataSize = 0;
         for (int i = 0; i < userIds_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(userIds_.get(i));
+            .computeInt64SizeNoTag(userIds_.get(i));
         }
         size += dataSize;
         size += 1 * getUserIdsList().size();
@@ -5848,64 +5848,64 @@ public final class CommunicationProtos {
         return this;
       }
 
-      // repeated int32 userIds = 4;
-      private java.util.List<java.lang.Integer> userIds_ = java.util.Collections.emptyList();
+      // repeated int64 userIds = 4;
+      private java.util.List<java.lang.Long> userIds_ = java.util.Collections.emptyList();
       private void ensureUserIdsIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          userIds_ = new java.util.ArrayList<java.lang.Integer>(userIds_);
+          userIds_ = new java.util.ArrayList<java.lang.Long>(userIds_);
           bitField0_ |= 0x00000008;
          }
       }
       /**
-       * <code>repeated int32 userIds = 4;</code>
+       * <code>repeated int64 userIds = 4;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<java.lang.Long>
           getUserIdsList() {
         return java.util.Collections.unmodifiableList(userIds_);
       }
       /**
-       * <code>repeated int32 userIds = 4;</code>
+       * <code>repeated int64 userIds = 4;</code>
        */
       public int getUserIdsCount() {
         return userIds_.size();
       }
       /**
-       * <code>repeated int32 userIds = 4;</code>
+       * <code>repeated int64 userIds = 4;</code>
        */
-      public int getUserIds(int index) {
+      public long getUserIds(int index) {
         return userIds_.get(index);
       }
       /**
-       * <code>repeated int32 userIds = 4;</code>
+       * <code>repeated int64 userIds = 4;</code>
        */
       public Builder setUserIds(
-          int index, int value) {
+          int index, long value) {
         ensureUserIdsIsMutable();
         userIds_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 userIds = 4;</code>
+       * <code>repeated int64 userIds = 4;</code>
        */
-      public Builder addUserIds(int value) {
+      public Builder addUserIds(long value) {
         ensureUserIdsIsMutable();
         userIds_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 userIds = 4;</code>
+       * <code>repeated int64 userIds = 4;</code>
        */
       public Builder addAllUserIds(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends java.lang.Long> values) {
         ensureUserIdsIsMutable();
         super.addAll(values, userIds_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 userIds = 4;</code>
+       * <code>repeated int64 userIds = 4;</code>
        */
       public Builder clearUserIds() {
         userIds_ = java.util.Collections.emptyList();
@@ -7446,15 +7446,15 @@ public final class CommunicationProtos {
   public interface JoinGameRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required int32 gameId = 1;
+    // required int64 gameId = 1;
     /**
-     * <code>required int32 gameId = 1;</code>
+     * <code>required int64 gameId = 1;</code>
      */
     boolean hasGameId();
     /**
-     * <code>required int32 gameId = 1;</code>
+     * <code>required int64 gameId = 1;</code>
      */
-    int getGameId();
+    long getGameId();
   }
   /**
    * Protobuf type {@code communication.protos.JoinGameRequest}
@@ -7509,7 +7509,7 @@ public final class CommunicationProtos {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              gameId_ = input.readInt32();
+              gameId_ = input.readInt64();
               break;
             }
           }
@@ -7552,24 +7552,24 @@ public final class CommunicationProtos {
     }
 
     private int bitField0_;
-    // required int32 gameId = 1;
+    // required int64 gameId = 1;
     public static final int GAMEID_FIELD_NUMBER = 1;
-    private int gameId_;
+    private long gameId_;
     /**
-     * <code>required int32 gameId = 1;</code>
+     * <code>required int64 gameId = 1;</code>
      */
     public boolean hasGameId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 gameId = 1;</code>
+     * <code>required int64 gameId = 1;</code>
      */
-    public int getGameId() {
+    public long getGameId() {
       return gameId_;
     }
 
     private void initFields() {
-      gameId_ = 0;
+      gameId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -7588,7 +7588,7 @@ public final class CommunicationProtos {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, gameId_);
+        output.writeInt64(1, gameId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7601,7 +7601,7 @@ public final class CommunicationProtos {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, gameId_);
+          .computeInt64Size(1, gameId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -7719,7 +7719,7 @@ public final class CommunicationProtos {
 
       public Builder clear() {
         super.clear();
-        gameId_ = 0;
+        gameId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -7803,35 +7803,35 @@ public final class CommunicationProtos {
       }
       private int bitField0_;
 
-      // required int32 gameId = 1;
-      private int gameId_ ;
+      // required int64 gameId = 1;
+      private long gameId_ ;
       /**
-       * <code>required int32 gameId = 1;</code>
+       * <code>required int64 gameId = 1;</code>
        */
       public boolean hasGameId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 gameId = 1;</code>
+       * <code>required int64 gameId = 1;</code>
        */
-      public int getGameId() {
+      public long getGameId() {
         return gameId_;
       }
       /**
-       * <code>required int32 gameId = 1;</code>
+       * <code>required int64 gameId = 1;</code>
        */
-      public Builder setGameId(int value) {
+      public Builder setGameId(long value) {
         bitField0_ |= 0x00000001;
         gameId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 gameId = 1;</code>
+       * <code>required int64 gameId = 1;</code>
        */
       public Builder clearGameId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        gameId_ = 0;
+        gameId_ = 0L;
         onChanged();
         return this;
       }
@@ -15189,12 +15189,12 @@ public final class CommunicationProtos {
       "mmunication.protos.User\"f\n\021CreateGameReq" +
       "uest\022\020\n\010gameName\030\001 \002(\t\022\027\n\017numberOfPlayer" +
       "s\030\002 \002(\005\022\025\n\robjectiveCode\030\003 \002(\005\022\017\n\007userId" +
-      "s\030\004 \003(\005\"L\n\022CreateGameResponse\0226\n\013gameCon" +
+      "s\030\004 \003(\003\"L\n\022CreateGameResponse\0226\n\013gameCon" +
       "text\030\001 \002(\0132!.communication.protos.GameCo",
       "ntext\"\025\n\023GetOpenGamesRequest\"V\n\024GetOpenG" +
       "amesResponse\022>\n\017gameDescription\030\001 \003(\0132%." +
       "communication.protos.GameDescription\"!\n\017" +
-      "JoinGameRequest\022\016\n\006gameId\030\001 \002(\005\"J\n\020JoinG" +
+      "JoinGameRequest\022\016\n\006gameId\030\001 \002(\003\"J\n\020JoinG" +
       "ameResponse\0226\n\013gameContext\030\001 \002(\0132!.commu" +
       "nication.protos.GameContext\"\'\n\025InvokeAll" +
       "ianceRequest\022\016\n\006userId\030\001 \002(\005\"\030\n\026InvokeAl" +

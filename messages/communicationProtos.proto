@@ -50,7 +50,7 @@ message CreateGameRequest {
 	required string gameName = 1;
 	required int32 numberOfPlayers = 2;
 	required int32 objectiveCode = 3;
-	repeated int32 userIds = 4;
+	repeated int64 userIds = 4;
 }
 
 message CreateGameResponse {
@@ -65,7 +65,7 @@ message GetOpenGamesResponse {
 }
 
 message JoinGameRequest {
-	required int32 gameId = 1;
+	required int64 gameId = 1;
 }
 
 message JoinGameResponse {
