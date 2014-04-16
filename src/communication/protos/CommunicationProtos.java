@@ -8382,6 +8382,16 @@ public final class CommunicationProtos {
      * <code>required int32 userId = 1;</code>
      */
     int getUserId();
+
+    // required int64 gameId = 2;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    long getGameId();
   }
   /**
    * Protobuf type {@code communication.protos.InvokeAllianceRequest}
@@ -8437,6 +8447,11 @@ public final class CommunicationProtos {
             case 8: {
               bitField0_ |= 0x00000001;
               userId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              gameId_ = input.readInt64();
               break;
             }
           }
@@ -8495,8 +8510,25 @@ public final class CommunicationProtos {
       return userId_;
     }
 
+    // required int64 gameId = 2;
+    public static final int GAMEID_FIELD_NUMBER = 2;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
     private void initFields() {
       userId_ = 0;
+      gameId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8504,6 +8536,10 @@ public final class CommunicationProtos {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -8517,6 +8553,9 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, userId_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, gameId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -8529,6 +8568,10 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, gameId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8648,6 +8691,8 @@ public final class CommunicationProtos {
         super.clear();
         userId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -8680,6 +8725,10 @@ public final class CommunicationProtos {
           to_bitField0_ |= 0x00000001;
         }
         result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.gameId_ = gameId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8699,12 +8748,19 @@ public final class CommunicationProtos {
         if (other.hasUserId()) {
           setUserId(other.getUserId());
         }
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasGameId()) {
           
           return false;
         }
@@ -8759,6 +8815,39 @@ public final class CommunicationProtos {
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         userId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int64 gameId = 2;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000002;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gameId_ = 0L;
         onChanged();
         return this;
       }
@@ -10440,6 +10529,16 @@ public final class CommunicationProtos {
      * <code>required int32 cardId3 = 3;</code>
      */
     int getCardId3();
+
+    // required int64 gameId = 4;
+    /**
+     * <code>required int64 gameId = 4;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 4;</code>
+     */
+    long getGameId();
   }
   /**
    * Protobuf type {@code communication.protos.TradeCardsRequest}
@@ -10505,6 +10604,11 @@ public final class CommunicationProtos {
             case 24: {
               bitField0_ |= 0x00000004;
               cardId3_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              gameId_ = input.readInt64();
               break;
             }
           }
@@ -10595,10 +10699,27 @@ public final class CommunicationProtos {
       return cardId3_;
     }
 
+    // required int64 gameId = 4;
+    public static final int GAMEID_FIELD_NUMBER = 4;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 4;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int64 gameId = 4;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
     private void initFields() {
       cardId1_ = 0;
       cardId2_ = 0;
       cardId3_ = 0;
+      gameId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -10617,6 +10738,10 @@ public final class CommunicationProtos {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -10632,6 +10757,9 @@ public final class CommunicationProtos {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, cardId3_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, gameId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -10653,6 +10781,10 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, cardId3_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, gameId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -10776,6 +10908,8 @@ public final class CommunicationProtos {
         bitField0_ = (bitField0_ & ~0x00000002);
         cardId3_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -10816,6 +10950,10 @@ public final class CommunicationProtos {
           to_bitField0_ |= 0x00000004;
         }
         result.cardId3_ = cardId3_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.gameId_ = gameId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10841,6 +10979,9 @@ public final class CommunicationProtos {
         if (other.hasCardId3()) {
           setCardId3(other.getCardId3());
         }
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -10855,6 +10996,10 @@ public final class CommunicationProtos {
           return false;
         }
         if (!hasCardId3()) {
+          
+          return false;
+        }
+        if (!hasGameId()) {
           
           return false;
         }
@@ -10975,6 +11120,39 @@ public final class CommunicationProtos {
       public Builder clearCardId3() {
         bitField0_ = (bitField0_ & ~0x00000004);
         cardId3_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int64 gameId = 4;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 4;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int64 gameId = 4;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 4;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000008;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 4;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        gameId_ = 0L;
         onChanged();
         return this;
       }
@@ -11406,6 +11584,16 @@ public final class CommunicationProtos {
      * <code>required int32 territoryId = 1;</code>
      */
     int getTerritoryId();
+
+    // required int64 gameId = 2;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    long getGameId();
   }
   /**
    * Protobuf type {@code communication.protos.AddUnitRequest}
@@ -11461,6 +11649,11 @@ public final class CommunicationProtos {
             case 8: {
               bitField0_ |= 0x00000001;
               territoryId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              gameId_ = input.readInt64();
               break;
             }
           }
@@ -11519,8 +11712,25 @@ public final class CommunicationProtos {
       return territoryId_;
     }
 
+    // required int64 gameId = 2;
+    public static final int GAMEID_FIELD_NUMBER = 2;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
     private void initFields() {
       territoryId_ = 0;
+      gameId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11528,6 +11738,10 @@ public final class CommunicationProtos {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasTerritoryId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -11541,6 +11755,9 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, territoryId_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, gameId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -11553,6 +11770,10 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, territoryId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, gameId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11672,6 +11893,8 @@ public final class CommunicationProtos {
         super.clear();
         territoryId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -11704,6 +11927,10 @@ public final class CommunicationProtos {
           to_bitField0_ |= 0x00000001;
         }
         result.territoryId_ = territoryId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.gameId_ = gameId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -11723,12 +11950,19 @@ public final class CommunicationProtos {
         if (other.hasTerritoryId()) {
           setTerritoryId(other.getTerritoryId());
         }
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasTerritoryId()) {
+          
+          return false;
+        }
+        if (!hasGameId()) {
           
           return false;
         }
@@ -11783,6 +12017,39 @@ public final class CommunicationProtos {
       public Builder clearTerritoryId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         territoryId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int64 gameId = 2;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000002;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gameId_ = 0L;
         onChanged();
         return this;
       }
@@ -12218,6 +12485,16 @@ public final class CommunicationProtos {
      * <code>required .communication.protos.Command command = 1;</code>
      */
     communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder();
+
+    // required int64 gameId = 2;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    long getGameId();
   }
   /**
    * Protobuf type {@code communication.protos.MoveUnitsRequest}
@@ -12283,6 +12560,11 @@ public final class CommunicationProtos {
               bitField0_ |= 0x00000001;
               break;
             }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              gameId_ = input.readInt64();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12345,8 +12627,25 @@ public final class CommunicationProtos {
       return command_;
     }
 
+    // required int64 gameId = 2;
+    public static final int GAMEID_FIELD_NUMBER = 2;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
     private void initFields() {
       command_ = communication.protos.DataProtos.Command.getDefaultInstance();
+      gameId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -12354,6 +12653,10 @@ public final class CommunicationProtos {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasCommand()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -12371,6 +12674,9 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, command_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, gameId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -12383,6 +12689,10 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, command_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, gameId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -12507,6 +12817,8 @@ public final class CommunicationProtos {
           commandBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -12543,6 +12855,10 @@ public final class CommunicationProtos {
         } else {
           result.command_ = commandBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.gameId_ = gameId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -12562,12 +12878,19 @@ public final class CommunicationProtos {
         if (other.hasCommand()) {
           mergeCommand(other.getCommand());
         }
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasCommand()) {
+          
+          return false;
+        }
+        if (!hasGameId()) {
           
           return false;
         }
@@ -12714,6 +13037,39 @@ public final class CommunicationProtos {
         return commandBuilder_;
       }
 
+      // required int64 gameId = 2;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000002;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gameId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:communication.protos.MoveUnitsRequest)
     }
 
@@ -12727,20 +13083,6 @@ public final class CommunicationProtos {
 
   public interface MoveUnitsResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
-    // required .communication.protos.Command command = 1;
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    boolean hasCommand();
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    communication.protos.DataProtos.Command getCommand();
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder();
   }
   /**
    * Protobuf type {@code communication.protos.MoveUnitsResponse}
@@ -12775,7 +13117,6 @@ public final class CommunicationProtos {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -12791,19 +13132,6 @@ public final class CommunicationProtos {
                                      extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              communication.protos.DataProtos.Command.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = command_.toBuilder();
-              }
-              command_ = input.readMessage(communication.protos.DataProtos.Command.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(command_);
-                command_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
               break;
             }
           }
@@ -12845,45 +13173,13 @@ public final class CommunicationProtos {
       return PARSER;
     }
 
-    private int bitField0_;
-    // required .communication.protos.Command command = 1;
-    public static final int COMMAND_FIELD_NUMBER = 1;
-    private communication.protos.DataProtos.Command command_;
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    public boolean hasCommand() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    public communication.protos.DataProtos.Command getCommand() {
-      return command_;
-    }
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    public communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder() {
-      return command_;
-    }
-
     private void initFields() {
-      command_ = communication.protos.DataProtos.Command.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasCommand()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getCommand().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -12891,9 +13187,6 @@ public final class CommunicationProtos {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, command_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -12903,10 +13196,6 @@ public final class CommunicationProtos {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, command_);
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -13015,7 +13304,6 @@ public final class CommunicationProtos {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getCommandFieldBuilder();
         }
       }
       private static Builder create() {
@@ -13024,12 +13312,6 @@ public final class CommunicationProtos {
 
       public Builder clear() {
         super.clear();
-        if (commandBuilder_ == null) {
-          command_ = communication.protos.DataProtos.Command.getDefaultInstance();
-        } else {
-          commandBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -13056,17 +13338,6 @@ public final class CommunicationProtos {
 
       public communication.protos.CommunicationProtos.MoveUnitsResponse buildPartial() {
         communication.protos.CommunicationProtos.MoveUnitsResponse result = new communication.protos.CommunicationProtos.MoveUnitsResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        if (commandBuilder_ == null) {
-          result.command_ = command_;
-        } else {
-          result.command_ = commandBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -13082,22 +13353,11 @@ public final class CommunicationProtos {
 
       public Builder mergeFrom(communication.protos.CommunicationProtos.MoveUnitsResponse other) {
         if (other == communication.protos.CommunicationProtos.MoveUnitsResponse.getDefaultInstance()) return this;
-        if (other.hasCommand()) {
-          mergeCommand(other.getCommand());
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasCommand()) {
-          
-          return false;
-        }
-        if (!getCommand().isInitialized()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -13117,124 +13377,6 @@ public final class CommunicationProtos {
           }
         }
         return this;
-      }
-      private int bitField0_;
-
-      // required .communication.protos.Command command = 1;
-      private communication.protos.DataProtos.Command command_ = communication.protos.DataProtos.Command.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> commandBuilder_;
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public boolean hasCommand() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public communication.protos.DataProtos.Command getCommand() {
-        if (commandBuilder_ == null) {
-          return command_;
-        } else {
-          return commandBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder setCommand(communication.protos.DataProtos.Command value) {
-        if (commandBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          command_ = value;
-          onChanged();
-        } else {
-          commandBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder setCommand(
-          communication.protos.DataProtos.Command.Builder builderForValue) {
-        if (commandBuilder_ == null) {
-          command_ = builderForValue.build();
-          onChanged();
-        } else {
-          commandBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder mergeCommand(communication.protos.DataProtos.Command value) {
-        if (commandBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              command_ != communication.protos.DataProtos.Command.getDefaultInstance()) {
-            command_ =
-              communication.protos.DataProtos.Command.newBuilder(command_).mergeFrom(value).buildPartial();
-          } else {
-            command_ = value;
-          }
-          onChanged();
-        } else {
-          commandBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder clearCommand() {
-        if (commandBuilder_ == null) {
-          command_ = communication.protos.DataProtos.Command.getDefaultInstance();
-          onChanged();
-        } else {
-          commandBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public communication.protos.DataProtos.Command.Builder getCommandBuilder() {
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return getCommandFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder() {
-        if (commandBuilder_ != null) {
-          return commandBuilder_.getMessageOrBuilder();
-        } else {
-          return command_;
-        }
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> 
-          getCommandFieldBuilder() {
-        if (commandBuilder_ == null) {
-          commandBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder>(
-                  command_,
-                  getParentForChildren(),
-                  isClean());
-          command_ = null;
-        }
-        return commandBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:communication.protos.MoveUnitsResponse)
@@ -13264,6 +13406,16 @@ public final class CommunicationProtos {
      * <code>required .communication.protos.Command command = 1;</code>
      */
     communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder();
+
+    // required int64 gameId = 2;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    long getGameId();
   }
   /**
    * Protobuf type {@code communication.protos.AttackRequest}
@@ -13329,6 +13481,11 @@ public final class CommunicationProtos {
               bitField0_ |= 0x00000001;
               break;
             }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              gameId_ = input.readInt64();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -13391,8 +13548,25 @@ public final class CommunicationProtos {
       return command_;
     }
 
+    // required int64 gameId = 2;
+    public static final int GAMEID_FIELD_NUMBER = 2;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 gameId = 2;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
     private void initFields() {
       command_ = communication.protos.DataProtos.Command.getDefaultInstance();
+      gameId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -13400,6 +13574,10 @@ public final class CommunicationProtos {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasCommand()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -13417,6 +13595,9 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, command_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, gameId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -13429,6 +13610,10 @@ public final class CommunicationProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, command_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, gameId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -13553,6 +13738,8 @@ public final class CommunicationProtos {
           commandBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -13589,6 +13776,10 @@ public final class CommunicationProtos {
         } else {
           result.command_ = commandBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.gameId_ = gameId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -13608,12 +13799,19 @@ public final class CommunicationProtos {
         if (other.hasCommand()) {
           mergeCommand(other.getCommand());
         }
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasCommand()) {
+          
+          return false;
+        }
+        if (!hasGameId()) {
           
           return false;
         }
@@ -13760,6 +13958,39 @@ public final class CommunicationProtos {
         return commandBuilder_;
       }
 
+      // required int64 gameId = 2;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000002;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 2;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gameId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:communication.protos.AttackRequest)
     }
 
@@ -13773,20 +14004,6 @@ public final class CommunicationProtos {
 
   public interface AttackResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
-    // required .communication.protos.Command command = 1;
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    boolean hasCommand();
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    communication.protos.DataProtos.Command getCommand();
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder();
   }
   /**
    * Protobuf type {@code communication.protos.AttackResponse}
@@ -13821,7 +14038,6 @@ public final class CommunicationProtos {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -13837,19 +14053,6 @@ public final class CommunicationProtos {
                                      extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              communication.protos.DataProtos.Command.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = command_.toBuilder();
-              }
-              command_ = input.readMessage(communication.protos.DataProtos.Command.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(command_);
-                command_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
               break;
             }
           }
@@ -13891,45 +14094,13 @@ public final class CommunicationProtos {
       return PARSER;
     }
 
-    private int bitField0_;
-    // required .communication.protos.Command command = 1;
-    public static final int COMMAND_FIELD_NUMBER = 1;
-    private communication.protos.DataProtos.Command command_;
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    public boolean hasCommand() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    public communication.protos.DataProtos.Command getCommand() {
-      return command_;
-    }
-    /**
-     * <code>required .communication.protos.Command command = 1;</code>
-     */
-    public communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder() {
-      return command_;
-    }
-
     private void initFields() {
-      command_ = communication.protos.DataProtos.Command.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasCommand()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getCommand().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -13937,9 +14108,6 @@ public final class CommunicationProtos {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, command_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -13949,10 +14117,6 @@ public final class CommunicationProtos {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, command_);
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -14061,7 +14225,6 @@ public final class CommunicationProtos {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getCommandFieldBuilder();
         }
       }
       private static Builder create() {
@@ -14070,12 +14233,6 @@ public final class CommunicationProtos {
 
       public Builder clear() {
         super.clear();
-        if (commandBuilder_ == null) {
-          command_ = communication.protos.DataProtos.Command.getDefaultInstance();
-        } else {
-          commandBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -14102,17 +14259,6 @@ public final class CommunicationProtos {
 
       public communication.protos.CommunicationProtos.AttackResponse buildPartial() {
         communication.protos.CommunicationProtos.AttackResponse result = new communication.protos.CommunicationProtos.AttackResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        if (commandBuilder_ == null) {
-          result.command_ = command_;
-        } else {
-          result.command_ = commandBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -14128,22 +14274,11 @@ public final class CommunicationProtos {
 
       public Builder mergeFrom(communication.protos.CommunicationProtos.AttackResponse other) {
         if (other == communication.protos.CommunicationProtos.AttackResponse.getDefaultInstance()) return this;
-        if (other.hasCommand()) {
-          mergeCommand(other.getCommand());
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasCommand()) {
-          
-          return false;
-        }
-        if (!getCommand().isInitialized()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -14163,124 +14298,6 @@ public final class CommunicationProtos {
           }
         }
         return this;
-      }
-      private int bitField0_;
-
-      // required .communication.protos.Command command = 1;
-      private communication.protos.DataProtos.Command command_ = communication.protos.DataProtos.Command.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> commandBuilder_;
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public boolean hasCommand() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public communication.protos.DataProtos.Command getCommand() {
-        if (commandBuilder_ == null) {
-          return command_;
-        } else {
-          return commandBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder setCommand(communication.protos.DataProtos.Command value) {
-        if (commandBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          command_ = value;
-          onChanged();
-        } else {
-          commandBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder setCommand(
-          communication.protos.DataProtos.Command.Builder builderForValue) {
-        if (commandBuilder_ == null) {
-          command_ = builderForValue.build();
-          onChanged();
-        } else {
-          commandBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder mergeCommand(communication.protos.DataProtos.Command value) {
-        if (commandBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              command_ != communication.protos.DataProtos.Command.getDefaultInstance()) {
-            command_ =
-              communication.protos.DataProtos.Command.newBuilder(command_).mergeFrom(value).buildPartial();
-          } else {
-            command_ = value;
-          }
-          onChanged();
-        } else {
-          commandBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public Builder clearCommand() {
-        if (commandBuilder_ == null) {
-          command_ = communication.protos.DataProtos.Command.getDefaultInstance();
-          onChanged();
-        } else {
-          commandBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public communication.protos.DataProtos.Command.Builder getCommandBuilder() {
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return getCommandFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      public communication.protos.DataProtos.CommandOrBuilder getCommandOrBuilder() {
-        if (commandBuilder_ != null) {
-          return commandBuilder_.getMessageOrBuilder();
-        } else {
-          return command_;
-        }
-      }
-      /**
-       * <code>required .communication.protos.Command command = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> 
-          getCommandFieldBuilder() {
-        if (commandBuilder_ == null) {
-          commandBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder>(
-                  command_,
-                  getParentForChildren(),
-                  isClean());
-          command_ = null;
-        }
-        return commandBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:communication.protos.AttackResponse)
@@ -15196,26 +15213,26 @@ public final class CommunicationProtos {
       "communication.protos.GameDescription\"!\n\017" +
       "JoinGameRequest\022\016\n\006gameId\030\001 \002(\003\"J\n\020JoinG" +
       "ameResponse\0226\n\013gameContext\030\001 \002(\0132!.commu" +
-      "nication.protos.GameContext\"\'\n\025InvokeAll" +
-      "ianceRequest\022\016\n\006userId\030\001 \002(\005\"\030\n\026InvokeAl" +
-      "lianceResponse\";\n\025AnswerAllianceRequest\022" +
-      "\016\n\006userId\030\001 \002(\005\022\022\n\nisAccepted\030\002 \002(\010\"\030\n\026A" +
-      "nswerAllianceResponse\"H\n\024AllianceNotific",
-      "ation\0220\n\010alliance\030\001 \002(\0132\036.communication." +
-      "protos.Alliance\"F\n\021TradeCardsRequest\022\017\n\007" +
-      "cardId1\030\001 \002(\005\022\017\n\007cardId2\030\002 \002(\005\022\017\n\007cardId" +
-      "3\030\003 \002(\005\"4\n\022TradeCardsResponse\022\036\n\026numberO" +
-      "fReinforcements\030\001 \002(\005\"%\n\016AddUnitRequest\022" +
-      "\023\n\013territoryId\030\001 \002(\005\"(\n\017AddUnitResponse\022" +
-      "\025\n\risSuccessfull\030\001 \002(\010\"B\n\020MoveUnitsReque" +
-      "st\022.\n\007command\030\001 \002(\0132\035.communication.prot" +
-      "os.Command\"C\n\021MoveUnitsResponse\022.\n\007comma" +
-      "nd\030\001 \002(\0132\035.communication.protos.Command\"",
-      "?\n\rAttackRequest\022.\n\007command\030\001 \002(\0132\035.comm" +
-      "unication.protos.Command\"@\n\016AttackRespon" +
-      "se\022.\n\007command\030\001 \002(\0132\035.communication.prot" +
-      "os.Command\"\021\n\017RollDiceRequest\"\"\n\020RollDic" +
-      "eResponse\022\016\n\006number\030\001 \002(\005P\000"
+      "nication.protos.GameContext\"7\n\025InvokeAll" +
+      "ianceRequest\022\016\n\006userId\030\001 \002(\005\022\016\n\006gameId\030\002" +
+      " \002(\003\"\030\n\026InvokeAllianceResponse\";\n\025Answer" +
+      "AllianceRequest\022\016\n\006userId\030\001 \002(\005\022\022\n\nisAcc" +
+      "epted\030\002 \002(\010\"\030\n\026AnswerAllianceResponse\"H\n",
+      "\024AllianceNotification\0220\n\010alliance\030\001 \002(\0132" +
+      "\036.communication.protos.Alliance\"V\n\021Trade" +
+      "CardsRequest\022\017\n\007cardId1\030\001 \002(\005\022\017\n\007cardId2" +
+      "\030\002 \002(\005\022\017\n\007cardId3\030\003 \002(\005\022\016\n\006gameId\030\004 \002(\003\"" +
+      "4\n\022TradeCardsResponse\022\036\n\026numberOfReinfor" +
+      "cements\030\001 \002(\005\"5\n\016AddUnitRequest\022\023\n\013terri" +
+      "toryId\030\001 \002(\005\022\016\n\006gameId\030\002 \002(\003\"(\n\017AddUnitR" +
+      "esponse\022\025\n\risSuccessfull\030\001 \002(\010\"R\n\020MoveUn" +
+      "itsRequest\022.\n\007command\030\001 \002(\0132\035.communicat" +
+      "ion.protos.Command\022\016\n\006gameId\030\002 \002(\003\"\023\n\021Mo",
+      "veUnitsResponse\"O\n\rAttackRequest\022.\n\007comm" +
+      "and\030\001 \002(\0132\035.communication.protos.Command" +
+      "\022\016\n\006gameId\030\002 \002(\003\"\020\n\016AttackResponse\"\021\n\017Ro" +
+      "llDiceRequest\"\"\n\020RollDiceResponse\022\016\n\006num" +
+      "ber\030\001 \002(\005P\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -15323,7 +15340,7 @@ public final class CommunicationProtos {
           internal_static_communication_protos_InvokeAllianceRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_InvokeAllianceRequest_descriptor,
-              new java.lang.String[] { "UserId", });
+              new java.lang.String[] { "UserId", "GameId", });
           internal_static_communication_protos_InvokeAllianceResponse_descriptor =
             getDescriptor().getMessageTypes().get(17);
           internal_static_communication_protos_InvokeAllianceResponse_fieldAccessorTable = new
@@ -15353,7 +15370,7 @@ public final class CommunicationProtos {
           internal_static_communication_protos_TradeCardsRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_TradeCardsRequest_descriptor,
-              new java.lang.String[] { "CardId1", "CardId2", "CardId3", });
+              new java.lang.String[] { "CardId1", "CardId2", "CardId3", "GameId", });
           internal_static_communication_protos_TradeCardsResponse_descriptor =
             getDescriptor().getMessageTypes().get(22);
           internal_static_communication_protos_TradeCardsResponse_fieldAccessorTable = new
@@ -15365,7 +15382,7 @@ public final class CommunicationProtos {
           internal_static_communication_protos_AddUnitRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_AddUnitRequest_descriptor,
-              new java.lang.String[] { "TerritoryId", });
+              new java.lang.String[] { "TerritoryId", "GameId", });
           internal_static_communication_protos_AddUnitResponse_descriptor =
             getDescriptor().getMessageTypes().get(24);
           internal_static_communication_protos_AddUnitResponse_fieldAccessorTable = new
@@ -15377,25 +15394,25 @@ public final class CommunicationProtos {
           internal_static_communication_protos_MoveUnitsRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_MoveUnitsRequest_descriptor,
-              new java.lang.String[] { "Command", });
+              new java.lang.String[] { "Command", "GameId", });
           internal_static_communication_protos_MoveUnitsResponse_descriptor =
             getDescriptor().getMessageTypes().get(26);
           internal_static_communication_protos_MoveUnitsResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_MoveUnitsResponse_descriptor,
-              new java.lang.String[] { "Command", });
+              new java.lang.String[] { });
           internal_static_communication_protos_AttackRequest_descriptor =
             getDescriptor().getMessageTypes().get(27);
           internal_static_communication_protos_AttackRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_AttackRequest_descriptor,
-              new java.lang.String[] { "Command", });
+              new java.lang.String[] { "Command", "GameId", });
           internal_static_communication_protos_AttackResponse_descriptor =
             getDescriptor().getMessageTypes().get(28);
           internal_static_communication_protos_AttackResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_AttackResponse_descriptor,
-              new java.lang.String[] { "Command", });
+              new java.lang.String[] { });
           internal_static_communication_protos_RollDiceRequest_descriptor =
             getDescriptor().getMessageTypes().get(29);
           internal_static_communication_protos_RollDiceRequest_fieldAccessorTable = new

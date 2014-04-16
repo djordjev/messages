@@ -74,6 +74,7 @@ message JoinGameResponse {
 
 message InvokeAllianceRequest {
 	required int32 userId = 1;
+	required int64 gameId = 2;
 }
 
 message InvokeAllianceResponse {
@@ -95,6 +96,7 @@ message TradeCardsRequest {
 	required int32 cardId1 = 1;
 	required int32 cardId2 = 2;
 	required int32 cardId3 = 3;
+	required int64 gameId = 4;
 }
 
 message TradeCardsResponse {
@@ -103,6 +105,7 @@ message TradeCardsResponse {
 
 message AddUnitRequest {
 	required int32 territoryId = 1;
+	required int64 gameId = 2;
 }
 
 message AddUnitResponse {
@@ -111,18 +114,18 @@ message AddUnitResponse {
 
 message MoveUnitsRequest {
 	required Command command = 1;
+	required int64 gameId = 2;
 }
 
 message MoveUnitsResponse {
-	required Command command = 1;
 }
 
 message AttackRequest {
 	required Command command = 1;
+	required int64 gameId = 2;
 }
 
 message AttackResponse {
-	required Command command = 1;
 }
 
 message RollDiceRequest {
