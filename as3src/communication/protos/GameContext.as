@@ -25,10 +25,10 @@ package communication.protos {
 		/**
 		 *  @private
 		 */
-		public static const TORRITORIES:RepeatedFieldDescriptor$TYPE_MESSAGE = new RepeatedFieldDescriptor$TYPE_MESSAGE("communication.protos.GameContext.torritories", "torritories", (3 << 3) | com.netease.protobuf.WireType.LENGTH_DELIMITED, function():Class { return communication.protos.Territory; });
+		public static const TERRITORIES:RepeatedFieldDescriptor$TYPE_MESSAGE = new RepeatedFieldDescriptor$TYPE_MESSAGE("communication.protos.GameContext.territories", "territories", (3 << 3) | com.netease.protobuf.WireType.LENGTH_DELIMITED, function():Class { return communication.protos.Territory; });
 
 		[ArrayElementType("communication.protos.Territory")]
-		public var torritories:Array = [];
+		public var territories:Array = [];
 
 		/**
 		 *  @private
@@ -52,9 +52,9 @@ package communication.protos {
 		override com.netease.protobuf.used_by_generated_code final function writeToBuffer(output:com.netease.protobuf.WritingBuffer):void {
 			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.LENGTH_DELIMITED, 2);
 			com.netease.protobuf.WriteUtils.write$TYPE_MESSAGE(output, this.lightGameContext);
-			for (var torritories$index:uint = 0; torritories$index < this.torritories.length; ++torritories$index) {
+			for (var territories$index:uint = 0; territories$index < this.territories.length; ++territories$index) {
 				com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.LENGTH_DELIMITED, 3);
-				com.netease.protobuf.WriteUtils.write$TYPE_MESSAGE(output, this.torritories[torritories$index]);
+				com.netease.protobuf.WriteUtils.write$TYPE_MESSAGE(output, this.territories[territories$index]);
 			}
 			for (var alliances$index:uint = 0; alliances$index < this.alliances.length; ++alliances$index) {
 				com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.LENGTH_DELIMITED, 4);
@@ -86,7 +86,7 @@ package communication.protos {
 					com.netease.protobuf.ReadUtils.read$TYPE_MESSAGE(input, this.lightGameContext);
 					break;
 				case 3:
-					this.torritories.push(com.netease.protobuf.ReadUtils.read$TYPE_MESSAGE(input, new communication.protos.Territory()));
+					this.territories.push(com.netease.protobuf.ReadUtils.read$TYPE_MESSAGE(input, new communication.protos.Territory()));
 					break;
 				case 4:
 					this.alliances.push(com.netease.protobuf.ReadUtils.read$TYPE_MESSAGE(input, new communication.protos.Alliance()));
