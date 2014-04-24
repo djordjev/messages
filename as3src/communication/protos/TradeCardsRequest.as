@@ -35,6 +35,13 @@ package communication.protos {
 		/**
 		 *  @private
 		 */
+		public static const GAMEID:FieldDescriptor$TYPE_INT64 = new FieldDescriptor$TYPE_INT64("communication.protos.TradeCardsRequest.gameId", "gameId", (4 << 3) | com.netease.protobuf.WireType.VARINT);
+
+		public var gameId:Int64;
+
+		/**
+		 *  @private
+		 */
 		override com.netease.protobuf.used_by_generated_code final function writeToBuffer(output:com.netease.protobuf.WritingBuffer):void {
 			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.VARINT, 1);
 			com.netease.protobuf.WriteUtils.write$TYPE_INT32(output, this.cardId1);
@@ -42,6 +49,8 @@ package communication.protos {
 			com.netease.protobuf.WriteUtils.write$TYPE_INT32(output, this.cardId2);
 			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.VARINT, 3);
 			com.netease.protobuf.WriteUtils.write$TYPE_INT32(output, this.cardId3);
+			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.VARINT, 4);
+			com.netease.protobuf.WriteUtils.write$TYPE_INT64(output, this.gameId);
 			for (var fieldKey:* in this) {
 				super.writeUnknown(output, fieldKey);
 			}
@@ -54,6 +63,7 @@ package communication.protos {
 			var cardId1$count:uint = 0;
 			var cardId2$count:uint = 0;
 			var cardId3$count:uint = 0;
+			var gameId$count:uint = 0;
 			while (input.bytesAvailable > bytesAfterSlice) {
 				var tag:uint = com.netease.protobuf.ReadUtils.read$TYPE_UINT32(input);
 				switch (tag >> 3) {
@@ -77,6 +87,13 @@ package communication.protos {
 					}
 					++cardId3$count;
 					this.cardId3 = com.netease.protobuf.ReadUtils.read$TYPE_INT32(input);
+					break;
+				case 4:
+					if (gameId$count != 0) {
+						throw new flash.errors.IOError('Bad data format: TradeCardsRequest.gameId cannot be set twice.');
+					}
+					++gameId$count;
+					this.gameId = com.netease.protobuf.ReadUtils.read$TYPE_INT64(input);
 					break;
 				default:
 					super.readUnknown(input, tag);
