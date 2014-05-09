@@ -1971,61 +1971,71 @@ public final class DataProtos {
   public interface PlayerOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .communication.protos.User user = 1;
+    // required int32 playerId = 1;
     /**
-     * <code>required .communication.protos.User user = 1;</code>
+     * <code>required int32 playerId = 1;</code>
+     */
+    boolean hasPlayerId();
+    /**
+     * <code>required int32 playerId = 1;</code>
+     */
+    int getPlayerId();
+
+    // optional .communication.protos.User user = 2;
+    /**
+     * <code>optional .communication.protos.User user = 2;</code>
      */
     boolean hasUser();
     /**
-     * <code>required .communication.protos.User user = 1;</code>
+     * <code>optional .communication.protos.User user = 2;</code>
      */
     communication.protos.DataProtos.User getUser();
     /**
-     * <code>required .communication.protos.User user = 1;</code>
+     * <code>optional .communication.protos.User user = 2;</code>
      */
     communication.protos.DataProtos.UserOrBuilder getUserOrBuilder();
 
-    // required int32 color = 2;
+    // required int32 color = 3;
     /**
-     * <code>required int32 color = 2;</code>
+     * <code>required int32 color = 3;</code>
      */
     boolean hasColor();
     /**
-     * <code>required int32 color = 2;</code>
+     * <code>required int32 color = 3;</code>
      */
     int getColor();
 
-    // required bool isPlayedMove = 3;
+    // required bool isPlayedMove = 4;
     /**
-     * <code>required bool isPlayedMove = 3;</code>
+     * <code>required bool isPlayedMove = 4;</code>
      */
     boolean hasIsPlayedMove();
     /**
-     * <code>required bool isPlayedMove = 3;</code>
+     * <code>required bool isPlayedMove = 4;</code>
      */
     boolean getIsPlayedMove();
 
-    // repeated int32 cards = 4;
+    // repeated int32 cards = 5;
     /**
-     * <code>repeated int32 cards = 4;</code>
+     * <code>repeated int32 cards = 5;</code>
      */
     java.util.List<java.lang.Integer> getCardsList();
     /**
-     * <code>repeated int32 cards = 4;</code>
+     * <code>repeated int32 cards = 5;</code>
      */
     int getCardsCount();
     /**
-     * <code>repeated int32 cards = 4;</code>
+     * <code>repeated int32 cards = 5;</code>
      */
     int getCards(int index);
 
-    // optional int32 numberOfReinforcments = 5;
+    // optional int32 numberOfReinforcments = 6;
     /**
-     * <code>optional int32 numberOfReinforcments = 5;</code>
+     * <code>optional int32 numberOfReinforcments = 6;</code>
      */
     boolean hasNumberOfReinforcments();
     /**
-     * <code>optional int32 numberOfReinforcments = 5;</code>
+     * <code>optional int32 numberOfReinforcments = 6;</code>
      */
     int getNumberOfReinforcments();
   }
@@ -2080,9 +2090,14 @@ public final class DataProtos {
               }
               break;
             }
-            case 10: {
+            case 8: {
+              bitField0_ |= 0x00000001;
+              playerId_ = input.readInt32();
+              break;
+            }
+            case 18: {
               communication.protos.DataProtos.User.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = user_.toBuilder();
               }
               user_ = input.readMessage(communication.protos.DataProtos.User.PARSER, extensionRegistry);
@@ -2090,33 +2105,33 @@ public final class DataProtos {
                 subBuilder.mergeFrom(user_);
                 user_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 16: {
               bitField0_ |= 0x00000002;
-              color_ = input.readInt32();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              isPlayedMove_ = input.readBool();
+              color_ = input.readInt32();
               break;
             }
             case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              bitField0_ |= 0x00000008;
+              isPlayedMove_ = input.readBool();
+              break;
+            }
+            case 40: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               cards_.add(input.readInt32());
               break;
             }
-            case 34: {
+            case 42: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
                 cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               while (input.getBytesUntilLimit() > 0) {
                 cards_.add(input.readInt32());
@@ -2124,8 +2139,8 @@ public final class DataProtos {
               input.popLimit(limit);
               break;
             }
-            case 40: {
-              bitField0_ |= 0x00000008;
+            case 48: {
+              bitField0_ |= 0x00000010;
               numberOfReinforcments_ = input.readInt32();
               break;
             }
@@ -2137,7 +2152,7 @@ public final class DataProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           cards_ = java.util.Collections.unmodifiableList(cards_);
         }
         this.unknownFields = unknownFields.build();
@@ -2172,100 +2187,117 @@ public final class DataProtos {
     }
 
     private int bitField0_;
-    // required .communication.protos.User user = 1;
-    public static final int USER_FIELD_NUMBER = 1;
-    private communication.protos.DataProtos.User user_;
+    // required int32 playerId = 1;
+    public static final int PLAYERID_FIELD_NUMBER = 1;
+    private int playerId_;
     /**
-     * <code>required .communication.protos.User user = 1;</code>
+     * <code>required int32 playerId = 1;</code>
      */
-    public boolean hasUser() {
+    public boolean hasPlayerId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .communication.protos.User user = 1;</code>
+     * <code>required int32 playerId = 1;</code>
+     */
+    public int getPlayerId() {
+      return playerId_;
+    }
+
+    // optional .communication.protos.User user = 2;
+    public static final int USER_FIELD_NUMBER = 2;
+    private communication.protos.DataProtos.User user_;
+    /**
+     * <code>optional .communication.protos.User user = 2;</code>
+     */
+    public boolean hasUser() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .communication.protos.User user = 2;</code>
      */
     public communication.protos.DataProtos.User getUser() {
       return user_;
     }
     /**
-     * <code>required .communication.protos.User user = 1;</code>
+     * <code>optional .communication.protos.User user = 2;</code>
      */
     public communication.protos.DataProtos.UserOrBuilder getUserOrBuilder() {
       return user_;
     }
 
-    // required int32 color = 2;
-    public static final int COLOR_FIELD_NUMBER = 2;
+    // required int32 color = 3;
+    public static final int COLOR_FIELD_NUMBER = 3;
     private int color_;
     /**
-     * <code>required int32 color = 2;</code>
+     * <code>required int32 color = 3;</code>
      */
     public boolean hasColor() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int32 color = 2;</code>
+     * <code>required int32 color = 3;</code>
      */
     public int getColor() {
       return color_;
     }
 
-    // required bool isPlayedMove = 3;
-    public static final int ISPLAYEDMOVE_FIELD_NUMBER = 3;
+    // required bool isPlayedMove = 4;
+    public static final int ISPLAYEDMOVE_FIELD_NUMBER = 4;
     private boolean isPlayedMove_;
     /**
-     * <code>required bool isPlayedMove = 3;</code>
+     * <code>required bool isPlayedMove = 4;</code>
      */
     public boolean hasIsPlayedMove() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required bool isPlayedMove = 3;</code>
+     * <code>required bool isPlayedMove = 4;</code>
      */
     public boolean getIsPlayedMove() {
       return isPlayedMove_;
     }
 
-    // repeated int32 cards = 4;
-    public static final int CARDS_FIELD_NUMBER = 4;
+    // repeated int32 cards = 5;
+    public static final int CARDS_FIELD_NUMBER = 5;
     private java.util.List<java.lang.Integer> cards_;
     /**
-     * <code>repeated int32 cards = 4;</code>
+     * <code>repeated int32 cards = 5;</code>
      */
     public java.util.List<java.lang.Integer>
         getCardsList() {
       return cards_;
     }
     /**
-     * <code>repeated int32 cards = 4;</code>
+     * <code>repeated int32 cards = 5;</code>
      */
     public int getCardsCount() {
       return cards_.size();
     }
     /**
-     * <code>repeated int32 cards = 4;</code>
+     * <code>repeated int32 cards = 5;</code>
      */
     public int getCards(int index) {
       return cards_.get(index);
     }
 
-    // optional int32 numberOfReinforcments = 5;
-    public static final int NUMBEROFREINFORCMENTS_FIELD_NUMBER = 5;
+    // optional int32 numberOfReinforcments = 6;
+    public static final int NUMBEROFREINFORCMENTS_FIELD_NUMBER = 6;
     private int numberOfReinforcments_;
     /**
-     * <code>optional int32 numberOfReinforcments = 5;</code>
+     * <code>optional int32 numberOfReinforcments = 6;</code>
      */
     public boolean hasNumberOfReinforcments() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 numberOfReinforcments = 5;</code>
+     * <code>optional int32 numberOfReinforcments = 6;</code>
      */
     public int getNumberOfReinforcments() {
       return numberOfReinforcments_;
     }
 
     private void initFields() {
+      playerId_ = 0;
       user_ = communication.protos.DataProtos.User.getDefaultInstance();
       color_ = 0;
       isPlayedMove_ = false;
@@ -2277,7 +2309,7 @@ public final class DataProtos {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasUser()) {
+      if (!hasPlayerId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -2289,9 +2321,11 @@ public final class DataProtos {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getUser().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasUser()) {
+        if (!getUser().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -2301,19 +2335,22 @@ public final class DataProtos {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, user_);
+        output.writeInt32(1, playerId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, color_);
+        output.writeMessage(2, user_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(3, isPlayedMove_);
-      }
-      for (int i = 0; i < cards_.size(); i++) {
-        output.writeInt32(4, cards_.get(i));
+        output.writeInt32(3, color_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(5, numberOfReinforcments_);
+        output.writeBool(4, isPlayedMove_);
+      }
+      for (int i = 0; i < cards_.size(); i++) {
+        output.writeInt32(5, cards_.get(i));
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(6, numberOfReinforcments_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -2326,15 +2363,19 @@ public final class DataProtos {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, user_);
+          .computeInt32Size(1, playerId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, color_);
+          .computeMessageSize(2, user_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, isPlayedMove_);
+          .computeInt32Size(3, color_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, isPlayedMove_);
       }
       {
         int dataSize = 0;
@@ -2345,9 +2386,9 @@ public final class DataProtos {
         size += dataSize;
         size += 1 * getCardsList().size();
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, numberOfReinforcments_);
+          .computeInt32Size(6, numberOfReinforcments_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2466,20 +2507,22 @@ public final class DataProtos {
 
       public Builder clear() {
         super.clear();
+        playerId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (userBuilder_ == null) {
           user_ = communication.protos.DataProtos.User.getDefaultInstance();
         } else {
           userBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        color_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        isPlayedMove_ = false;
+        color_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        cards_ = java.util.Collections.emptyList();
+        isPlayedMove_ = false;
         bitField0_ = (bitField0_ & ~0x00000008);
-        numberOfReinforcments_ = 0;
+        cards_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
+        numberOfReinforcments_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -2511,26 +2554,30 @@ public final class DataProtos {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
+        result.playerId_ = playerId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         if (userBuilder_ == null) {
           result.user_ = user_;
         } else {
           result.user_ = userBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.color_ = color_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
+        result.color_ = color_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.isPlayedMove_ = isPlayedMove_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
           cards_ = java.util.Collections.unmodifiableList(cards_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.cards_ = cards_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000008;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
         }
         result.numberOfReinforcments_ = numberOfReinforcments_;
         result.bitField0_ = to_bitField0_;
@@ -2549,6 +2596,9 @@ public final class DataProtos {
 
       public Builder mergeFrom(communication.protos.DataProtos.Player other) {
         if (other == communication.protos.DataProtos.Player.getDefaultInstance()) return this;
+        if (other.hasPlayerId()) {
+          setPlayerId(other.getPlayerId());
+        }
         if (other.hasUser()) {
           mergeUser(other.getUser());
         }
@@ -2561,7 +2611,7 @@ public final class DataProtos {
         if (!other.cards_.isEmpty()) {
           if (cards_.isEmpty()) {
             cards_ = other.cards_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureCardsIsMutable();
             cards_.addAll(other.cards_);
@@ -2576,7 +2626,7 @@ public final class DataProtos {
       }
 
       public final boolean isInitialized() {
-        if (!hasUser()) {
+        if (!hasPlayerId()) {
           
           return false;
         }
@@ -2588,9 +2638,11 @@ public final class DataProtos {
           
           return false;
         }
-        if (!getUser().isInitialized()) {
-          
-          return false;
+        if (hasUser()) {
+          if (!getUser().isInitialized()) {
+            
+            return false;
+          }
         }
         return true;
       }
@@ -2614,18 +2666,51 @@ public final class DataProtos {
       }
       private int bitField0_;
 
-      // required .communication.protos.User user = 1;
+      // required int32 playerId = 1;
+      private int playerId_ ;
+      /**
+       * <code>required int32 playerId = 1;</code>
+       */
+      public boolean hasPlayerId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 playerId = 1;</code>
+       */
+      public int getPlayerId() {
+        return playerId_;
+      }
+      /**
+       * <code>required int32 playerId = 1;</code>
+       */
+      public Builder setPlayerId(int value) {
+        bitField0_ |= 0x00000001;
+        playerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 playerId = 1;</code>
+       */
+      public Builder clearPlayerId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        playerId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional .communication.protos.User user = 2;
       private communication.protos.DataProtos.User user_ = communication.protos.DataProtos.User.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           communication.protos.DataProtos.User, communication.protos.DataProtos.User.Builder, communication.protos.DataProtos.UserOrBuilder> userBuilder_;
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public boolean hasUser() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public communication.protos.DataProtos.User getUser() {
         if (userBuilder_ == null) {
@@ -2635,7 +2720,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public Builder setUser(communication.protos.DataProtos.User value) {
         if (userBuilder_ == null) {
@@ -2647,11 +2732,11 @@ public final class DataProtos {
         } else {
           userBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public Builder setUser(
           communication.protos.DataProtos.User.Builder builderForValue) {
@@ -2661,15 +2746,15 @@ public final class DataProtos {
         } else {
           userBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public Builder mergeUser(communication.protos.DataProtos.User value) {
         if (userBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
               user_ != communication.protos.DataProtos.User.getDefaultInstance()) {
             user_ =
               communication.protos.DataProtos.User.newBuilder(user_).mergeFrom(value).buildPartial();
@@ -2680,11 +2765,11 @@ public final class DataProtos {
         } else {
           userBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public Builder clearUser() {
         if (userBuilder_ == null) {
@@ -2693,19 +2778,19 @@ public final class DataProtos {
         } else {
           userBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public communication.protos.DataProtos.User.Builder getUserBuilder() {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
         return getUserFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       public communication.protos.DataProtos.UserOrBuilder getUserOrBuilder() {
         if (userBuilder_ != null) {
@@ -2715,7 +2800,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>required .communication.protos.User user = 1;</code>
+       * <code>optional .communication.protos.User user = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           communication.protos.DataProtos.User, communication.protos.DataProtos.User.Builder, communication.protos.DataProtos.UserOrBuilder> 
@@ -2731,101 +2816,101 @@ public final class DataProtos {
         return userBuilder_;
       }
 
-      // required int32 color = 2;
+      // required int32 color = 3;
       private int color_ ;
       /**
-       * <code>required int32 color = 2;</code>
+       * <code>required int32 color = 3;</code>
        */
       public boolean hasColor() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int32 color = 2;</code>
+       * <code>required int32 color = 3;</code>
        */
       public int getColor() {
         return color_;
       }
       /**
-       * <code>required int32 color = 2;</code>
+       * <code>required int32 color = 3;</code>
        */
       public Builder setColor(int value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         color_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 color = 2;</code>
+       * <code>required int32 color = 3;</code>
        */
       public Builder clearColor() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         color_ = 0;
         onChanged();
         return this;
       }
 
-      // required bool isPlayedMove = 3;
+      // required bool isPlayedMove = 4;
       private boolean isPlayedMove_ ;
       /**
-       * <code>required bool isPlayedMove = 3;</code>
+       * <code>required bool isPlayedMove = 4;</code>
        */
       public boolean hasIsPlayedMove() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required bool isPlayedMove = 3;</code>
+       * <code>required bool isPlayedMove = 4;</code>
        */
       public boolean getIsPlayedMove() {
         return isPlayedMove_;
       }
       /**
-       * <code>required bool isPlayedMove = 3;</code>
+       * <code>required bool isPlayedMove = 4;</code>
        */
       public Builder setIsPlayedMove(boolean value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         isPlayedMove_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool isPlayedMove = 3;</code>
+       * <code>required bool isPlayedMove = 4;</code>
        */
       public Builder clearIsPlayedMove() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         isPlayedMove_ = false;
         onChanged();
         return this;
       }
 
-      // repeated int32 cards = 4;
+      // repeated int32 cards = 5;
       private java.util.List<java.lang.Integer> cards_ = java.util.Collections.emptyList();
       private void ensureCardsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           cards_ = new java.util.ArrayList<java.lang.Integer>(cards_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
-       * <code>repeated int32 cards = 4;</code>
+       * <code>repeated int32 cards = 5;</code>
        */
       public java.util.List<java.lang.Integer>
           getCardsList() {
         return java.util.Collections.unmodifiableList(cards_);
       }
       /**
-       * <code>repeated int32 cards = 4;</code>
+       * <code>repeated int32 cards = 5;</code>
        */
       public int getCardsCount() {
         return cards_.size();
       }
       /**
-       * <code>repeated int32 cards = 4;</code>
+       * <code>repeated int32 cards = 5;</code>
        */
       public int getCards(int index) {
         return cards_.get(index);
       }
       /**
-       * <code>repeated int32 cards = 4;</code>
+       * <code>repeated int32 cards = 5;</code>
        */
       public Builder setCards(
           int index, int value) {
@@ -2835,7 +2920,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated int32 cards = 4;</code>
+       * <code>repeated int32 cards = 5;</code>
        */
       public Builder addCards(int value) {
         ensureCardsIsMutable();
@@ -2844,7 +2929,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated int32 cards = 4;</code>
+       * <code>repeated int32 cards = 5;</code>
        */
       public Builder addAllCards(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -2854,43 +2939,43 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated int32 cards = 4;</code>
+       * <code>repeated int32 cards = 5;</code>
        */
       public Builder clearCards() {
         cards_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
 
-      // optional int32 numberOfReinforcments = 5;
+      // optional int32 numberOfReinforcments = 6;
       private int numberOfReinforcments_ ;
       /**
-       * <code>optional int32 numberOfReinforcments = 5;</code>
+       * <code>optional int32 numberOfReinforcments = 6;</code>
        */
       public boolean hasNumberOfReinforcments() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional int32 numberOfReinforcments = 5;</code>
+       * <code>optional int32 numberOfReinforcments = 6;</code>
        */
       public int getNumberOfReinforcments() {
         return numberOfReinforcments_;
       }
       /**
-       * <code>optional int32 numberOfReinforcments = 5;</code>
+       * <code>optional int32 numberOfReinforcments = 6;</code>
        */
       public Builder setNumberOfReinforcments(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         numberOfReinforcments_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 numberOfReinforcments = 5;</code>
+       * <code>optional int32 numberOfReinforcments = 6;</code>
        */
       public Builder clearNumberOfReinforcments() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         numberOfReinforcments_ = 0;
         onChanged();
         return this;
@@ -6970,15 +7055,15 @@ public final class DataProtos {
      */
     int getTroopsOnIt();
 
-    // required int64 userId = 3;
+    // required int32 playerId = 3;
     /**
-     * <code>required int64 userId = 3;</code>
+     * <code>required int32 playerId = 3;</code>
      */
-    boolean hasUserId();
+    boolean hasPlayerId();
     /**
-     * <code>required int64 userId = 3;</code>
+     * <code>required int32 playerId = 3;</code>
      */
-    long getUserId();
+    int getPlayerId();
   }
   /**
    * Protobuf type {@code communication.protos.Territory}
@@ -7043,7 +7128,7 @@ public final class DataProtos {
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              userId_ = input.readInt64();
+              playerId_ = input.readInt32();
               break;
             }
           }
@@ -7118,26 +7203,26 @@ public final class DataProtos {
       return troopsOnIt_;
     }
 
-    // required int64 userId = 3;
-    public static final int USERID_FIELD_NUMBER = 3;
-    private long userId_;
+    // required int32 playerId = 3;
+    public static final int PLAYERID_FIELD_NUMBER = 3;
+    private int playerId_;
     /**
-     * <code>required int64 userId = 3;</code>
+     * <code>required int32 playerId = 3;</code>
      */
-    public boolean hasUserId() {
+    public boolean hasPlayerId() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int64 userId = 3;</code>
+     * <code>required int32 playerId = 3;</code>
      */
-    public long getUserId() {
-      return userId_;
+    public int getPlayerId() {
+      return playerId_;
     }
 
     private void initFields() {
       id_ = 0;
       troopsOnIt_ = 0;
-      userId_ = 0L;
+      playerId_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -7152,7 +7237,7 @@ public final class DataProtos {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasUserId()) {
+      if (!hasPlayerId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -7170,7 +7255,7 @@ public final class DataProtos {
         output.writeInt32(2, troopsOnIt_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt64(3, userId_);
+        output.writeInt32(3, playerId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7191,7 +7276,7 @@ public final class DataProtos {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, userId_);
+          .computeInt32Size(3, playerId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -7313,7 +7398,7 @@ public final class DataProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         troopsOnIt_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0L;
+        playerId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -7354,7 +7439,7 @@ public final class DataProtos {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.userId_ = userId_;
+        result.playerId_ = playerId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7377,8 +7462,8 @@ public final class DataProtos {
         if (other.hasTroopsOnIt()) {
           setTroopsOnIt(other.getTroopsOnIt());
         }
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
+        if (other.hasPlayerId()) {
+          setPlayerId(other.getPlayerId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -7393,7 +7478,7 @@ public final class DataProtos {
           
           return false;
         }
-        if (!hasUserId()) {
+        if (!hasPlayerId()) {
           
           return false;
         }
@@ -7485,35 +7570,35 @@ public final class DataProtos {
         return this;
       }
 
-      // required int64 userId = 3;
-      private long userId_ ;
+      // required int32 playerId = 3;
+      private int playerId_ ;
       /**
-       * <code>required int64 userId = 3;</code>
+       * <code>required int32 playerId = 3;</code>
        */
-      public boolean hasUserId() {
+      public boolean hasPlayerId() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int64 userId = 3;</code>
+       * <code>required int32 playerId = 3;</code>
        */
-      public long getUserId() {
-        return userId_;
+      public int getPlayerId() {
+        return playerId_;
       }
       /**
-       * <code>required int64 userId = 3;</code>
+       * <code>required int32 playerId = 3;</code>
        */
-      public Builder setUserId(long value) {
+      public Builder setPlayerId(int value) {
         bitField0_ |= 0x00000004;
-        userId_ = value;
+        playerId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 userId = 3;</code>
+       * <code>required int32 playerId = 3;</code>
        */
-      public Builder clearUserId() {
+      public Builder clearPlayerId() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        userId_ = 0L;
+        playerId_ = 0;
         onChanged();
         return this;
       }
@@ -8153,6 +8238,16 @@ public final class DataProtos {
      * <code>required int32 numberOfUnits = 4;</code>
      */
     int getNumberOfUnits();
+
+    // optional int64 seed = 5;
+    /**
+     * <code>optional int64 seed = 5;</code>
+     */
+    boolean hasSeed();
+    /**
+     * <code>optional int64 seed = 5;</code>
+     */
+    long getSeed();
   }
   /**
    * Protobuf type {@code communication.protos.Command}
@@ -8223,6 +8318,11 @@ public final class DataProtos {
             case 32: {
               bitField0_ |= 0x00000008;
               numberOfUnits_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              seed_ = input.readInt64();
               break;
             }
           }
@@ -8329,11 +8429,28 @@ public final class DataProtos {
       return numberOfUnits_;
     }
 
+    // optional int64 seed = 5;
+    public static final int SEED_FIELD_NUMBER = 5;
+    private long seed_;
+    /**
+     * <code>optional int64 seed = 5;</code>
+     */
+    public boolean hasSeed() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int64 seed = 5;</code>
+     */
+    public long getSeed() {
+      return seed_;
+    }
+
     private void initFields() {
       commandId_ = 0;
       sourceTerritory_ = 0;
       destinationTerritory_ = 0;
       numberOfUnits_ = 0;
+      seed_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8371,6 +8488,9 @@ public final class DataProtos {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, numberOfUnits_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt64(5, seed_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -8395,6 +8515,10 @@ public final class DataProtos {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, numberOfUnits_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, seed_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8520,6 +8644,8 @@ public final class DataProtos {
         bitField0_ = (bitField0_ & ~0x00000004);
         numberOfUnits_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        seed_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -8564,6 +8690,10 @@ public final class DataProtos {
           to_bitField0_ |= 0x00000008;
         }
         result.numberOfUnits_ = numberOfUnits_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.seed_ = seed_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8591,6 +8721,9 @@ public final class DataProtos {
         }
         if (other.hasNumberOfUnits()) {
           setNumberOfUnits(other.getNumberOfUnits());
+        }
+        if (other.hasSeed()) {
+          setSeed(other.getSeed());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -8763,6 +8896,39 @@ public final class DataProtos {
         return this;
       }
 
+      // optional int64 seed = 5;
+      private long seed_ ;
+      /**
+       * <code>optional int64 seed = 5;</code>
+       */
+      public boolean hasSeed() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int64 seed = 5;</code>
+       */
+      public long getSeed() {
+        return seed_;
+      }
+      /**
+       * <code>optional int64 seed = 5;</code>
+       */
+      public Builder setSeed(long value) {
+        bitField0_ |= 0x00000010;
+        seed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 seed = 5;</code>
+       */
+      public Builder clearSeed() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        seed_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:communication.protos.Command)
     }
 
@@ -8772,6 +8938,1559 @@ public final class DataProtos {
     }
 
     // @@protoc_insertion_point(class_scope:communication.protos.Command)
+  }
+
+  public interface TroopNumberOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 fieldId = 1;
+    /**
+     * <code>required int32 fieldId = 1;</code>
+     */
+    boolean hasFieldId();
+    /**
+     * <code>required int32 fieldId = 1;</code>
+     */
+    int getFieldId();
+
+    // required int32 troopNumber = 2;
+    /**
+     * <code>required int32 troopNumber = 2;</code>
+     */
+    boolean hasTroopNumber();
+    /**
+     * <code>required int32 troopNumber = 2;</code>
+     */
+    int getTroopNumber();
+  }
+  /**
+   * Protobuf type {@code communication.protos.TroopNumber}
+   */
+  public static final class TroopNumber extends
+      com.google.protobuf.GeneratedMessage
+      implements TroopNumberOrBuilder {
+    // Use TroopNumber.newBuilder() to construct.
+    private TroopNumber(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TroopNumber(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TroopNumber defaultInstance;
+    public static TroopNumber getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TroopNumber getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TroopNumber(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              fieldId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              troopNumber_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.DataProtos.internal_static_communication_protos_TroopNumber_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.DataProtos.internal_static_communication_protos_TroopNumber_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.DataProtos.TroopNumber.class, communication.protos.DataProtos.TroopNumber.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TroopNumber> PARSER =
+        new com.google.protobuf.AbstractParser<TroopNumber>() {
+      public TroopNumber parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TroopNumber(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TroopNumber> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 fieldId = 1;
+    public static final int FIELDID_FIELD_NUMBER = 1;
+    private int fieldId_;
+    /**
+     * <code>required int32 fieldId = 1;</code>
+     */
+    public boolean hasFieldId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 fieldId = 1;</code>
+     */
+    public int getFieldId() {
+      return fieldId_;
+    }
+
+    // required int32 troopNumber = 2;
+    public static final int TROOPNUMBER_FIELD_NUMBER = 2;
+    private int troopNumber_;
+    /**
+     * <code>required int32 troopNumber = 2;</code>
+     */
+    public boolean hasTroopNumber() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 troopNumber = 2;</code>
+     */
+    public int getTroopNumber() {
+      return troopNumber_;
+    }
+
+    private void initFields() {
+      fieldId_ = 0;
+      troopNumber_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasFieldId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTroopNumber()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, fieldId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, troopNumber_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, fieldId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, troopNumber_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.DataProtos.TroopNumber parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.TroopNumber parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.DataProtos.TroopNumber prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.TroopNumber}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.DataProtos.TroopNumberOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.DataProtos.internal_static_communication_protos_TroopNumber_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.DataProtos.internal_static_communication_protos_TroopNumber_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.DataProtos.TroopNumber.class, communication.protos.DataProtos.TroopNumber.Builder.class);
+      }
+
+      // Construct using communication.protos.DataProtos.TroopNumber.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        fieldId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        troopNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.DataProtos.internal_static_communication_protos_TroopNumber_descriptor;
+      }
+
+      public communication.protos.DataProtos.TroopNumber getDefaultInstanceForType() {
+        return communication.protos.DataProtos.TroopNumber.getDefaultInstance();
+      }
+
+      public communication.protos.DataProtos.TroopNumber build() {
+        communication.protos.DataProtos.TroopNumber result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.DataProtos.TroopNumber buildPartial() {
+        communication.protos.DataProtos.TroopNumber result = new communication.protos.DataProtos.TroopNumber(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.fieldId_ = fieldId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.troopNumber_ = troopNumber_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.DataProtos.TroopNumber) {
+          return mergeFrom((communication.protos.DataProtos.TroopNumber)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.DataProtos.TroopNumber other) {
+        if (other == communication.protos.DataProtos.TroopNumber.getDefaultInstance()) return this;
+        if (other.hasFieldId()) {
+          setFieldId(other.getFieldId());
+        }
+        if (other.hasTroopNumber()) {
+          setTroopNumber(other.getTroopNumber());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasFieldId()) {
+          
+          return false;
+        }
+        if (!hasTroopNumber()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.DataProtos.TroopNumber parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.DataProtos.TroopNumber) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 fieldId = 1;
+      private int fieldId_ ;
+      /**
+       * <code>required int32 fieldId = 1;</code>
+       */
+      public boolean hasFieldId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 fieldId = 1;</code>
+       */
+      public int getFieldId() {
+        return fieldId_;
+      }
+      /**
+       * <code>required int32 fieldId = 1;</code>
+       */
+      public Builder setFieldId(int value) {
+        bitField0_ |= 0x00000001;
+        fieldId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 fieldId = 1;</code>
+       */
+      public Builder clearFieldId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        fieldId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 troopNumber = 2;
+      private int troopNumber_ ;
+      /**
+       * <code>required int32 troopNumber = 2;</code>
+       */
+      public boolean hasTroopNumber() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 troopNumber = 2;</code>
+       */
+      public int getTroopNumber() {
+        return troopNumber_;
+      }
+      /**
+       * <code>required int32 troopNumber = 2;</code>
+       */
+      public Builder setTroopNumber(int value) {
+        bitField0_ |= 0x00000002;
+        troopNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 troopNumber = 2;</code>
+       */
+      public Builder clearTroopNumber() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        troopNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.TroopNumber)
+    }
+
+    static {
+      defaultInstance = new TroopNumber(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.TroopNumber)
+  }
+
+  public interface BattleInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .communication.protos.Command oneSide = 2;
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    java.util.List<communication.protos.DataProtos.Command> 
+        getOneSideList();
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    communication.protos.DataProtos.Command getOneSide(int index);
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    int getOneSideCount();
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
+        getOneSideOrBuilderList();
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    communication.protos.DataProtos.CommandOrBuilder getOneSideOrBuilder(
+        int index);
+
+    // repeated .communication.protos.Command otherSide = 3;
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    java.util.List<communication.protos.DataProtos.Command> 
+        getOtherSideList();
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    communication.protos.DataProtos.Command getOtherSide(int index);
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    int getOtherSideCount();
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
+        getOtherSideOrBuilderList();
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    communication.protos.DataProtos.CommandOrBuilder getOtherSideOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code communication.protos.BattleInfo}
+   */
+  public static final class BattleInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements BattleInfoOrBuilder {
+    // Use BattleInfo.newBuilder() to construct.
+    private BattleInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private BattleInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final BattleInfo defaultInstance;
+    public static BattleInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public BattleInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BattleInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                oneSide_ = new java.util.ArrayList<communication.protos.DataProtos.Command>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              oneSide_.add(input.readMessage(communication.protos.DataProtos.Command.PARSER, extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                otherSide_ = new java.util.ArrayList<communication.protos.DataProtos.Command>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              otherSide_.add(input.readMessage(communication.protos.DataProtos.Command.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          oneSide_ = java.util.Collections.unmodifiableList(oneSide_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          otherSide_ = java.util.Collections.unmodifiableList(otherSide_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.DataProtos.internal_static_communication_protos_BattleInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.DataProtos.internal_static_communication_protos_BattleInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.DataProtos.BattleInfo.class, communication.protos.DataProtos.BattleInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<BattleInfo> PARSER =
+        new com.google.protobuf.AbstractParser<BattleInfo>() {
+      public BattleInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BattleInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BattleInfo> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .communication.protos.Command oneSide = 2;
+    public static final int ONESIDE_FIELD_NUMBER = 2;
+    private java.util.List<communication.protos.DataProtos.Command> oneSide_;
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    public java.util.List<communication.protos.DataProtos.Command> getOneSideList() {
+      return oneSide_;
+    }
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
+        getOneSideOrBuilderList() {
+      return oneSide_;
+    }
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    public int getOneSideCount() {
+      return oneSide_.size();
+    }
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    public communication.protos.DataProtos.Command getOneSide(int index) {
+      return oneSide_.get(index);
+    }
+    /**
+     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     */
+    public communication.protos.DataProtos.CommandOrBuilder getOneSideOrBuilder(
+        int index) {
+      return oneSide_.get(index);
+    }
+
+    // repeated .communication.protos.Command otherSide = 3;
+    public static final int OTHERSIDE_FIELD_NUMBER = 3;
+    private java.util.List<communication.protos.DataProtos.Command> otherSide_;
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    public java.util.List<communication.protos.DataProtos.Command> getOtherSideList() {
+      return otherSide_;
+    }
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
+        getOtherSideOrBuilderList() {
+      return otherSide_;
+    }
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    public int getOtherSideCount() {
+      return otherSide_.size();
+    }
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    public communication.protos.DataProtos.Command getOtherSide(int index) {
+      return otherSide_.get(index);
+    }
+    /**
+     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     */
+    public communication.protos.DataProtos.CommandOrBuilder getOtherSideOrBuilder(
+        int index) {
+      return otherSide_.get(index);
+    }
+
+    private void initFields() {
+      oneSide_ = java.util.Collections.emptyList();
+      otherSide_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getOneSideCount(); i++) {
+        if (!getOneSide(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getOtherSideCount(); i++) {
+        if (!getOtherSide(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < oneSide_.size(); i++) {
+        output.writeMessage(2, oneSide_.get(i));
+      }
+      for (int i = 0; i < otherSide_.size(); i++) {
+        output.writeMessage(3, otherSide_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < oneSide_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, oneSide_.get(i));
+      }
+      for (int i = 0; i < otherSide_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, otherSide_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.DataProtos.BattleInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.BattleInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.DataProtos.BattleInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.BattleInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.DataProtos.BattleInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.DataProtos.internal_static_communication_protos_BattleInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.DataProtos.internal_static_communication_protos_BattleInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.DataProtos.BattleInfo.class, communication.protos.DataProtos.BattleInfo.Builder.class);
+      }
+
+      // Construct using communication.protos.DataProtos.BattleInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getOneSideFieldBuilder();
+          getOtherSideFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (oneSideBuilder_ == null) {
+          oneSide_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          oneSideBuilder_.clear();
+        }
+        if (otherSideBuilder_ == null) {
+          otherSide_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          otherSideBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.DataProtos.internal_static_communication_protos_BattleInfo_descriptor;
+      }
+
+      public communication.protos.DataProtos.BattleInfo getDefaultInstanceForType() {
+        return communication.protos.DataProtos.BattleInfo.getDefaultInstance();
+      }
+
+      public communication.protos.DataProtos.BattleInfo build() {
+        communication.protos.DataProtos.BattleInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.DataProtos.BattleInfo buildPartial() {
+        communication.protos.DataProtos.BattleInfo result = new communication.protos.DataProtos.BattleInfo(this);
+        int from_bitField0_ = bitField0_;
+        if (oneSideBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            oneSide_ = java.util.Collections.unmodifiableList(oneSide_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.oneSide_ = oneSide_;
+        } else {
+          result.oneSide_ = oneSideBuilder_.build();
+        }
+        if (otherSideBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            otherSide_ = java.util.Collections.unmodifiableList(otherSide_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.otherSide_ = otherSide_;
+        } else {
+          result.otherSide_ = otherSideBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.DataProtos.BattleInfo) {
+          return mergeFrom((communication.protos.DataProtos.BattleInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.DataProtos.BattleInfo other) {
+        if (other == communication.protos.DataProtos.BattleInfo.getDefaultInstance()) return this;
+        if (oneSideBuilder_ == null) {
+          if (!other.oneSide_.isEmpty()) {
+            if (oneSide_.isEmpty()) {
+              oneSide_ = other.oneSide_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureOneSideIsMutable();
+              oneSide_.addAll(other.oneSide_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.oneSide_.isEmpty()) {
+            if (oneSideBuilder_.isEmpty()) {
+              oneSideBuilder_.dispose();
+              oneSideBuilder_ = null;
+              oneSide_ = other.oneSide_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              oneSideBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getOneSideFieldBuilder() : null;
+            } else {
+              oneSideBuilder_.addAllMessages(other.oneSide_);
+            }
+          }
+        }
+        if (otherSideBuilder_ == null) {
+          if (!other.otherSide_.isEmpty()) {
+            if (otherSide_.isEmpty()) {
+              otherSide_ = other.otherSide_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureOtherSideIsMutable();
+              otherSide_.addAll(other.otherSide_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.otherSide_.isEmpty()) {
+            if (otherSideBuilder_.isEmpty()) {
+              otherSideBuilder_.dispose();
+              otherSideBuilder_ = null;
+              otherSide_ = other.otherSide_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              otherSideBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getOtherSideFieldBuilder() : null;
+            } else {
+              otherSideBuilder_.addAllMessages(other.otherSide_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getOneSideCount(); i++) {
+          if (!getOneSide(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getOtherSideCount(); i++) {
+          if (!getOtherSide(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.DataProtos.BattleInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.DataProtos.BattleInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .communication.protos.Command oneSide = 2;
+      private java.util.List<communication.protos.DataProtos.Command> oneSide_ =
+        java.util.Collections.emptyList();
+      private void ensureOneSideIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          oneSide_ = new java.util.ArrayList<communication.protos.DataProtos.Command>(oneSide_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> oneSideBuilder_;
+
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public java.util.List<communication.protos.DataProtos.Command> getOneSideList() {
+        if (oneSideBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(oneSide_);
+        } else {
+          return oneSideBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public int getOneSideCount() {
+        if (oneSideBuilder_ == null) {
+          return oneSide_.size();
+        } else {
+          return oneSideBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public communication.protos.DataProtos.Command getOneSide(int index) {
+        if (oneSideBuilder_ == null) {
+          return oneSide_.get(index);
+        } else {
+          return oneSideBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder setOneSide(
+          int index, communication.protos.DataProtos.Command value) {
+        if (oneSideBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOneSideIsMutable();
+          oneSide_.set(index, value);
+          onChanged();
+        } else {
+          oneSideBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder setOneSide(
+          int index, communication.protos.DataProtos.Command.Builder builderForValue) {
+        if (oneSideBuilder_ == null) {
+          ensureOneSideIsMutable();
+          oneSide_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          oneSideBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder addOneSide(communication.protos.DataProtos.Command value) {
+        if (oneSideBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOneSideIsMutable();
+          oneSide_.add(value);
+          onChanged();
+        } else {
+          oneSideBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder addOneSide(
+          int index, communication.protos.DataProtos.Command value) {
+        if (oneSideBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOneSideIsMutable();
+          oneSide_.add(index, value);
+          onChanged();
+        } else {
+          oneSideBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder addOneSide(
+          communication.protos.DataProtos.Command.Builder builderForValue) {
+        if (oneSideBuilder_ == null) {
+          ensureOneSideIsMutable();
+          oneSide_.add(builderForValue.build());
+          onChanged();
+        } else {
+          oneSideBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder addOneSide(
+          int index, communication.protos.DataProtos.Command.Builder builderForValue) {
+        if (oneSideBuilder_ == null) {
+          ensureOneSideIsMutable();
+          oneSide_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          oneSideBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder addAllOneSide(
+          java.lang.Iterable<? extends communication.protos.DataProtos.Command> values) {
+        if (oneSideBuilder_ == null) {
+          ensureOneSideIsMutable();
+          super.addAll(values, oneSide_);
+          onChanged();
+        } else {
+          oneSideBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder clearOneSide() {
+        if (oneSideBuilder_ == null) {
+          oneSide_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          oneSideBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public Builder removeOneSide(int index) {
+        if (oneSideBuilder_ == null) {
+          ensureOneSideIsMutable();
+          oneSide_.remove(index);
+          onChanged();
+        } else {
+          oneSideBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public communication.protos.DataProtos.Command.Builder getOneSideBuilder(
+          int index) {
+        return getOneSideFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public communication.protos.DataProtos.CommandOrBuilder getOneSideOrBuilder(
+          int index) {
+        if (oneSideBuilder_ == null) {
+          return oneSide_.get(index);  } else {
+          return oneSideBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
+           getOneSideOrBuilderList() {
+        if (oneSideBuilder_ != null) {
+          return oneSideBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(oneSide_);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public communication.protos.DataProtos.Command.Builder addOneSideBuilder() {
+        return getOneSideFieldBuilder().addBuilder(
+            communication.protos.DataProtos.Command.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public communication.protos.DataProtos.Command.Builder addOneSideBuilder(
+          int index) {
+        return getOneSideFieldBuilder().addBuilder(
+            index, communication.protos.DataProtos.Command.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       */
+      public java.util.List<communication.protos.DataProtos.Command.Builder> 
+           getOneSideBuilderList() {
+        return getOneSideFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> 
+          getOneSideFieldBuilder() {
+        if (oneSideBuilder_ == null) {
+          oneSideBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder>(
+                  oneSide_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          oneSide_ = null;
+        }
+        return oneSideBuilder_;
+      }
+
+      // repeated .communication.protos.Command otherSide = 3;
+      private java.util.List<communication.protos.DataProtos.Command> otherSide_ =
+        java.util.Collections.emptyList();
+      private void ensureOtherSideIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          otherSide_ = new java.util.ArrayList<communication.protos.DataProtos.Command>(otherSide_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> otherSideBuilder_;
+
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public java.util.List<communication.protos.DataProtos.Command> getOtherSideList() {
+        if (otherSideBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(otherSide_);
+        } else {
+          return otherSideBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public int getOtherSideCount() {
+        if (otherSideBuilder_ == null) {
+          return otherSide_.size();
+        } else {
+          return otherSideBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public communication.protos.DataProtos.Command getOtherSide(int index) {
+        if (otherSideBuilder_ == null) {
+          return otherSide_.get(index);
+        } else {
+          return otherSideBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder setOtherSide(
+          int index, communication.protos.DataProtos.Command value) {
+        if (otherSideBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOtherSideIsMutable();
+          otherSide_.set(index, value);
+          onChanged();
+        } else {
+          otherSideBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder setOtherSide(
+          int index, communication.protos.DataProtos.Command.Builder builderForValue) {
+        if (otherSideBuilder_ == null) {
+          ensureOtherSideIsMutable();
+          otherSide_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          otherSideBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder addOtherSide(communication.protos.DataProtos.Command value) {
+        if (otherSideBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOtherSideIsMutable();
+          otherSide_.add(value);
+          onChanged();
+        } else {
+          otherSideBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder addOtherSide(
+          int index, communication.protos.DataProtos.Command value) {
+        if (otherSideBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOtherSideIsMutable();
+          otherSide_.add(index, value);
+          onChanged();
+        } else {
+          otherSideBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder addOtherSide(
+          communication.protos.DataProtos.Command.Builder builderForValue) {
+        if (otherSideBuilder_ == null) {
+          ensureOtherSideIsMutable();
+          otherSide_.add(builderForValue.build());
+          onChanged();
+        } else {
+          otherSideBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder addOtherSide(
+          int index, communication.protos.DataProtos.Command.Builder builderForValue) {
+        if (otherSideBuilder_ == null) {
+          ensureOtherSideIsMutable();
+          otherSide_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          otherSideBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder addAllOtherSide(
+          java.lang.Iterable<? extends communication.protos.DataProtos.Command> values) {
+        if (otherSideBuilder_ == null) {
+          ensureOtherSideIsMutable();
+          super.addAll(values, otherSide_);
+          onChanged();
+        } else {
+          otherSideBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder clearOtherSide() {
+        if (otherSideBuilder_ == null) {
+          otherSide_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          otherSideBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public Builder removeOtherSide(int index) {
+        if (otherSideBuilder_ == null) {
+          ensureOtherSideIsMutable();
+          otherSide_.remove(index);
+          onChanged();
+        } else {
+          otherSideBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public communication.protos.DataProtos.Command.Builder getOtherSideBuilder(
+          int index) {
+        return getOtherSideFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public communication.protos.DataProtos.CommandOrBuilder getOtherSideOrBuilder(
+          int index) {
+        if (otherSideBuilder_ == null) {
+          return otherSide_.get(index);  } else {
+          return otherSideBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
+           getOtherSideOrBuilderList() {
+        if (otherSideBuilder_ != null) {
+          return otherSideBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(otherSide_);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public communication.protos.DataProtos.Command.Builder addOtherSideBuilder() {
+        return getOtherSideFieldBuilder().addBuilder(
+            communication.protos.DataProtos.Command.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public communication.protos.DataProtos.Command.Builder addOtherSideBuilder(
+          int index) {
+        return getOtherSideFieldBuilder().addBuilder(
+            index, communication.protos.DataProtos.Command.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       */
+      public java.util.List<communication.protos.DataProtos.Command.Builder> 
+           getOtherSideBuilderList() {
+        return getOtherSideFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> 
+          getOtherSideFieldBuilder() {
+        if (otherSideBuilder_ == null) {
+          otherSideBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder>(
+                  otherSide_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          otherSide_ = null;
+        }
+        return otherSideBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.BattleInfo)
+    }
+
+    static {
+      defaultInstance = new BattleInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.BattleInfo)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -8824,6 +10543,16 @@ public final class DataProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_communication_protos_Command_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_TroopNumber_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_TroopNumber_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_BattleInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_BattleInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -8840,31 +10569,36 @@ public final class DataProtos {
       "es\030\003 \003(\0132%.communication.protos.GameDesc" +
       "ription\0226\n\013joinedGames\030\004 \003(\0132!.communica" +
       "tion.protos.GameContext\"*\n\004User\022\016\n\006userI" +
-      "d\030\001 \002(\003\022\022\n\nfacebookId\030\002 \001(\003\"\205\001\n\006Player\022(" +
-      "\n\004user\030\001 \002(\0132\032.communication.protos.User" +
-      "\022\r\n\005color\030\002 \002(\005\022\024\n\014isPlayedMove\030\003 \002(\010\022\r\n",
-      "\005cards\030\004 \003(\005\022\035\n\025numberOfReinforcments\030\005 " +
-      "\001(\005\"=\n\016UserStatistics\022\025\n\rnumberOfGames\030\001" +
-      " \002(\005\022\024\n\014numberOfWins\030\002 \002(\005\"\357\001\n\013GameConte" +
-      "xt\022@\n\020lightGameContext\030\002 \002(\0132&.communica" +
-      "tion.protos.LightGameContext\0224\n\013territor" +
-      "ies\030\003 \003(\0132\037.communication.protos.Territo" +
-      "ry\0221\n\talliances\030\004 \003(\0132\036.communication.pr" +
-      "otos.Alliance\0225\n\016pendingComands\030\005 \003(\0132\035." +
-      "communication.protos.Command\"\245\001\n\020LightGa" +
-      "meContext\022>\n\017gameDescription\030\001 \002(\0132%.com",
-      "munication.protos.GameDescription\022\r\n\005rou" +
-      "nd\030\002 \002(\005\022\r\n\005phase\030\003 \002(\005\0223\n\rplayersInGame" +
-      "\030\004 \003(\0132\034.communication.protos.Player\"~\n\017" +
-      "GameDescription\022\016\n\006gameId\030\001 \001(\003\022\020\n\010gameN" +
-      "ame\030\002 \002(\t\022\027\n\017numberOfPlayers\030\003 \002(\005\022\035\n\025nu" +
-      "mberOfJoinedPlayers\030\004 \002(\005\022\021\n\tobjective\030\005" +
-      " \002(\005\";\n\tTerritory\022\n\n\002id\030\001 \002(\005\022\022\n\ntroopsO" +
-      "nIt\030\002 \002(\005\022\016\n\006userId\030\003 \002(\003\":\n\010Alliance\022\017\n" +
-      "\007userId1\030\001 \002(\003\022\017\n\007userId2\030\002 \002(\003\022\014\n\004type\030" +
-      "\003 \002(\005\"j\n\007Command\022\021\n\tcommandId\030\001 \001(\005\022\027\n\017s",
-      "ourceTerritory\030\002 \002(\005\022\034\n\024destinationTerri" +
-      "tory\030\003 \002(\005\022\025\n\rnumberOfUnits\030\004 \002(\005"
+      "d\030\001 \002(\003\022\022\n\nfacebookId\030\002 \001(\003\"\227\001\n\006Player\022\020" +
+      "\n\010playerId\030\001 \002(\005\022(\n\004user\030\002 \001(\0132\032.communi" +
+      "cation.protos.User\022\r\n\005color\030\003 \002(\005\022\024\n\014isP",
+      "layedMove\030\004 \002(\010\022\r\n\005cards\030\005 \003(\005\022\035\n\025number" +
+      "OfReinforcments\030\006 \001(\005\"=\n\016UserStatistics\022" +
+      "\025\n\rnumberOfGames\030\001 \002(\005\022\024\n\014numberOfWins\030\002" +
+      " \002(\005\"\357\001\n\013GameContext\022@\n\020lightGameContext" +
+      "\030\002 \002(\0132&.communication.protos.LightGameC" +
+      "ontext\0224\n\013territories\030\003 \003(\0132\037.communicat" +
+      "ion.protos.Territory\0221\n\talliances\030\004 \003(\0132" +
+      "\036.communication.protos.Alliance\0225\n\016pendi" +
+      "ngComands\030\005 \003(\0132\035.communication.protos.C" +
+      "ommand\"\245\001\n\020LightGameContext\022>\n\017gameDescr",
+      "iption\030\001 \002(\0132%.communication.protos.Game" +
+      "Description\022\r\n\005round\030\002 \002(\005\022\r\n\005phase\030\003 \002(" +
+      "\005\0223\n\rplayersInGame\030\004 \003(\0132\034.communication" +
+      ".protos.Player\"~\n\017GameDescription\022\016\n\006gam" +
+      "eId\030\001 \001(\003\022\020\n\010gameName\030\002 \002(\t\022\027\n\017numberOfP" +
+      "layers\030\003 \002(\005\022\035\n\025numberOfJoinedPlayers\030\004 " +
+      "\002(\005\022\021\n\tobjective\030\005 \002(\005\"=\n\tTerritory\022\n\n\002i" +
+      "d\030\001 \002(\005\022\022\n\ntroopsOnIt\030\002 \002(\005\022\020\n\010playerId\030" +
+      "\003 \002(\005\":\n\010Alliance\022\017\n\007userId1\030\001 \002(\003\022\017\n\007us" +
+      "erId2\030\002 \002(\003\022\014\n\004type\030\003 \002(\005\"x\n\007Command\022\021\n\t",
+      "commandId\030\001 \001(\005\022\027\n\017sourceTerritory\030\002 \002(\005" +
+      "\022\034\n\024destinationTerritory\030\003 \002(\005\022\025\n\rnumber" +
+      "OfUnits\030\004 \002(\005\022\014\n\004seed\030\005 \001(\003\"3\n\013TroopNumb" +
+      "er\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013troopNumber\030\002 \002(\005" +
+      "\"n\n\nBattleInfo\022.\n\007oneSide\030\002 \003(\0132\035.commun" +
+      "ication.protos.Command\0220\n\totherSide\030\003 \003(" +
+      "\0132\035.communication.protos.Command"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -8888,7 +10622,7 @@ public final class DataProtos {
           internal_static_communication_protos_Player_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_Player_descriptor,
-              new java.lang.String[] { "User", "Color", "IsPlayedMove", "Cards", "NumberOfReinforcments", });
+              new java.lang.String[] { "PlayerId", "User", "Color", "IsPlayedMove", "Cards", "NumberOfReinforcments", });
           internal_static_communication_protos_UserStatistics_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_communication_protos_UserStatistics_fieldAccessorTable = new
@@ -8918,7 +10652,7 @@ public final class DataProtos {
           internal_static_communication_protos_Territory_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_Territory_descriptor,
-              new java.lang.String[] { "Id", "TroopsOnIt", "UserId", });
+              new java.lang.String[] { "Id", "TroopsOnIt", "PlayerId", });
           internal_static_communication_protos_Alliance_descriptor =
             getDescriptor().getMessageTypes().get(8);
           internal_static_communication_protos_Alliance_fieldAccessorTable = new
@@ -8930,7 +10664,19 @@ public final class DataProtos {
           internal_static_communication_protos_Command_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_Command_descriptor,
-              new java.lang.String[] { "CommandId", "SourceTerritory", "DestinationTerritory", "NumberOfUnits", });
+              new java.lang.String[] { "CommandId", "SourceTerritory", "DestinationTerritory", "NumberOfUnits", "Seed", });
+          internal_static_communication_protos_TroopNumber_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_communication_protos_TroopNumber_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_TroopNumber_descriptor,
+              new java.lang.String[] { "FieldId", "TroopNumber", });
+          internal_static_communication_protos_BattleInfo_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_communication_protos_BattleInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_BattleInfo_descriptor,
+              new java.lang.String[] { "OneSide", "OtherSide", });
           return null;
         }
       };

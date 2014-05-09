@@ -15,11 +15,12 @@ message User {
 }
 
 message Player {
-	required User user = 1;
-	required int32 color = 2;
-	required bool isPlayedMove = 3;
-	repeated int32 cards = 4;
-	optional int32 numberOfReinforcments = 5;
+	required int32 playerId = 1;
+	optional User user = 2;
+	required int32 color = 3;
+	required bool isPlayedMove = 4;
+	repeated int32 cards = 5;
+	optional int32 numberOfReinforcments = 6;
 }
 
 message UserStatistics {
@@ -52,7 +53,7 @@ message GameDescription {
 message Territory {
 	required int32 id = 1;
 	required int32 troopsOnIt = 2;
-	required int64 userId = 3;
+	required int32 playerId = 3;
 }
 
 message Alliance {
@@ -65,5 +66,16 @@ message Command {
 	optional int32 commandId = 1;
 	required int32 sourceTerritory = 2;
 	required int32 destinationTerritory = 3;
-	required int32 numberOfUnits = 4;
+	required int32 numberOfUnits = 4;	
+	optional int64 seed = 5;
+}
+
+message TroopNumber {
+	required int32 fieldId = 1;
+	required int32 troopNumber = 2;
+}
+
+message BattleInfo {
+	repeated Command oneSide = 2;
+	repeated Command otherSide = 3;
 }
