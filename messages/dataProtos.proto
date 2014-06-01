@@ -61,9 +61,26 @@ message Alliance {
 	required int32 type = 3;
 }
 
+message Dices {
+	required int32 dice1 = 1;
+	required int32 dice2 = 2;
+	required int32 dice3 = 3;
+}
+
 message Command {
 	optional int32 commandId = 1;
 	required int32 sourceTerritory = 2;
 	required int32 destinationTerritory = 3;
-	required int32 numberOfUnits = 4;
+	required int32 numberOfUnits = 4;	
+	optional int64 seed = 5;
+}
+
+message TroopNumber {
+	required int32 fieldId = 1;
+	required int32 troopNumber = 2;
+}
+
+message BattleInfo {
+	repeated Command oneSide = 2;
+	repeated Command otherSide = 3;
 }

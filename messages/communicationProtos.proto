@@ -128,9 +128,39 @@ message AttackRequest {
 message AttackResponse {
 }
 
-message RollDiceRequest {
+message AdvancePhaseNotification {
 }
 
-message RollDiceResponse {
-	required int32 number = 1;
+message CommandsSubmittedRequest {
+	required int64 gameId = 1;
+}
+
+message CommandsSubmittedResponse {
+}
+
+message AllCommands {
+	repeated Command commands = 1;
+}
+
+message BorderClashes {
+	required int64 gameId = 1;
+	repeated BattleInfo battleInfo = 2;
+}
+
+message AdvanceToNextBattle {
+	required int64 gameId = 1;
+	required BattleInfo battleInfo = 2;
+}
+
+message BattleResolution {
+	repeated TroopNumber troopNumber = 1;
+}
+
+message RollDiceClicked {
+	required int64 gameId = 1;
+}
+
+message PlayerRolledDice {
+	required int64 gameId = 1;
+	required User user = 2;
 }
