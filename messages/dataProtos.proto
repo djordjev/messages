@@ -62,6 +62,12 @@ message Alliance {
 	required int32 type = 3;
 }
 
+message Dices {
+	required int32 dice1 = 1;
+	required int32 dice2 = 2;
+	required int32 dice3 = 3;
+}
+
 message Command {
 	optional int32 commandId = 1;
 	required int32 sourceTerritory = 2;

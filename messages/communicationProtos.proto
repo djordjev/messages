@@ -147,6 +147,21 @@ message BorderClashes {
 	repeated BattleInfo battleInfo = 2;
 }
 
+message MultipleAttacks {
+	required int64 gameId = 1;
+	repeated BattleInfo battleInfo = 2;
+}
+
+message SingleAttacks {
+	required int64 gameId = 1;
+	repeated BattleInfo battleInfo = 2;
+}
+
+message SpoilsOfWar {
+	required int64 gameId = 1;
+	repeated BattleInfo battleInfo = 2;
+}
+
 message AdvanceToNextBattle {
 	required int64 gameId = 1;
 	required BattleInfo battleInfo = 2;
