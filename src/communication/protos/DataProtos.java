@@ -8196,6 +8196,588 @@ public final class DataProtos {
     // @@protoc_insertion_point(class_scope:communication.protos.Alliance)
   }
 
+  public interface DicesOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 dice1 = 1;
+    /**
+     * <code>required int32 dice1 = 1;</code>
+     */
+    boolean hasDice1();
+    /**
+     * <code>required int32 dice1 = 1;</code>
+     */
+    int getDice1();
+
+    // required int32 dice2 = 2;
+    /**
+     * <code>required int32 dice2 = 2;</code>
+     */
+    boolean hasDice2();
+    /**
+     * <code>required int32 dice2 = 2;</code>
+     */
+    int getDice2();
+
+    // required int32 dice3 = 3;
+    /**
+     * <code>required int32 dice3 = 3;</code>
+     */
+    boolean hasDice3();
+    /**
+     * <code>required int32 dice3 = 3;</code>
+     */
+    int getDice3();
+  }
+  /**
+   * Protobuf type {@code communication.protos.Dices}
+   */
+  public static final class Dices extends
+      com.google.protobuf.GeneratedMessage
+      implements DicesOrBuilder {
+    // Use Dices.newBuilder() to construct.
+    private Dices(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Dices(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Dices defaultInstance;
+    public static Dices getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Dices getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Dices(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              dice1_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              dice2_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              dice3_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.DataProtos.internal_static_communication_protos_Dices_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.DataProtos.internal_static_communication_protos_Dices_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.DataProtos.Dices.class, communication.protos.DataProtos.Dices.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Dices> PARSER =
+        new com.google.protobuf.AbstractParser<Dices>() {
+      public Dices parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Dices(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Dices> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 dice1 = 1;
+    public static final int DICE1_FIELD_NUMBER = 1;
+    private int dice1_;
+    /**
+     * <code>required int32 dice1 = 1;</code>
+     */
+    public boolean hasDice1() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 dice1 = 1;</code>
+     */
+    public int getDice1() {
+      return dice1_;
+    }
+
+    // required int32 dice2 = 2;
+    public static final int DICE2_FIELD_NUMBER = 2;
+    private int dice2_;
+    /**
+     * <code>required int32 dice2 = 2;</code>
+     */
+    public boolean hasDice2() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 dice2 = 2;</code>
+     */
+    public int getDice2() {
+      return dice2_;
+    }
+
+    // required int32 dice3 = 3;
+    public static final int DICE3_FIELD_NUMBER = 3;
+    private int dice3_;
+    /**
+     * <code>required int32 dice3 = 3;</code>
+     */
+    public boolean hasDice3() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 dice3 = 3;</code>
+     */
+    public int getDice3() {
+      return dice3_;
+    }
+
+    private void initFields() {
+      dice1_ = 0;
+      dice2_ = 0;
+      dice3_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasDice1()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDice2()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDice3()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, dice1_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, dice2_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, dice3_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, dice1_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, dice2_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, dice3_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.DataProtos.Dices parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.Dices parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Dices parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.Dices parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Dices parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.Dices parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Dices parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.DataProtos.Dices parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Dices parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.Dices parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.DataProtos.Dices prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.Dices}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.DataProtos.DicesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.DataProtos.internal_static_communication_protos_Dices_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.DataProtos.internal_static_communication_protos_Dices_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.DataProtos.Dices.class, communication.protos.DataProtos.Dices.Builder.class);
+      }
+
+      // Construct using communication.protos.DataProtos.Dices.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        dice1_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dice2_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dice3_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.DataProtos.internal_static_communication_protos_Dices_descriptor;
+      }
+
+      public communication.protos.DataProtos.Dices getDefaultInstanceForType() {
+        return communication.protos.DataProtos.Dices.getDefaultInstance();
+      }
+
+      public communication.protos.DataProtos.Dices build() {
+        communication.protos.DataProtos.Dices result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.DataProtos.Dices buildPartial() {
+        communication.protos.DataProtos.Dices result = new communication.protos.DataProtos.Dices(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.dice1_ = dice1_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.dice2_ = dice2_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.dice3_ = dice3_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.DataProtos.Dices) {
+          return mergeFrom((communication.protos.DataProtos.Dices)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.DataProtos.Dices other) {
+        if (other == communication.protos.DataProtos.Dices.getDefaultInstance()) return this;
+        if (other.hasDice1()) {
+          setDice1(other.getDice1());
+        }
+        if (other.hasDice2()) {
+          setDice2(other.getDice2());
+        }
+        if (other.hasDice3()) {
+          setDice3(other.getDice3());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasDice1()) {
+          
+          return false;
+        }
+        if (!hasDice2()) {
+          
+          return false;
+        }
+        if (!hasDice3()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.DataProtos.Dices parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.DataProtos.Dices) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 dice1 = 1;
+      private int dice1_ ;
+      /**
+       * <code>required int32 dice1 = 1;</code>
+       */
+      public boolean hasDice1() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 dice1 = 1;</code>
+       */
+      public int getDice1() {
+        return dice1_;
+      }
+      /**
+       * <code>required int32 dice1 = 1;</code>
+       */
+      public Builder setDice1(int value) {
+        bitField0_ |= 0x00000001;
+        dice1_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 dice1 = 1;</code>
+       */
+      public Builder clearDice1() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dice1_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 dice2 = 2;
+      private int dice2_ ;
+      /**
+       * <code>required int32 dice2 = 2;</code>
+       */
+      public boolean hasDice2() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 dice2 = 2;</code>
+       */
+      public int getDice2() {
+        return dice2_;
+      }
+      /**
+       * <code>required int32 dice2 = 2;</code>
+       */
+      public Builder setDice2(int value) {
+        bitField0_ |= 0x00000002;
+        dice2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 dice2 = 2;</code>
+       */
+      public Builder clearDice2() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dice2_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 dice3 = 3;
+      private int dice3_ ;
+      /**
+       * <code>required int32 dice3 = 3;</code>
+       */
+      public boolean hasDice3() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 dice3 = 3;</code>
+       */
+      public int getDice3() {
+        return dice3_;
+      }
+      /**
+       * <code>required int32 dice3 = 3;</code>
+       */
+      public Builder setDice3(int value) {
+        bitField0_ |= 0x00000004;
+        dice3_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 dice3 = 3;</code>
+       */
+      public Builder clearDice3() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        dice3_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.Dices)
+    }
+
+    static {
+      defaultInstance = new Dices(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.Dices)
+  }
+
   public interface CommandOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -10539,6 +11121,11 @@ public final class DataProtos {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_communication_protos_Alliance_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_Dices_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_Dices_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_communication_protos_Command_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -10591,14 +11178,16 @@ public final class DataProtos {
       "\002(\005\022\021\n\tobjective\030\005 \002(\005\"=\n\tTerritory\022\n\n\002i" +
       "d\030\001 \002(\005\022\022\n\ntroopsOnIt\030\002 \002(\005\022\020\n\010playerId\030" +
       "\003 \002(\005\":\n\010Alliance\022\017\n\007userId1\030\001 \002(\003\022\017\n\007us" +
-      "erId2\030\002 \002(\003\022\014\n\004type\030\003 \002(\005\"x\n\007Command\022\021\n\t",
-      "commandId\030\001 \001(\005\022\027\n\017sourceTerritory\030\002 \002(\005" +
-      "\022\034\n\024destinationTerritory\030\003 \002(\005\022\025\n\rnumber" +
-      "OfUnits\030\004 \002(\005\022\014\n\004seed\030\005 \001(\003\"3\n\013TroopNumb" +
-      "er\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013troopNumber\030\002 \002(\005" +
-      "\"n\n\nBattleInfo\022.\n\007oneSide\030\002 \003(\0132\035.commun" +
-      "ication.protos.Command\0220\n\totherSide\030\003 \003(" +
-      "\0132\035.communication.protos.Command"
+      "erId2\030\002 \002(\003\022\014\n\004type\030\003 \002(\005\"4\n\005Dices\022\r\n\005di",
+      "ce1\030\001 \002(\005\022\r\n\005dice2\030\002 \002(\005\022\r\n\005dice3\030\003 \002(\005\"" +
+      "x\n\007Command\022\021\n\tcommandId\030\001 \001(\005\022\027\n\017sourceT" +
+      "erritory\030\002 \002(\005\022\034\n\024destinationTerritory\030\003" +
+      " \002(\005\022\025\n\rnumberOfUnits\030\004 \002(\005\022\014\n\004seed\030\005 \001(" +
+      "\003\"3\n\013TroopNumber\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013tro" +
+      "opNumber\030\002 \002(\005\"n\n\nBattleInfo\022.\n\007oneSide\030" +
+      "\002 \003(\0132\035.communication.protos.Command\0220\n\t" +
+      "otherSide\030\003 \003(\0132\035.communication.protos.C" +
+      "ommand"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -10659,20 +11248,26 @@ public final class DataProtos {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_Alliance_descriptor,
               new java.lang.String[] { "UserId1", "UserId2", "Type", });
-          internal_static_communication_protos_Command_descriptor =
+          internal_static_communication_protos_Dices_descriptor =
             getDescriptor().getMessageTypes().get(9);
+          internal_static_communication_protos_Dices_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_Dices_descriptor,
+              new java.lang.String[] { "Dice1", "Dice2", "Dice3", });
+          internal_static_communication_protos_Command_descriptor =
+            getDescriptor().getMessageTypes().get(10);
           internal_static_communication_protos_Command_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_Command_descriptor,
               new java.lang.String[] { "CommandId", "SourceTerritory", "DestinationTerritory", "NumberOfUnits", "Seed", });
           internal_static_communication_protos_TroopNumber_descriptor =
-            getDescriptor().getMessageTypes().get(10);
+            getDescriptor().getMessageTypes().get(11);
           internal_static_communication_protos_TroopNumber_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_TroopNumber_descriptor,
               new java.lang.String[] { "FieldId", "TroopNumber", });
           internal_static_communication_protos_BattleInfo_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(12);
           internal_static_communication_protos_BattleInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_BattleInfo_descriptor,

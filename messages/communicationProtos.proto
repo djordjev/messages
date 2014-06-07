@@ -131,6 +131,11 @@ message AttackResponse {
 message AdvancePhaseNotification {
 }
 
+message JoinGameNotification {
+	required int64 gameId = 1;
+	required Player player = 2;
+}
+
 message CommandsSubmittedRequest {
 	required int64 gameId = 1;
 }
