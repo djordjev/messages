@@ -14313,6 +14313,16 @@ public final class CommunicationProtos {
 
   public interface AdvancePhaseNotificationOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 gameId = 1;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    long getGameId();
   }
   /**
    * Protobuf type {@code communication.protos.AdvancePhaseNotification}
@@ -14347,6 +14357,7 @@ public final class CommunicationProtos {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -14362,6 +14373,11 @@ public final class CommunicationProtos {
                                      extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              gameId_ = input.readInt64();
               break;
             }
           }
@@ -14403,13 +14419,35 @@ public final class CommunicationProtos {
       return PARSER;
     }
 
+    private int bitField0_;
+    // required int64 gameId = 1;
+    public static final int GAMEID_FIELD_NUMBER = 1;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
     private void initFields() {
+      gameId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -14417,6 +14455,9 @@ public final class CommunicationProtos {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, gameId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -14426,6 +14467,10 @@ public final class CommunicationProtos {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, gameId_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -14542,6 +14587,8 @@ public final class CommunicationProtos {
 
       public Builder clear() {
         super.clear();
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -14568,6 +14615,13 @@ public final class CommunicationProtos {
 
       public communication.protos.CommunicationProtos.AdvancePhaseNotification buildPartial() {
         communication.protos.CommunicationProtos.AdvancePhaseNotification result = new communication.protos.CommunicationProtos.AdvancePhaseNotification(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.gameId_ = gameId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -14583,11 +14637,18 @@ public final class CommunicationProtos {
 
       public Builder mergeFrom(communication.protos.CommunicationProtos.AdvancePhaseNotification other) {
         if (other == communication.protos.CommunicationProtos.AdvancePhaseNotification.getDefaultInstance()) return this;
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
+        if (!hasGameId()) {
+          
+          return false;
+        }
         return true;
       }
 
@@ -14606,6 +14667,40 @@ public final class CommunicationProtos {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 gameId = 1;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000001;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        onChanged();
         return this;
       }
 
@@ -22318,29 +22413,30 @@ public final class CommunicationProtos {
       "ion.protos.Command\022\016\n\006gameId\030\002 \002(\003\"\023\n\021Mo",
       "veUnitsResponse\"O\n\rAttackRequest\022.\n\007comm" +
       "and\030\001 \002(\0132\035.communication.protos.Command" +
-      "\022\016\n\006gameId\030\002 \002(\003\"\020\n\016AttackResponse\"\032\n\030Ad" +
-      "vancePhaseNotification\"T\n\024JoinGameNotifi" +
-      "cation\022\016\n\006gameId\030\001 \002(\003\022,\n\006player\030\002 \002(\0132\034" +
-      ".communication.protos.Player\"*\n\030Commands" +
-      "SubmittedRequest\022\016\n\006gameId\030\001 \002(\003\"\033\n\031Comm" +
-      "andsSubmittedResponse\">\n\013AllCommands\022/\n\010" +
-      "commands\030\001 \003(\0132\035.communication.protos.Co" +
-      "mmand\"U\n\rBorderClashes\022\016\n\006gameId\030\001 \002(\003\0224",
-      "\n\nbattleInfo\030\002 \003(\0132 .communication.proto" +
-      "s.BattleInfo\"W\n\017MultipleAttacks\022\016\n\006gameI" +
-      "d\030\001 \002(\003\0224\n\nbattleInfo\030\002 \003(\0132 .communicat" +
-      "ion.protos.BattleInfo\"U\n\rSingleAttacks\022\016" +
+      "\022\016\n\006gameId\030\002 \002(\003\"\020\n\016AttackResponse\"*\n\030Ad" +
+      "vancePhaseNotification\022\016\n\006gameId\030\001 \002(\003\"T" +
+      "\n\024JoinGameNotification\022\016\n\006gameId\030\001 \002(\003\022," +
+      "\n\006player\030\002 \002(\0132\034.communication.protos.Pl" +
+      "ayer\"*\n\030CommandsSubmittedRequest\022\016\n\006game" +
+      "Id\030\001 \002(\003\"\033\n\031CommandsSubmittedResponse\">\n" +
+      "\013AllCommands\022/\n\010commands\030\001 \003(\0132\035.communi" +
+      "cation.protos.Command\"U\n\rBorderClashes\022\016",
       "\n\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030\002 \003(\0132 .com" +
-      "munication.protos.BattleInfo\"S\n\013SpoilsOf" +
-      "War\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030\002 \003(\0132" +
-      " .communication.protos.BattleInfo\"[\n\023Adv" +
-      "anceToNextBattle\022\016\n\006gameId\030\001 \002(\003\0224\n\nbatt" +
-      "leInfo\030\002 \002(\0132 .communication.protos.Batt",
-      "leInfo\"J\n\020BattleResolution\0226\n\013troopNumbe" +
-      "r\030\001 \003(\0132!.communication.protos.TroopNumb" +
-      "er\"!\n\017RollDiceClicked\022\016\n\006gameId\030\001 \002(\003\"L\n" +
-      "\020PlayerRolledDice\022\016\n\006gameId\030\001 \002(\003\022(\n\004use" +
-      "r\030\002 \002(\0132\032.communication.protos.UserP\000"
+      "munication.protos.BattleInfo\"W\n\017Multiple" +
+      "Attacks\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030\002 " +
+      "\003(\0132 .communication.protos.BattleInfo\"U\n" +
+      "\rSingleAttacks\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattle" +
+      "Info\030\002 \003(\0132 .communication.protos.Battle" +
+      "Info\"S\n\013SpoilsOfWar\022\016\n\006gameId\030\001 \002(\003\0224\n\nb" +
+      "attleInfo\030\002 \003(\0132 .communication.protos.B" +
+      "attleInfo\"[\n\023AdvanceToNextBattle\022\016\n\006game" +
+      "Id\030\001 \002(\003\0224\n\nbattleInfo\030\002 \002(\0132 .communica",
+      "tion.protos.BattleInfo\"J\n\020BattleResoluti" +
+      "on\0226\n\013troopNumber\030\001 \003(\0132!.communication." +
+      "protos.TroopNumber\"!\n\017RollDiceClicked\022\016\n" +
+      "\006gameId\030\001 \002(\003\"L\n\020PlayerRolledDice\022\016\n\006gam" +
+      "eId\030\001 \002(\003\022(\n\004user\030\002 \002(\0132\032.communication." +
+      "protos.UserP\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -22526,7 +22622,7 @@ public final class CommunicationProtos {
           internal_static_communication_protos_AdvancePhaseNotification_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_AdvancePhaseNotification_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { "GameId", });
           internal_static_communication_protos_JoinGameNotification_descriptor =
             getDescriptor().getMessageTypes().get(30);
           internal_static_communication_protos_JoinGameNotification_fieldAccessorTable = new

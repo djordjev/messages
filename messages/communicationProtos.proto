@@ -129,6 +129,7 @@ message AttackResponse {
 }
 
 message AdvancePhaseNotification {
+	required int64 gameId = 1;
 }
 
 message JoinGameNotification {
