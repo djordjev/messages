@@ -130,6 +130,7 @@ message AttackResponse {
 
 message AdvancePhaseNotification {
 	required int64 gameId = 1;
+	repeated Territory territories = 2;
 }
 
 message JoinGameNotification {
