@@ -146,7 +146,8 @@ message CommandsSubmittedResponse {
 }
 
 message AllCommands {
-	repeated Command commands = 1;
+	required int64 gameId = 1;
+	repeated Command commands = 2;
 }
 
 message BorderClashes {
