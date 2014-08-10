@@ -8821,15 +8821,15 @@ public final class DataProtos {
      */
     int getNumberOfUnits();
 
-    // optional int64 seed = 5;
+    // optional int32 seed = 5;
     /**
-     * <code>optional int64 seed = 5;</code>
+     * <code>optional int32 seed = 5;</code>
      */
     boolean hasSeed();
     /**
-     * <code>optional int64 seed = 5;</code>
+     * <code>optional int32 seed = 5;</code>
      */
-    long getSeed();
+    int getSeed();
   }
   /**
    * Protobuf type {@code communication.protos.Command}
@@ -8904,7 +8904,7 @@ public final class DataProtos {
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              seed_ = input.readInt64();
+              seed_ = input.readInt32();
               break;
             }
           }
@@ -9011,19 +9011,19 @@ public final class DataProtos {
       return numberOfUnits_;
     }
 
-    // optional int64 seed = 5;
+    // optional int32 seed = 5;
     public static final int SEED_FIELD_NUMBER = 5;
-    private long seed_;
+    private int seed_;
     /**
-     * <code>optional int64 seed = 5;</code>
+     * <code>optional int32 seed = 5;</code>
      */
     public boolean hasSeed() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int64 seed = 5;</code>
+     * <code>optional int32 seed = 5;</code>
      */
-    public long getSeed() {
+    public int getSeed() {
       return seed_;
     }
 
@@ -9032,7 +9032,7 @@ public final class DataProtos {
       sourceTerritory_ = 0;
       destinationTerritory_ = 0;
       numberOfUnits_ = 0;
-      seed_ = 0L;
+      seed_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -9071,7 +9071,7 @@ public final class DataProtos {
         output.writeInt32(4, numberOfUnits_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt64(5, seed_);
+        output.writeInt32(5, seed_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9100,7 +9100,7 @@ public final class DataProtos {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, seed_);
+          .computeInt32Size(5, seed_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9226,7 +9226,7 @@ public final class DataProtos {
         bitField0_ = (bitField0_ & ~0x00000004);
         numberOfUnits_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        seed_ = 0L;
+        seed_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -9478,35 +9478,35 @@ public final class DataProtos {
         return this;
       }
 
-      // optional int64 seed = 5;
-      private long seed_ ;
+      // optional int32 seed = 5;
+      private int seed_ ;
       /**
-       * <code>optional int64 seed = 5;</code>
+       * <code>optional int32 seed = 5;</code>
        */
       public boolean hasSeed() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int64 seed = 5;</code>
+       * <code>optional int32 seed = 5;</code>
        */
-      public long getSeed() {
+      public int getSeed() {
         return seed_;
       }
       /**
-       * <code>optional int64 seed = 5;</code>
+       * <code>optional int32 seed = 5;</code>
        */
-      public Builder setSeed(long value) {
+      public Builder setSeed(int value) {
         bitField0_ |= 0x00000010;
         seed_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 seed = 5;</code>
+       * <code>optional int32 seed = 5;</code>
        */
       public Builder clearSeed() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        seed_ = 0L;
+        seed_ = 0;
         onChanged();
         return this;
       }
@@ -11183,7 +11183,7 @@ public final class DataProtos {
       "x\n\007Command\022\021\n\tcommandId\030\001 \001(\005\022\027\n\017sourceT" +
       "erritory\030\002 \002(\005\022\034\n\024destinationTerritory\030\003" +
       " \002(\005\022\025\n\rnumberOfUnits\030\004 \002(\005\022\014\n\004seed\030\005 \001(" +
-      "\003\"3\n\013TroopNumber\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013tro" +
+      "\005\"3\n\013TroopNumber\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013tro" +
       "opNumber\030\002 \002(\005\"n\n\nBattleInfo\022.\n\007oneSide\030" +
       "\002 \003(\0132\035.communication.protos.Command\0220\n\t" +
       "otherSide\030\003 \003(\0132\035.communication.protos.C" +

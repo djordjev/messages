@@ -73,7 +73,7 @@ message Command {
 	required int32 sourceTerritory = 2;
 	required int32 destinationTerritory = 3;
 	required int32 numberOfUnits = 4;	
-	optional int64 seed = 5;
+	optional int32 seed = 5;
 }
 
 message TroopNumber {

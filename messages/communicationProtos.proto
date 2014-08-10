@@ -185,5 +185,5 @@ message RollDiceClicked {
 
 message PlayerRolledDice {
 	required int64 gameId = 1;
-	required User user = 2;
+	required int32 playerId = 2;
 }

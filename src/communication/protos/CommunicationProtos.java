@@ -22019,19 +22019,15 @@ public final class CommunicationProtos {
      */
     long getGameId();
 
-    // required .communication.protos.User user = 2;
+    // required int32 playerId = 2;
     /**
-     * <code>required .communication.protos.User user = 2;</code>
+     * <code>required int32 playerId = 2;</code>
      */
-    boolean hasUser();
+    boolean hasPlayerId();
     /**
-     * <code>required .communication.protos.User user = 2;</code>
+     * <code>required int32 playerId = 2;</code>
      */
-    communication.protos.DataProtos.User getUser();
-    /**
-     * <code>required .communication.protos.User user = 2;</code>
-     */
-    communication.protos.DataProtos.UserOrBuilder getUserOrBuilder();
+    int getPlayerId();
   }
   /**
    * Protobuf type {@code communication.protos.PlayerRolledDice}
@@ -22089,17 +22085,9 @@ public final class CommunicationProtos {
               gameId_ = input.readInt64();
               break;
             }
-            case 18: {
-              communication.protos.DataProtos.User.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = user_.toBuilder();
-              }
-              user_ = input.readMessage(communication.protos.DataProtos.User.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(user_);
-                user_ = subBuilder.buildPartial();
-              }
+            case 16: {
               bitField0_ |= 0x00000002;
+              playerId_ = input.readInt32();
               break;
             }
           }
@@ -22158,31 +22146,25 @@ public final class CommunicationProtos {
       return gameId_;
     }
 
-    // required .communication.protos.User user = 2;
-    public static final int USER_FIELD_NUMBER = 2;
-    private communication.protos.DataProtos.User user_;
+    // required int32 playerId = 2;
+    public static final int PLAYERID_FIELD_NUMBER = 2;
+    private int playerId_;
     /**
-     * <code>required .communication.protos.User user = 2;</code>
+     * <code>required int32 playerId = 2;</code>
      */
-    public boolean hasUser() {
+    public boolean hasPlayerId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required .communication.protos.User user = 2;</code>
+     * <code>required int32 playerId = 2;</code>
      */
-    public communication.protos.DataProtos.User getUser() {
-      return user_;
-    }
-    /**
-     * <code>required .communication.protos.User user = 2;</code>
-     */
-    public communication.protos.DataProtos.UserOrBuilder getUserOrBuilder() {
-      return user_;
+    public int getPlayerId() {
+      return playerId_;
     }
 
     private void initFields() {
       gameId_ = 0L;
-      user_ = communication.protos.DataProtos.User.getDefaultInstance();
+      playerId_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -22193,11 +22175,7 @@ public final class CommunicationProtos {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasUser()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getUser().isInitialized()) {
+      if (!hasPlayerId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -22212,7 +22190,7 @@ public final class CommunicationProtos {
         output.writeInt64(1, gameId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, user_);
+        output.writeInt32(2, playerId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -22229,7 +22207,7 @@ public final class CommunicationProtos {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, user_);
+          .computeInt32Size(2, playerId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -22339,7 +22317,6 @@ public final class CommunicationProtos {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getUserFieldBuilder();
         }
       }
       private static Builder create() {
@@ -22350,11 +22327,7 @@ public final class CommunicationProtos {
         super.clear();
         gameId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (userBuilder_ == null) {
-          user_ = communication.protos.DataProtos.User.getDefaultInstance();
-        } else {
-          userBuilder_.clear();
-        }
+        playerId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -22391,11 +22364,7 @@ public final class CommunicationProtos {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (userBuilder_ == null) {
-          result.user_ = user_;
-        } else {
-          result.user_ = userBuilder_.build();
-        }
+        result.playerId_ = playerId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -22415,8 +22384,8 @@ public final class CommunicationProtos {
         if (other.hasGameId()) {
           setGameId(other.getGameId());
         }
-        if (other.hasUser()) {
-          mergeUser(other.getUser());
+        if (other.hasPlayerId()) {
+          setPlayerId(other.getPlayerId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -22427,11 +22396,7 @@ public final class CommunicationProtos {
           
           return false;
         }
-        if (!hasUser()) {
-          
-          return false;
-        }
-        if (!getUser().isInitialized()) {
+        if (!hasPlayerId()) {
           
           return false;
         }
@@ -22490,121 +22455,37 @@ public final class CommunicationProtos {
         return this;
       }
 
-      // required .communication.protos.User user = 2;
-      private communication.protos.DataProtos.User user_ = communication.protos.DataProtos.User.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          communication.protos.DataProtos.User, communication.protos.DataProtos.User.Builder, communication.protos.DataProtos.UserOrBuilder> userBuilder_;
+      // required int32 playerId = 2;
+      private int playerId_ ;
       /**
-       * <code>required .communication.protos.User user = 2;</code>
+       * <code>required int32 playerId = 2;</code>
        */
-      public boolean hasUser() {
+      public boolean hasPlayerId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required .communication.protos.User user = 2;</code>
+       * <code>required int32 playerId = 2;</code>
        */
-      public communication.protos.DataProtos.User getUser() {
-        if (userBuilder_ == null) {
-          return user_;
-        } else {
-          return userBuilder_.getMessage();
-        }
+      public int getPlayerId() {
+        return playerId_;
       }
       /**
-       * <code>required .communication.protos.User user = 2;</code>
+       * <code>required int32 playerId = 2;</code>
        */
-      public Builder setUser(communication.protos.DataProtos.User value) {
-        if (userBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          user_ = value;
-          onChanged();
-        } else {
-          userBuilder_.setMessage(value);
-        }
+      public Builder setPlayerId(int value) {
         bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.User user = 2;</code>
-       */
-      public Builder setUser(
-          communication.protos.DataProtos.User.Builder builderForValue) {
-        if (userBuilder_ == null) {
-          user_ = builderForValue.build();
-          onChanged();
-        } else {
-          userBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.User user = 2;</code>
-       */
-      public Builder mergeUser(communication.protos.DataProtos.User value) {
-        if (userBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              user_ != communication.protos.DataProtos.User.getDefaultInstance()) {
-            user_ =
-              communication.protos.DataProtos.User.newBuilder(user_).mergeFrom(value).buildPartial();
-          } else {
-            user_ = value;
-          }
-          onChanged();
-        } else {
-          userBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.User user = 2;</code>
-       */
-      public Builder clearUser() {
-        if (userBuilder_ == null) {
-          user_ = communication.protos.DataProtos.User.getDefaultInstance();
-          onChanged();
-        } else {
-          userBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-      /**
-       * <code>required .communication.protos.User user = 2;</code>
-       */
-      public communication.protos.DataProtos.User.Builder getUserBuilder() {
-        bitField0_ |= 0x00000002;
+        playerId_ = value;
         onChanged();
-        return getUserFieldBuilder().getBuilder();
+        return this;
       }
       /**
-       * <code>required .communication.protos.User user = 2;</code>
+       * <code>required int32 playerId = 2;</code>
        */
-      public communication.protos.DataProtos.UserOrBuilder getUserOrBuilder() {
-        if (userBuilder_ != null) {
-          return userBuilder_.getMessageOrBuilder();
-        } else {
-          return user_;
-        }
-      }
-      /**
-       * <code>required .communication.protos.User user = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          communication.protos.DataProtos.User, communication.protos.DataProtos.User.Builder, communication.protos.DataProtos.UserOrBuilder> 
-          getUserFieldBuilder() {
-        if (userBuilder_ == null) {
-          userBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              communication.protos.DataProtos.User, communication.protos.DataProtos.User.Builder, communication.protos.DataProtos.UserOrBuilder>(
-                  user_,
-                  getParentForChildren(),
-                  isClean());
-          user_ = null;
-        }
-        return userBuilder_;
+      public Builder clearPlayerId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        playerId_ = 0;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:communication.protos.PlayerRolledDice)
@@ -22902,9 +22783,8 @@ public final class CommunicationProtos {
       "s.BattleInfo\"J\n\020BattleResolution\0226\n\013troo" +
       "pNumber\030\001 \003(\0132!.communication.protos.Tro" +
       "opNumber\"!\n\017RollDiceClicked\022\016\n\006gameId\030\001 " +
-      "\002(\003\"L\n\020PlayerRolledDice\022\016\n\006gameId\030\001 \002(\003\022" +
-      "(\n\004user\030\002 \002(\0132\032.communication.protos.Use" +
-      "rP\000"
+      "\002(\003\"4\n\020PlayerRolledDice\022\016\n\006gameId\030\001 \002(\003\022" +
+      "\020\n\010playerId\030\002 \002(\005P\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -23162,7 +23042,7 @@ public final class CommunicationProtos {
           internal_static_communication_protos_PlayerRolledDice_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_PlayerRolledDice_descriptor,
-              new java.lang.String[] { "GameId", "User", });
+              new java.lang.String[] { "GameId", "PlayerId", });
           return null;
         }
       };
