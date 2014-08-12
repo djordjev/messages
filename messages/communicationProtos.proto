@@ -181,6 +181,7 @@ message BattleResolution {
 
 message RollDiceClicked {
 	required int64 gameId = 1;
+	required int32 territoryId = 2;
 }
 
 message PlayerRolledDice {
