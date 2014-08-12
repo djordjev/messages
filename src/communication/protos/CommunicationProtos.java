@@ -22019,15 +22019,15 @@ public final class CommunicationProtos {
      */
     long getGameId();
 
-    // required int32 playerId = 2;
+    // required int32 territoryId = 2;
     /**
-     * <code>required int32 playerId = 2;</code>
+     * <code>required int32 territoryId = 2;</code>
      */
-    boolean hasPlayerId();
+    boolean hasTerritoryId();
     /**
-     * <code>required int32 playerId = 2;</code>
+     * <code>required int32 territoryId = 2;</code>
      */
-    int getPlayerId();
+    int getTerritoryId();
   }
   /**
    * Protobuf type {@code communication.protos.PlayerRolledDice}
@@ -22087,7 +22087,7 @@ public final class CommunicationProtos {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              playerId_ = input.readInt32();
+              territoryId_ = input.readInt32();
               break;
             }
           }
@@ -22146,25 +22146,25 @@ public final class CommunicationProtos {
       return gameId_;
     }
 
-    // required int32 playerId = 2;
-    public static final int PLAYERID_FIELD_NUMBER = 2;
-    private int playerId_;
+    // required int32 territoryId = 2;
+    public static final int TERRITORYID_FIELD_NUMBER = 2;
+    private int territoryId_;
     /**
-     * <code>required int32 playerId = 2;</code>
+     * <code>required int32 territoryId = 2;</code>
      */
-    public boolean hasPlayerId() {
+    public boolean hasTerritoryId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 playerId = 2;</code>
+     * <code>required int32 territoryId = 2;</code>
      */
-    public int getPlayerId() {
-      return playerId_;
+    public int getTerritoryId() {
+      return territoryId_;
     }
 
     private void initFields() {
       gameId_ = 0L;
-      playerId_ = 0;
+      territoryId_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -22175,7 +22175,7 @@ public final class CommunicationProtos {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasPlayerId()) {
+      if (!hasTerritoryId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -22190,7 +22190,7 @@ public final class CommunicationProtos {
         output.writeInt64(1, gameId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, playerId_);
+        output.writeInt32(2, territoryId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -22207,7 +22207,7 @@ public final class CommunicationProtos {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, playerId_);
+          .computeInt32Size(2, territoryId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -22327,7 +22327,7 @@ public final class CommunicationProtos {
         super.clear();
         gameId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        playerId_ = 0;
+        territoryId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -22364,7 +22364,7 @@ public final class CommunicationProtos {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.playerId_ = playerId_;
+        result.territoryId_ = territoryId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -22384,8 +22384,8 @@ public final class CommunicationProtos {
         if (other.hasGameId()) {
           setGameId(other.getGameId());
         }
-        if (other.hasPlayerId()) {
-          setPlayerId(other.getPlayerId());
+        if (other.hasTerritoryId()) {
+          setTerritoryId(other.getTerritoryId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -22396,7 +22396,7 @@ public final class CommunicationProtos {
           
           return false;
         }
-        if (!hasPlayerId()) {
+        if (!hasTerritoryId()) {
           
           return false;
         }
@@ -22455,35 +22455,35 @@ public final class CommunicationProtos {
         return this;
       }
 
-      // required int32 playerId = 2;
-      private int playerId_ ;
+      // required int32 territoryId = 2;
+      private int territoryId_ ;
       /**
-       * <code>required int32 playerId = 2;</code>
+       * <code>required int32 territoryId = 2;</code>
        */
-      public boolean hasPlayerId() {
+      public boolean hasTerritoryId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int32 playerId = 2;</code>
+       * <code>required int32 territoryId = 2;</code>
        */
-      public int getPlayerId() {
-        return playerId_;
+      public int getTerritoryId() {
+        return territoryId_;
       }
       /**
-       * <code>required int32 playerId = 2;</code>
+       * <code>required int32 territoryId = 2;</code>
        */
-      public Builder setPlayerId(int value) {
+      public Builder setTerritoryId(int value) {
         bitField0_ |= 0x00000002;
-        playerId_ = value;
+        territoryId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 playerId = 2;</code>
+       * <code>required int32 territoryId = 2;</code>
        */
-      public Builder clearPlayerId() {
+      public Builder clearTerritoryId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        playerId_ = 0;
+        territoryId_ = 0;
         onChanged();
         return this;
       }
@@ -22783,8 +22783,8 @@ public final class CommunicationProtos {
       "s.BattleInfo\"J\n\020BattleResolution\0226\n\013troo" +
       "pNumber\030\001 \003(\0132!.communication.protos.Tro" +
       "opNumber\"!\n\017RollDiceClicked\022\016\n\006gameId\030\001 " +
-      "\002(\003\"4\n\020PlayerRolledDice\022\016\n\006gameId\030\001 \002(\003\022" +
-      "\020\n\010playerId\030\002 \002(\005P\000"
+      "\002(\003\"7\n\020PlayerRolledDice\022\016\n\006gameId\030\001 \002(\003\022" +
+      "\023\n\013territoryId\030\002 \002(\005P\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -23042,7 +23042,7 @@ public final class CommunicationProtos {
           internal_static_communication_protos_PlayerRolledDice_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_PlayerRolledDice_descriptor,
-              new java.lang.String[] { "GameId", "PlayerId", });
+              new java.lang.String[] { "GameId", "TerritoryId", });
           return null;
         }
       };
