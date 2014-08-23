@@ -22095,6 +22095,315 @@ public final class CommunicationProtos {
     // @@protoc_insertion_point(class_scope:communication.protos.RollDiceClicked)
   }
 
+  public interface RollDiceClickedResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code communication.protos.RollDiceClickedResponse}
+   */
+  public static final class RollDiceClickedResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements RollDiceClickedResponseOrBuilder {
+    // Use RollDiceClickedResponse.newBuilder() to construct.
+    private RollDiceClickedResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RollDiceClickedResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RollDiceClickedResponse defaultInstance;
+    public static RollDiceClickedResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RollDiceClickedResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RollDiceClickedResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_RollDiceClickedResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_RollDiceClickedResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.CommunicationProtos.RollDiceClickedResponse.class, communication.protos.CommunicationProtos.RollDiceClickedResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RollDiceClickedResponse> PARSER =
+        new com.google.protobuf.AbstractParser<RollDiceClickedResponse>() {
+      public RollDiceClickedResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RollDiceClickedResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RollDiceClickedResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.RollDiceClickedResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.CommunicationProtos.RollDiceClickedResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.RollDiceClickedResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.CommunicationProtos.RollDiceClickedResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_RollDiceClickedResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_RollDiceClickedResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.CommunicationProtos.RollDiceClickedResponse.class, communication.protos.CommunicationProtos.RollDiceClickedResponse.Builder.class);
+      }
+
+      // Construct using communication.protos.CommunicationProtos.RollDiceClickedResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_RollDiceClickedResponse_descriptor;
+      }
+
+      public communication.protos.CommunicationProtos.RollDiceClickedResponse getDefaultInstanceForType() {
+        return communication.protos.CommunicationProtos.RollDiceClickedResponse.getDefaultInstance();
+      }
+
+      public communication.protos.CommunicationProtos.RollDiceClickedResponse build() {
+        communication.protos.CommunicationProtos.RollDiceClickedResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.CommunicationProtos.RollDiceClickedResponse buildPartial() {
+        communication.protos.CommunicationProtos.RollDiceClickedResponse result = new communication.protos.CommunicationProtos.RollDiceClickedResponse(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.CommunicationProtos.RollDiceClickedResponse) {
+          return mergeFrom((communication.protos.CommunicationProtos.RollDiceClickedResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.CommunicationProtos.RollDiceClickedResponse other) {
+        if (other == communication.protos.CommunicationProtos.RollDiceClickedResponse.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.CommunicationProtos.RollDiceClickedResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.CommunicationProtos.RollDiceClickedResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.RollDiceClickedResponse)
+    }
+
+    static {
+      defaultInstance = new RollDiceClickedResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.RollDiceClickedResponse)
+  }
+
   public interface PlayerRolledDiceOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -22794,6 +23103,11 @@ public final class CommunicationProtos {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_communication_protos_RollDiceClicked_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_RollDiceClickedResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_RollDiceClickedResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_communication_protos_PlayerRolledDice_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -22872,9 +23186,9 @@ public final class CommunicationProtos {
       "s.BattleInfo\"J\n\020BattleResolution\0226\n\013troo" +
       "pNumber\030\001 \003(\0132!.communication.protos.Tro" +
       "opNumber\"6\n\017RollDiceClicked\022\016\n\006gameId\030\001 " +
-      "\002(\003\022\023\n\013territoryId\030\002 \002(\005\"7\n\020PlayerRolled" +
-      "Dice\022\016\n\006gameId\030\001 \002(\003\022\023\n\013territoryId\030\002 \002(" +
-      "\005P\000"
+      "\002(\003\022\023\n\013territoryId\030\002 \002(\005\"\031\n\027RollDiceClic" +
+      "kedResponse\"7\n\020PlayerRolledDice\022\016\n\006gameI" +
+      "d\030\001 \002(\003\022\023\n\013territoryId\030\002 \002(\005P\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -23127,8 +23441,14 @@ public final class CommunicationProtos {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_RollDiceClicked_descriptor,
               new java.lang.String[] { "GameId", "TerritoryId", });
-          internal_static_communication_protos_PlayerRolledDice_descriptor =
+          internal_static_communication_protos_RollDiceClickedResponse_descriptor =
             getDescriptor().getMessageTypes().get(41);
+          internal_static_communication_protos_RollDiceClickedResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_RollDiceClickedResponse_descriptor,
+              new java.lang.String[] { });
+          internal_static_communication_protos_PlayerRolledDice_descriptor =
+            getDescriptor().getMessageTypes().get(42);
           internal_static_communication_protos_PlayerRolledDice_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_PlayerRolledDice_descriptor,
