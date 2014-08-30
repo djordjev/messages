@@ -30,7 +30,6 @@ message UserStatistics {
 
 message GameContext {
 	required LightGameContext lightGameContext = 1;
-	required bool isPhaseCommited = 2;
 	repeated Territory territories = 3;
 	repeated Alliance alliances = 4;
 	repeated Command pendingComands = 5;

@@ -3434,16 +3434,6 @@ public final class DataProtos {
      */
     communication.protos.DataProtos.LightGameContextOrBuilder getLightGameContextOrBuilder();
 
-    // required bool isPhaseCommited = 2;
-    /**
-     * <code>required bool isPhaseCommited = 2;</code>
-     */
-    boolean hasIsPhaseCommited();
-    /**
-     * <code>required bool isPhaseCommited = 2;</code>
-     */
-    boolean getIsPhaseCommited();
-
     // repeated .communication.protos.Territory territories = 3;
     /**
      * <code>repeated .communication.protos.Territory territories = 3;</code>
@@ -3608,39 +3598,34 @@ public final class DataProtos {
               bitField0_ |= 0x00000001;
               break;
             }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              isPhaseCommited_ = input.readBool();
-              break;
-            }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 territories_ = new java.util.ArrayList<communication.protos.DataProtos.Territory>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000002;
               }
               territories_.add(input.readMessage(communication.protos.DataProtos.Territory.PARSER, extensionRegistry));
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 alliances_ = new java.util.ArrayList<communication.protos.DataProtos.Alliance>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000004;
               }
               alliances_.add(input.readMessage(communication.protos.DataProtos.Alliance.PARSER, extensionRegistry));
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 pendingComands_ = new java.util.ArrayList<communication.protos.DataProtos.Command>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000008;
               }
               pendingComands_.add(input.readMessage(communication.protos.DataProtos.Command.PARSER, extensionRegistry));
               break;
             }
             case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 myCards_ = new java.util.ArrayList<communication.protos.DataProtos.Card>();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000010;
               }
               myCards_.add(input.readMessage(communication.protos.DataProtos.Card.PARSER, extensionRegistry));
               break;
@@ -3653,16 +3638,16 @@ public final class DataProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           territories_ = java.util.Collections.unmodifiableList(territories_);
         }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           alliances_ = java.util.Collections.unmodifiableList(alliances_);
         }
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           pendingComands_ = java.util.Collections.unmodifiableList(pendingComands_);
         }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           myCards_ = java.util.Collections.unmodifiableList(myCards_);
         }
         this.unknownFields = unknownFields.build();
@@ -3717,22 +3702,6 @@ public final class DataProtos {
      */
     public communication.protos.DataProtos.LightGameContextOrBuilder getLightGameContextOrBuilder() {
       return lightGameContext_;
-    }
-
-    // required bool isPhaseCommited = 2;
-    public static final int ISPHASECOMMITED_FIELD_NUMBER = 2;
-    private boolean isPhaseCommited_;
-    /**
-     * <code>required bool isPhaseCommited = 2;</code>
-     */
-    public boolean hasIsPhaseCommited() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required bool isPhaseCommited = 2;</code>
-     */
-    public boolean getIsPhaseCommited() {
-      return isPhaseCommited_;
     }
 
     // repeated .communication.protos.Territory territories = 3;
@@ -3881,7 +3850,6 @@ public final class DataProtos {
 
     private void initFields() {
       lightGameContext_ = communication.protos.DataProtos.LightGameContext.getDefaultInstance();
-      isPhaseCommited_ = false;
       territories_ = java.util.Collections.emptyList();
       alliances_ = java.util.Collections.emptyList();
       pendingComands_ = java.util.Collections.emptyList();
@@ -3893,10 +3861,6 @@ public final class DataProtos {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasLightGameContext()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasIsPhaseCommited()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3938,9 +3902,6 @@ public final class DataProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, lightGameContext_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBool(2, isPhaseCommited_);
-      }
       for (int i = 0; i < territories_.size(); i++) {
         output.writeMessage(3, territories_.get(i));
       }
@@ -3965,10 +3926,6 @@ public final class DataProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, lightGameContext_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, isPhaseCommited_);
       }
       for (int i = 0; i < territories_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -4113,29 +4070,27 @@ public final class DataProtos {
           lightGameContextBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        isPhaseCommited_ = false;
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (territoriesBuilder_ == null) {
           territories_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           territoriesBuilder_.clear();
         }
         if (alliancesBuilder_ == null) {
           alliances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           alliancesBuilder_.clear();
         }
         if (pendingComandsBuilder_ == null) {
           pendingComands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           pendingComandsBuilder_.clear();
         }
         if (myCardsBuilder_ == null) {
           myCards_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           myCardsBuilder_.clear();
         }
@@ -4175,41 +4130,37 @@ public final class DataProtos {
         } else {
           result.lightGameContext_ = lightGameContextBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.isPhaseCommited_ = isPhaseCommited_;
         if (territoriesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             territories_ = java.util.Collections.unmodifiableList(territories_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.territories_ = territories_;
         } else {
           result.territories_ = territoriesBuilder_.build();
         }
         if (alliancesBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             alliances_ = java.util.Collections.unmodifiableList(alliances_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.alliances_ = alliances_;
         } else {
           result.alliances_ = alliancesBuilder_.build();
         }
         if (pendingComandsBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
             pendingComands_ = java.util.Collections.unmodifiableList(pendingComands_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.pendingComands_ = pendingComands_;
         } else {
           result.pendingComands_ = pendingComandsBuilder_.build();
         }
         if (myCardsBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
             myCards_ = java.util.Collections.unmodifiableList(myCards_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.myCards_ = myCards_;
         } else {
@@ -4234,14 +4185,11 @@ public final class DataProtos {
         if (other.hasLightGameContext()) {
           mergeLightGameContext(other.getLightGameContext());
         }
-        if (other.hasIsPhaseCommited()) {
-          setIsPhaseCommited(other.getIsPhaseCommited());
-        }
         if (territoriesBuilder_ == null) {
           if (!other.territories_.isEmpty()) {
             if (territories_.isEmpty()) {
               territories_ = other.territories_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureTerritoriesIsMutable();
               territories_.addAll(other.territories_);
@@ -4254,7 +4202,7 @@ public final class DataProtos {
               territoriesBuilder_.dispose();
               territoriesBuilder_ = null;
               territories_ = other.territories_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               territoriesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getTerritoriesFieldBuilder() : null;
@@ -4267,7 +4215,7 @@ public final class DataProtos {
           if (!other.alliances_.isEmpty()) {
             if (alliances_.isEmpty()) {
               alliances_ = other.alliances_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureAlliancesIsMutable();
               alliances_.addAll(other.alliances_);
@@ -4280,7 +4228,7 @@ public final class DataProtos {
               alliancesBuilder_.dispose();
               alliancesBuilder_ = null;
               alliances_ = other.alliances_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
               alliancesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getAlliancesFieldBuilder() : null;
@@ -4293,7 +4241,7 @@ public final class DataProtos {
           if (!other.pendingComands_.isEmpty()) {
             if (pendingComands_.isEmpty()) {
               pendingComands_ = other.pendingComands_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensurePendingComandsIsMutable();
               pendingComands_.addAll(other.pendingComands_);
@@ -4306,7 +4254,7 @@ public final class DataProtos {
               pendingComandsBuilder_.dispose();
               pendingComandsBuilder_ = null;
               pendingComands_ = other.pendingComands_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000008);
               pendingComandsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getPendingComandsFieldBuilder() : null;
@@ -4319,7 +4267,7 @@ public final class DataProtos {
           if (!other.myCards_.isEmpty()) {
             if (myCards_.isEmpty()) {
               myCards_ = other.myCards_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureMyCardsIsMutable();
               myCards_.addAll(other.myCards_);
@@ -4332,7 +4280,7 @@ public final class DataProtos {
               myCardsBuilder_.dispose();
               myCardsBuilder_ = null;
               myCards_ = other.myCards_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000010);
               myCardsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getMyCardsFieldBuilder() : null;
@@ -4347,10 +4295,6 @@ public final class DataProtos {
 
       public final boolean isInitialized() {
         if (!hasLightGameContext()) {
-          
-          return false;
-        }
-        if (!hasIsPhaseCommited()) {
           
           return false;
         }
@@ -4521,46 +4465,13 @@ public final class DataProtos {
         return lightGameContextBuilder_;
       }
 
-      // required bool isPhaseCommited = 2;
-      private boolean isPhaseCommited_ ;
-      /**
-       * <code>required bool isPhaseCommited = 2;</code>
-       */
-      public boolean hasIsPhaseCommited() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required bool isPhaseCommited = 2;</code>
-       */
-      public boolean getIsPhaseCommited() {
-        return isPhaseCommited_;
-      }
-      /**
-       * <code>required bool isPhaseCommited = 2;</code>
-       */
-      public Builder setIsPhaseCommited(boolean value) {
-        bitField0_ |= 0x00000002;
-        isPhaseCommited_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required bool isPhaseCommited = 2;</code>
-       */
-      public Builder clearIsPhaseCommited() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        isPhaseCommited_ = false;
-        onChanged();
-        return this;
-      }
-
       // repeated .communication.protos.Territory territories = 3;
       private java.util.List<communication.protos.DataProtos.Territory> territories_ =
         java.util.Collections.emptyList();
       private void ensureTerritoriesIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           territories_ = new java.util.ArrayList<communication.protos.DataProtos.Territory>(territories_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -4709,7 +4620,7 @@ public final class DataProtos {
       public Builder clearTerritories() {
         if (territoriesBuilder_ == null) {
           territories_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           territoriesBuilder_.clear();
@@ -4786,7 +4697,7 @@ public final class DataProtos {
           territoriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               communication.protos.DataProtos.Territory, communication.protos.DataProtos.Territory.Builder, communication.protos.DataProtos.TerritoryOrBuilder>(
                   territories_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           territories_ = null;
@@ -4798,9 +4709,9 @@ public final class DataProtos {
       private java.util.List<communication.protos.DataProtos.Alliance> alliances_ =
         java.util.Collections.emptyList();
       private void ensureAlliancesIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           alliances_ = new java.util.ArrayList<communication.protos.DataProtos.Alliance>(alliances_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -4949,7 +4860,7 @@ public final class DataProtos {
       public Builder clearAlliances() {
         if (alliancesBuilder_ == null) {
           alliances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           alliancesBuilder_.clear();
@@ -5026,7 +4937,7 @@ public final class DataProtos {
           alliancesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               communication.protos.DataProtos.Alliance, communication.protos.DataProtos.Alliance.Builder, communication.protos.DataProtos.AllianceOrBuilder>(
                   alliances_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           alliances_ = null;
@@ -5038,9 +4949,9 @@ public final class DataProtos {
       private java.util.List<communication.protos.DataProtos.Command> pendingComands_ =
         java.util.Collections.emptyList();
       private void ensurePendingComandsIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           pendingComands_ = new java.util.ArrayList<communication.protos.DataProtos.Command>(pendingComands_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -5189,7 +5100,7 @@ public final class DataProtos {
       public Builder clearPendingComands() {
         if (pendingComandsBuilder_ == null) {
           pendingComands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           pendingComandsBuilder_.clear();
@@ -5266,7 +5177,7 @@ public final class DataProtos {
           pendingComandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder>(
                   pendingComands_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           pendingComands_ = null;
@@ -5278,9 +5189,9 @@ public final class DataProtos {
       private java.util.List<communication.protos.DataProtos.Card> myCards_ =
         java.util.Collections.emptyList();
       private void ensureMyCardsIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           myCards_ = new java.util.ArrayList<communication.protos.DataProtos.Card>(myCards_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -5429,7 +5340,7 @@ public final class DataProtos {
       public Builder clearMyCards() {
         if (myCardsBuilder_ == null) {
           myCards_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           myCardsBuilder_.clear();
@@ -5506,7 +5417,7 @@ public final class DataProtos {
           myCardsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder>(
                   myCards_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
                   isClean());
           myCards_ = null;
@@ -12055,35 +11966,34 @@ public final class DataProtos {
       "layedMove\030\004 \002(\010\022\021\n\tcardCount\030\005 \002(\005\022\035\n\025nu" +
       "mberOfReinforcments\030\006 \001(\005\"=\n\016UserStatist" +
       "ics\022\025\n\rnumberOfGames\030\001 \002(\005\022\024\n\014numberOfWi" +
-      "ns\030\002 \002(\005\"\265\002\n\013GameContext\022@\n\020lightGameCon" +
+      "ns\030\002 \002(\005\"\234\002\n\013GameContext\022@\n\020lightGameCon" +
       "text\030\001 \002(\0132&.communication.protos.LightG" +
-      "ameContext\022\027\n\017isPhaseCommited\030\002 \002(\010\0224\n\013t" +
-      "erritories\030\003 \003(\0132\037.communication.protos." +
-      "Territory\0221\n\talliances\030\004 \003(\0132\036.communica" +
-      "tion.protos.Alliance\0225\n\016pendingComands\030\005" +
-      " \003(\0132\035.communication.protos.Command\022+\n\007m",
-      "yCards\030\006 \003(\0132\032.communication.protos.Card" +
-      "\"\245\001\n\020LightGameContext\022>\n\017gameDescription" +
-      "\030\001 \002(\0132%.communication.protos.GameDescri" +
-      "ption\022\r\n\005round\030\002 \002(\005\022\r\n\005phase\030\003 \002(\005\0223\n\rp" +
-      "layersInGame\030\004 \003(\0132\034.communication.proto" +
-      "s.Player\"~\n\017GameDescription\022\016\n\006gameId\030\001 " +
-      "\001(\003\022\020\n\010gameName\030\002 \002(\t\022\027\n\017numberOfPlayers" +
-      "\030\003 \002(\005\022\035\n\025numberOfJoinedPlayers\030\004 \002(\005\022\021\n" +
-      "\tobjective\030\005 \002(\005\"=\n\tTerritory\022\n\n\002id\030\001 \002(" +
-      "\005\022\022\n\ntroopsOnIt\030\002 \002(\005\022\020\n\010playerId\030\003 \002(\005\"",
-      ":\n\010Alliance\022\017\n\007userId1\030\001 \002(\003\022\017\n\007userId2\030" +
-      "\002 \002(\003\022\014\n\004type\030\003 \002(\005\"4\n\005Dices\022\r\n\005dice1\030\001 " +
-      "\002(\005\022\r\n\005dice2\030\002 \002(\005\022\r\n\005dice3\030\003 \002(\005\"x\n\007Com" +
-      "mand\022\021\n\tcommandId\030\001 \001(\005\022\027\n\017sourceTerrito" +
-      "ry\030\002 \002(\005\022\034\n\024destinationTerritory\030\003 \002(\005\022\025" +
-      "\n\rnumberOfUnits\030\004 \002(\005\022\014\n\004seed\030\005 \001(\005\"3\n\013T" +
-      "roopNumber\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013troopNumb" +
-      "er\030\002 \002(\005\"n\n\nBattleInfo\022.\n\007oneSide\030\001 \003(\0132" +
-      "\035.communication.protos.Command\0220\n\totherS" +
-      "ide\030\002 \003(\0132\035.communication.protos.Command",
-      "\")\n\004Card\022\023\n\013territoryId\030\001 \002(\005\022\014\n\004type\030\002 " +
-      "\002(\005"
+      "ameContext\0224\n\013territories\030\003 \003(\0132\037.commun" +
+      "ication.protos.Territory\0221\n\talliances\030\004 " +
+      "\003(\0132\036.communication.protos.Alliance\0225\n\016p" +
+      "endingComands\030\005 \003(\0132\035.communication.prot" +
+      "os.Command\022+\n\007myCards\030\006 \003(\0132\032.communicat",
+      "ion.protos.Card\"\245\001\n\020LightGameContext\022>\n\017" +
+      "gameDescription\030\001 \002(\0132%.communication.pr" +
+      "otos.GameDescription\022\r\n\005round\030\002 \002(\005\022\r\n\005p" +
+      "hase\030\003 \002(\005\0223\n\rplayersInGame\030\004 \003(\0132\034.comm" +
+      "unication.protos.Player\"~\n\017GameDescripti" +
+      "on\022\016\n\006gameId\030\001 \001(\003\022\020\n\010gameName\030\002 \002(\t\022\027\n\017" +
+      "numberOfPlayers\030\003 \002(\005\022\035\n\025numberOfJoinedP" +
+      "layers\030\004 \002(\005\022\021\n\tobjective\030\005 \002(\005\"=\n\tTerri" +
+      "tory\022\n\n\002id\030\001 \002(\005\022\022\n\ntroopsOnIt\030\002 \002(\005\022\020\n\010" +
+      "playerId\030\003 \002(\005\":\n\010Alliance\022\017\n\007userId1\030\001 ",
+      "\002(\003\022\017\n\007userId2\030\002 \002(\003\022\014\n\004type\030\003 \002(\005\"4\n\005Di" +
+      "ces\022\r\n\005dice1\030\001 \002(\005\022\r\n\005dice2\030\002 \002(\005\022\r\n\005dic" +
+      "e3\030\003 \002(\005\"x\n\007Command\022\021\n\tcommandId\030\001 \001(\005\022\027" +
+      "\n\017sourceTerritory\030\002 \002(\005\022\034\n\024destinationTe" +
+      "rritory\030\003 \002(\005\022\025\n\rnumberOfUnits\030\004 \002(\005\022\014\n\004" +
+      "seed\030\005 \001(\005\"3\n\013TroopNumber\022\017\n\007fieldId\030\001 \002" +
+      "(\005\022\023\n\013troopNumber\030\002 \002(\005\"n\n\nBattleInfo\022.\n" +
+      "\007oneSide\030\001 \003(\0132\035.communication.protos.Co" +
+      "mmand\0220\n\totherSide\030\002 \003(\0132\035.communication" +
+      ".protos.Command\")\n\004Card\022\023\n\013territoryId\030\001",
+      " \002(\005\022\014\n\004type\030\002 \002(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -12119,7 +12029,7 @@ public final class DataProtos {
           internal_static_communication_protos_GameContext_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_GameContext_descriptor,
-              new java.lang.String[] { "LightGameContext", "IsPhaseCommited", "Territories", "Alliances", "PendingComands", "MyCards", });
+              new java.lang.String[] { "LightGameContext", "Territories", "Alliances", "PendingComands", "MyCards", });
           internal_static_communication_protos_LightGameContext_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_communication_protos_LightGameContext_fieldAccessorTable = new
