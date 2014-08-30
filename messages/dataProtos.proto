@@ -19,7 +19,7 @@ message Player {
 	optional User user = 2;
 	required int32 color = 3;
 	required bool isPlayedMove = 4;
-	repeated int32 cards = 5;
+	required int32 cardCount = 5;
 	optional int32 numberOfReinforcments = 6;
 }
 
@@ -29,10 +29,12 @@ message UserStatistics {
 }
 
 message GameContext {
-	required LightGameContext lightGameContext = 2;
+	required LightGameContext lightGameContext = 1;
+	required bool isPhaseCommited = 2;
 	repeated Territory territories = 3;
 	repeated Alliance alliances = 4;
 	repeated Command pendingComands = 5;
+	repeated Card myCards = 6;
 }
 
 message LightGameContext {
@@ -82,6 +84,11 @@ message TroopNumber {
 }
 
 message BattleInfo {
-	repeated Command oneSide = 2;
-	repeated Command otherSide = 3;
+	repeated Command oneSide = 1;
+	repeated Command otherSide = 2;
+}
+
+message Card {
+	required int32 territoryId = 1;
+	required int32 type = 2;
 }

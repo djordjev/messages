@@ -10500,45 +10500,57 @@ public final class CommunicationProtos {
   public interface TradeCardsRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required int32 cardId1 = 1;
+    // required int64 gameId = 1;
     /**
-     * <code>required int32 cardId1 = 1;</code>
-     */
-    boolean hasCardId1();
-    /**
-     * <code>required int32 cardId1 = 1;</code>
-     */
-    int getCardId1();
-
-    // required int32 cardId2 = 2;
-    /**
-     * <code>required int32 cardId2 = 2;</code>
-     */
-    boolean hasCardId2();
-    /**
-     * <code>required int32 cardId2 = 2;</code>
-     */
-    int getCardId2();
-
-    // required int32 cardId3 = 3;
-    /**
-     * <code>required int32 cardId3 = 3;</code>
-     */
-    boolean hasCardId3();
-    /**
-     * <code>required int32 cardId3 = 3;</code>
-     */
-    int getCardId3();
-
-    // required int64 gameId = 4;
-    /**
-     * <code>required int64 gameId = 4;</code>
+     * <code>required int64 gameId = 1;</code>
      */
     boolean hasGameId();
     /**
-     * <code>required int64 gameId = 4;</code>
+     * <code>required int64 gameId = 1;</code>
      */
     long getGameId();
+
+    // required .communication.protos.Card cardId1 = 2;
+    /**
+     * <code>required .communication.protos.Card cardId1 = 2;</code>
+     */
+    boolean hasCardId1();
+    /**
+     * <code>required .communication.protos.Card cardId1 = 2;</code>
+     */
+    communication.protos.DataProtos.Card getCardId1();
+    /**
+     * <code>required .communication.protos.Card cardId1 = 2;</code>
+     */
+    communication.protos.DataProtos.CardOrBuilder getCardId1OrBuilder();
+
+    // required .communication.protos.Card cardId2 = 3;
+    /**
+     * <code>required .communication.protos.Card cardId2 = 3;</code>
+     */
+    boolean hasCardId2();
+    /**
+     * <code>required .communication.protos.Card cardId2 = 3;</code>
+     */
+    communication.protos.DataProtos.Card getCardId2();
+    /**
+     * <code>required .communication.protos.Card cardId2 = 3;</code>
+     */
+    communication.protos.DataProtos.CardOrBuilder getCardId2OrBuilder();
+
+    // required .communication.protos.Card cardId3 = 4;
+    /**
+     * <code>required .communication.protos.Card cardId3 = 4;</code>
+     */
+    boolean hasCardId3();
+    /**
+     * <code>required .communication.protos.Card cardId3 = 4;</code>
+     */
+    communication.protos.DataProtos.Card getCardId3();
+    /**
+     * <code>required .communication.protos.Card cardId3 = 4;</code>
+     */
+    communication.protos.DataProtos.CardOrBuilder getCardId3OrBuilder();
   }
   /**
    * Protobuf type {@code communication.protos.TradeCardsRequest}
@@ -10593,22 +10605,46 @@ public final class CommunicationProtos {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              cardId1_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              cardId2_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              cardId3_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
               gameId_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              communication.protos.DataProtos.Card.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = cardId1_.toBuilder();
+              }
+              cardId1_ = input.readMessage(communication.protos.DataProtos.Card.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cardId1_);
+                cardId1_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              communication.protos.DataProtos.Card.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = cardId2_.toBuilder();
+              }
+              cardId2_ = input.readMessage(communication.protos.DataProtos.Card.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cardId2_);
+                cardId2_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              communication.protos.DataProtos.Card.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = cardId3_.toBuilder();
+              }
+              cardId3_ = input.readMessage(communication.protos.DataProtos.Card.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cardId3_);
+                cardId3_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
               break;
             }
           }
@@ -10651,81 +10687,103 @@ public final class CommunicationProtos {
     }
 
     private int bitField0_;
-    // required int32 cardId1 = 1;
-    public static final int CARDID1_FIELD_NUMBER = 1;
-    private int cardId1_;
+    // required int64 gameId = 1;
+    public static final int GAMEID_FIELD_NUMBER = 1;
+    private long gameId_;
     /**
-     * <code>required int32 cardId1 = 1;</code>
+     * <code>required int64 gameId = 1;</code>
      */
-    public boolean hasCardId1() {
+    public boolean hasGameId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 cardId1 = 1;</code>
-     */
-    public int getCardId1() {
-      return cardId1_;
-    }
-
-    // required int32 cardId2 = 2;
-    public static final int CARDID2_FIELD_NUMBER = 2;
-    private int cardId2_;
-    /**
-     * <code>required int32 cardId2 = 2;</code>
-     */
-    public boolean hasCardId2() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required int32 cardId2 = 2;</code>
-     */
-    public int getCardId2() {
-      return cardId2_;
-    }
-
-    // required int32 cardId3 = 3;
-    public static final int CARDID3_FIELD_NUMBER = 3;
-    private int cardId3_;
-    /**
-     * <code>required int32 cardId3 = 3;</code>
-     */
-    public boolean hasCardId3() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required int32 cardId3 = 3;</code>
-     */
-    public int getCardId3() {
-      return cardId3_;
-    }
-
-    // required int64 gameId = 4;
-    public static final int GAMEID_FIELD_NUMBER = 4;
-    private long gameId_;
-    /**
-     * <code>required int64 gameId = 4;</code>
-     */
-    public boolean hasGameId() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>required int64 gameId = 4;</code>
+     * <code>required int64 gameId = 1;</code>
      */
     public long getGameId() {
       return gameId_;
     }
 
+    // required .communication.protos.Card cardId1 = 2;
+    public static final int CARDID1_FIELD_NUMBER = 2;
+    private communication.protos.DataProtos.Card cardId1_;
+    /**
+     * <code>required .communication.protos.Card cardId1 = 2;</code>
+     */
+    public boolean hasCardId1() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required .communication.protos.Card cardId1 = 2;</code>
+     */
+    public communication.protos.DataProtos.Card getCardId1() {
+      return cardId1_;
+    }
+    /**
+     * <code>required .communication.protos.Card cardId1 = 2;</code>
+     */
+    public communication.protos.DataProtos.CardOrBuilder getCardId1OrBuilder() {
+      return cardId1_;
+    }
+
+    // required .communication.protos.Card cardId2 = 3;
+    public static final int CARDID2_FIELD_NUMBER = 3;
+    private communication.protos.DataProtos.Card cardId2_;
+    /**
+     * <code>required .communication.protos.Card cardId2 = 3;</code>
+     */
+    public boolean hasCardId2() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .communication.protos.Card cardId2 = 3;</code>
+     */
+    public communication.protos.DataProtos.Card getCardId2() {
+      return cardId2_;
+    }
+    /**
+     * <code>required .communication.protos.Card cardId2 = 3;</code>
+     */
+    public communication.protos.DataProtos.CardOrBuilder getCardId2OrBuilder() {
+      return cardId2_;
+    }
+
+    // required .communication.protos.Card cardId3 = 4;
+    public static final int CARDID3_FIELD_NUMBER = 4;
+    private communication.protos.DataProtos.Card cardId3_;
+    /**
+     * <code>required .communication.protos.Card cardId3 = 4;</code>
+     */
+    public boolean hasCardId3() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required .communication.protos.Card cardId3 = 4;</code>
+     */
+    public communication.protos.DataProtos.Card getCardId3() {
+      return cardId3_;
+    }
+    /**
+     * <code>required .communication.protos.Card cardId3 = 4;</code>
+     */
+    public communication.protos.DataProtos.CardOrBuilder getCardId3OrBuilder() {
+      return cardId3_;
+    }
+
     private void initFields() {
-      cardId1_ = 0;
-      cardId2_ = 0;
-      cardId3_ = 0;
       gameId_ = 0L;
+      cardId1_ = communication.protos.DataProtos.Card.getDefaultInstance();
+      cardId2_ = communication.protos.DataProtos.Card.getDefaultInstance();
+      cardId3_ = communication.protos.DataProtos.Card.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasCardId1()) {
         memoizedIsInitialized = 0;
         return false;
@@ -10738,7 +10796,15 @@ public final class CommunicationProtos {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasGameId()) {
+      if (!getCardId1().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getCardId2().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getCardId3().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -10750,16 +10816,16 @@ public final class CommunicationProtos {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, cardId1_);
+        output.writeInt64(1, gameId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, cardId2_);
+        output.writeMessage(2, cardId1_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, cardId3_);
+        output.writeMessage(3, cardId2_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt64(4, gameId_);
+        output.writeMessage(4, cardId3_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -10772,19 +10838,19 @@ public final class CommunicationProtos {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, cardId1_);
+          .computeInt64Size(1, gameId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, cardId2_);
+          .computeMessageSize(2, cardId1_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, cardId3_);
+          .computeMessageSize(3, cardId2_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, gameId_);
+          .computeMessageSize(4, cardId3_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -10894,6 +10960,9 @@ public final class CommunicationProtos {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getCardId1FieldBuilder();
+          getCardId2FieldBuilder();
+          getCardId3FieldBuilder();
         }
       }
       private static Builder create() {
@@ -10902,13 +10971,25 @@ public final class CommunicationProtos {
 
       public Builder clear() {
         super.clear();
-        cardId1_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        cardId2_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        cardId3_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
         gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (cardId1Builder_ == null) {
+          cardId1_ = communication.protos.DataProtos.Card.getDefaultInstance();
+        } else {
+          cardId1Builder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (cardId2Builder_ == null) {
+          cardId2_ = communication.protos.DataProtos.Card.getDefaultInstance();
+        } else {
+          cardId2Builder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (cardId3Builder_ == null) {
+          cardId3_ = communication.protos.DataProtos.Card.getDefaultInstance();
+        } else {
+          cardId3Builder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -10941,19 +11022,31 @@ public final class CommunicationProtos {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.cardId1_ = cardId1_;
+        result.gameId_ = gameId_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.cardId2_ = cardId2_;
+        if (cardId1Builder_ == null) {
+          result.cardId1_ = cardId1_;
+        } else {
+          result.cardId1_ = cardId1Builder_.build();
+        }
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.cardId3_ = cardId3_;
+        if (cardId2Builder_ == null) {
+          result.cardId2_ = cardId2_;
+        } else {
+          result.cardId2_ = cardId2Builder_.build();
+        }
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.gameId_ = gameId_;
+        if (cardId3Builder_ == null) {
+          result.cardId3_ = cardId3_;
+        } else {
+          result.cardId3_ = cardId3Builder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10970,23 +11063,27 @@ public final class CommunicationProtos {
 
       public Builder mergeFrom(communication.protos.CommunicationProtos.TradeCardsRequest other) {
         if (other == communication.protos.CommunicationProtos.TradeCardsRequest.getDefaultInstance()) return this;
-        if (other.hasCardId1()) {
-          setCardId1(other.getCardId1());
-        }
-        if (other.hasCardId2()) {
-          setCardId2(other.getCardId2());
-        }
-        if (other.hasCardId3()) {
-          setCardId3(other.getCardId3());
-        }
         if (other.hasGameId()) {
           setGameId(other.getGameId());
+        }
+        if (other.hasCardId1()) {
+          mergeCardId1(other.getCardId1());
+        }
+        if (other.hasCardId2()) {
+          mergeCardId2(other.getCardId2());
+        }
+        if (other.hasCardId3()) {
+          mergeCardId3(other.getCardId3());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
+        if (!hasGameId()) {
+          
+          return false;
+        }
         if (!hasCardId1()) {
           
           return false;
@@ -10999,7 +11096,15 @@ public final class CommunicationProtos {
           
           return false;
         }
-        if (!hasGameId()) {
+        if (!getCardId1().isInitialized()) {
+          
+          return false;
+        }
+        if (!getCardId2().isInitialized()) {
+          
+          return false;
+        }
+        if (!getCardId3().isInitialized()) {
           
           return false;
         }
@@ -11025,136 +11130,388 @@ public final class CommunicationProtos {
       }
       private int bitField0_;
 
-      // required int32 cardId1 = 1;
-      private int cardId1_ ;
+      // required int64 gameId = 1;
+      private long gameId_ ;
       /**
-       * <code>required int32 cardId1 = 1;</code>
+       * <code>required int64 gameId = 1;</code>
        */
-      public boolean hasCardId1() {
+      public boolean hasGameId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 cardId1 = 1;</code>
-       */
-      public int getCardId1() {
-        return cardId1_;
-      }
-      /**
-       * <code>required int32 cardId1 = 1;</code>
-       */
-      public Builder setCardId1(int value) {
-        bitField0_ |= 0x00000001;
-        cardId1_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 cardId1 = 1;</code>
-       */
-      public Builder clearCardId1() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        cardId1_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // required int32 cardId2 = 2;
-      private int cardId2_ ;
-      /**
-       * <code>required int32 cardId2 = 2;</code>
-       */
-      public boolean hasCardId2() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 cardId2 = 2;</code>
-       */
-      public int getCardId2() {
-        return cardId2_;
-      }
-      /**
-       * <code>required int32 cardId2 = 2;</code>
-       */
-      public Builder setCardId2(int value) {
-        bitField0_ |= 0x00000002;
-        cardId2_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 cardId2 = 2;</code>
-       */
-      public Builder clearCardId2() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        cardId2_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // required int32 cardId3 = 3;
-      private int cardId3_ ;
-      /**
-       * <code>required int32 cardId3 = 3;</code>
-       */
-      public boolean hasCardId3() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required int32 cardId3 = 3;</code>
-       */
-      public int getCardId3() {
-        return cardId3_;
-      }
-      /**
-       * <code>required int32 cardId3 = 3;</code>
-       */
-      public Builder setCardId3(int value) {
-        bitField0_ |= 0x00000004;
-        cardId3_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 cardId3 = 3;</code>
-       */
-      public Builder clearCardId3() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        cardId3_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // required int64 gameId = 4;
-      private long gameId_ ;
-      /**
-       * <code>required int64 gameId = 4;</code>
-       */
-      public boolean hasGameId() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>required int64 gameId = 4;</code>
+       * <code>required int64 gameId = 1;</code>
        */
       public long getGameId() {
         return gameId_;
       }
       /**
-       * <code>required int64 gameId = 4;</code>
+       * <code>required int64 gameId = 1;</code>
        */
       public Builder setGameId(long value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000001;
         gameId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 gameId = 4;</code>
+       * <code>required int64 gameId = 1;</code>
        */
       public Builder clearGameId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         gameId_ = 0L;
         onChanged();
         return this;
+      }
+
+      // required .communication.protos.Card cardId1 = 2;
+      private communication.protos.DataProtos.Card cardId1_ = communication.protos.DataProtos.Card.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> cardId1Builder_;
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public boolean hasCardId1() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public communication.protos.DataProtos.Card getCardId1() {
+        if (cardId1Builder_ == null) {
+          return cardId1_;
+        } else {
+          return cardId1Builder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public Builder setCardId1(communication.protos.DataProtos.Card value) {
+        if (cardId1Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cardId1_ = value;
+          onChanged();
+        } else {
+          cardId1Builder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public Builder setCardId1(
+          communication.protos.DataProtos.Card.Builder builderForValue) {
+        if (cardId1Builder_ == null) {
+          cardId1_ = builderForValue.build();
+          onChanged();
+        } else {
+          cardId1Builder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public Builder mergeCardId1(communication.protos.DataProtos.Card value) {
+        if (cardId1Builder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              cardId1_ != communication.protos.DataProtos.Card.getDefaultInstance()) {
+            cardId1_ =
+              communication.protos.DataProtos.Card.newBuilder(cardId1_).mergeFrom(value).buildPartial();
+          } else {
+            cardId1_ = value;
+          }
+          onChanged();
+        } else {
+          cardId1Builder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public Builder clearCardId1() {
+        if (cardId1Builder_ == null) {
+          cardId1_ = communication.protos.DataProtos.Card.getDefaultInstance();
+          onChanged();
+        } else {
+          cardId1Builder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public communication.protos.DataProtos.Card.Builder getCardId1Builder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getCardId1FieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      public communication.protos.DataProtos.CardOrBuilder getCardId1OrBuilder() {
+        if (cardId1Builder_ != null) {
+          return cardId1Builder_.getMessageOrBuilder();
+        } else {
+          return cardId1_;
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card cardId1 = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> 
+          getCardId1FieldBuilder() {
+        if (cardId1Builder_ == null) {
+          cardId1Builder_ = new com.google.protobuf.SingleFieldBuilder<
+              communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder>(
+                  cardId1_,
+                  getParentForChildren(),
+                  isClean());
+          cardId1_ = null;
+        }
+        return cardId1Builder_;
+      }
+
+      // required .communication.protos.Card cardId2 = 3;
+      private communication.protos.DataProtos.Card cardId2_ = communication.protos.DataProtos.Card.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> cardId2Builder_;
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public boolean hasCardId2() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public communication.protos.DataProtos.Card getCardId2() {
+        if (cardId2Builder_ == null) {
+          return cardId2_;
+        } else {
+          return cardId2Builder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public Builder setCardId2(communication.protos.DataProtos.Card value) {
+        if (cardId2Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cardId2_ = value;
+          onChanged();
+        } else {
+          cardId2Builder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public Builder setCardId2(
+          communication.protos.DataProtos.Card.Builder builderForValue) {
+        if (cardId2Builder_ == null) {
+          cardId2_ = builderForValue.build();
+          onChanged();
+        } else {
+          cardId2Builder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public Builder mergeCardId2(communication.protos.DataProtos.Card value) {
+        if (cardId2Builder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              cardId2_ != communication.protos.DataProtos.Card.getDefaultInstance()) {
+            cardId2_ =
+              communication.protos.DataProtos.Card.newBuilder(cardId2_).mergeFrom(value).buildPartial();
+          } else {
+            cardId2_ = value;
+          }
+          onChanged();
+        } else {
+          cardId2Builder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public Builder clearCardId2() {
+        if (cardId2Builder_ == null) {
+          cardId2_ = communication.protos.DataProtos.Card.getDefaultInstance();
+          onChanged();
+        } else {
+          cardId2Builder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public communication.protos.DataProtos.Card.Builder getCardId2Builder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getCardId2FieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      public communication.protos.DataProtos.CardOrBuilder getCardId2OrBuilder() {
+        if (cardId2Builder_ != null) {
+          return cardId2Builder_.getMessageOrBuilder();
+        } else {
+          return cardId2_;
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card cardId2 = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> 
+          getCardId2FieldBuilder() {
+        if (cardId2Builder_ == null) {
+          cardId2Builder_ = new com.google.protobuf.SingleFieldBuilder<
+              communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder>(
+                  cardId2_,
+                  getParentForChildren(),
+                  isClean());
+          cardId2_ = null;
+        }
+        return cardId2Builder_;
+      }
+
+      // required .communication.protos.Card cardId3 = 4;
+      private communication.protos.DataProtos.Card cardId3_ = communication.protos.DataProtos.Card.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> cardId3Builder_;
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public boolean hasCardId3() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public communication.protos.DataProtos.Card getCardId3() {
+        if (cardId3Builder_ == null) {
+          return cardId3_;
+        } else {
+          return cardId3Builder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public Builder setCardId3(communication.protos.DataProtos.Card value) {
+        if (cardId3Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cardId3_ = value;
+          onChanged();
+        } else {
+          cardId3Builder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public Builder setCardId3(
+          communication.protos.DataProtos.Card.Builder builderForValue) {
+        if (cardId3Builder_ == null) {
+          cardId3_ = builderForValue.build();
+          onChanged();
+        } else {
+          cardId3Builder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public Builder mergeCardId3(communication.protos.DataProtos.Card value) {
+        if (cardId3Builder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              cardId3_ != communication.protos.DataProtos.Card.getDefaultInstance()) {
+            cardId3_ =
+              communication.protos.DataProtos.Card.newBuilder(cardId3_).mergeFrom(value).buildPartial();
+          } else {
+            cardId3_ = value;
+          }
+          onChanged();
+        } else {
+          cardId3Builder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public Builder clearCardId3() {
+        if (cardId3Builder_ == null) {
+          cardId3_ = communication.protos.DataProtos.Card.getDefaultInstance();
+          onChanged();
+        } else {
+          cardId3Builder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public communication.protos.DataProtos.Card.Builder getCardId3Builder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getCardId3FieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      public communication.protos.DataProtos.CardOrBuilder getCardId3OrBuilder() {
+        if (cardId3Builder_ != null) {
+          return cardId3Builder_.getMessageOrBuilder();
+        } else {
+          return cardId3_;
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card cardId3 = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> 
+          getCardId3FieldBuilder() {
+        if (cardId3Builder_ == null) {
+          cardId3Builder_ = new com.google.protobuf.SingleFieldBuilder<
+              communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder>(
+                  cardId3_,
+                  getParentForChildren(),
+                  isClean());
+          cardId3_ = null;
+        }
+        return cardId3Builder_;
       }
 
       // @@protoc_insertion_point(builder_scope:communication.protos.TradeCardsRequest)
@@ -22897,6 +23254,1200 @@ public final class CommunicationProtos {
     // @@protoc_insertion_point(class_scope:communication.protos.PlayerRolledDice)
   }
 
+  public interface CardAwardedNotificationOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 gameId = 1;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    long getGameId();
+
+    // required .communication.protos.Card card = 2;
+    /**
+     * <code>required .communication.protos.Card card = 2;</code>
+     */
+    boolean hasCard();
+    /**
+     * <code>required .communication.protos.Card card = 2;</code>
+     */
+    communication.protos.DataProtos.Card getCard();
+    /**
+     * <code>required .communication.protos.Card card = 2;</code>
+     */
+    communication.protos.DataProtos.CardOrBuilder getCardOrBuilder();
+  }
+  /**
+   * Protobuf type {@code communication.protos.CardAwardedNotification}
+   */
+  public static final class CardAwardedNotification extends
+      com.google.protobuf.GeneratedMessage
+      implements CardAwardedNotificationOrBuilder {
+    // Use CardAwardedNotification.newBuilder() to construct.
+    private CardAwardedNotification(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private CardAwardedNotification(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final CardAwardedNotification defaultInstance;
+    public static CardAwardedNotification getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public CardAwardedNotification getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CardAwardedNotification(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              gameId_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              communication.protos.DataProtos.Card.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = card_.toBuilder();
+              }
+              card_ = input.readMessage(communication.protos.DataProtos.Card.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(card_);
+                card_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_CardAwardedNotification_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_CardAwardedNotification_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.CommunicationProtos.CardAwardedNotification.class, communication.protos.CommunicationProtos.CardAwardedNotification.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<CardAwardedNotification> PARSER =
+        new com.google.protobuf.AbstractParser<CardAwardedNotification>() {
+      public CardAwardedNotification parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CardAwardedNotification(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CardAwardedNotification> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 gameId = 1;
+    public static final int GAMEID_FIELD_NUMBER = 1;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
+    // required .communication.protos.Card card = 2;
+    public static final int CARD_FIELD_NUMBER = 2;
+    private communication.protos.DataProtos.Card card_;
+    /**
+     * <code>required .communication.protos.Card card = 2;</code>
+     */
+    public boolean hasCard() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required .communication.protos.Card card = 2;</code>
+     */
+    public communication.protos.DataProtos.Card getCard() {
+      return card_;
+    }
+    /**
+     * <code>required .communication.protos.Card card = 2;</code>
+     */
+    public communication.protos.DataProtos.CardOrBuilder getCardOrBuilder() {
+      return card_;
+    }
+
+    private void initFields() {
+      gameId_ = 0L;
+      card_ = communication.protos.DataProtos.Card.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCard()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getCard().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, gameId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, card_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, gameId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, card_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.CardAwardedNotification parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.CommunicationProtos.CardAwardedNotification prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.CardAwardedNotification}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.CommunicationProtos.CardAwardedNotificationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_CardAwardedNotification_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_CardAwardedNotification_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.CommunicationProtos.CardAwardedNotification.class, communication.protos.CommunicationProtos.CardAwardedNotification.Builder.class);
+      }
+
+      // Construct using communication.protos.CommunicationProtos.CardAwardedNotification.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getCardFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (cardBuilder_ == null) {
+          card_ = communication.protos.DataProtos.Card.getDefaultInstance();
+        } else {
+          cardBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_CardAwardedNotification_descriptor;
+      }
+
+      public communication.protos.CommunicationProtos.CardAwardedNotification getDefaultInstanceForType() {
+        return communication.protos.CommunicationProtos.CardAwardedNotification.getDefaultInstance();
+      }
+
+      public communication.protos.CommunicationProtos.CardAwardedNotification build() {
+        communication.protos.CommunicationProtos.CardAwardedNotification result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.CommunicationProtos.CardAwardedNotification buildPartial() {
+        communication.protos.CommunicationProtos.CardAwardedNotification result = new communication.protos.CommunicationProtos.CardAwardedNotification(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.gameId_ = gameId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (cardBuilder_ == null) {
+          result.card_ = card_;
+        } else {
+          result.card_ = cardBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.CommunicationProtos.CardAwardedNotification) {
+          return mergeFrom((communication.protos.CommunicationProtos.CardAwardedNotification)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.CommunicationProtos.CardAwardedNotification other) {
+        if (other == communication.protos.CommunicationProtos.CardAwardedNotification.getDefaultInstance()) return this;
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
+        if (other.hasCard()) {
+          mergeCard(other.getCard());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasGameId()) {
+          
+          return false;
+        }
+        if (!hasCard()) {
+          
+          return false;
+        }
+        if (!getCard().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.CommunicationProtos.CardAwardedNotification parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.CommunicationProtos.CardAwardedNotification) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 gameId = 1;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000001;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required .communication.protos.Card card = 2;
+      private communication.protos.DataProtos.Card card_ = communication.protos.DataProtos.Card.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> cardBuilder_;
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public boolean hasCard() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public communication.protos.DataProtos.Card getCard() {
+        if (cardBuilder_ == null) {
+          return card_;
+        } else {
+          return cardBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public Builder setCard(communication.protos.DataProtos.Card value) {
+        if (cardBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          card_ = value;
+          onChanged();
+        } else {
+          cardBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public Builder setCard(
+          communication.protos.DataProtos.Card.Builder builderForValue) {
+        if (cardBuilder_ == null) {
+          card_ = builderForValue.build();
+          onChanged();
+        } else {
+          cardBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public Builder mergeCard(communication.protos.DataProtos.Card value) {
+        if (cardBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              card_ != communication.protos.DataProtos.Card.getDefaultInstance()) {
+            card_ =
+              communication.protos.DataProtos.Card.newBuilder(card_).mergeFrom(value).buildPartial();
+          } else {
+            card_ = value;
+          }
+          onChanged();
+        } else {
+          cardBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public Builder clearCard() {
+        if (cardBuilder_ == null) {
+          card_ = communication.protos.DataProtos.Card.getDefaultInstance();
+          onChanged();
+        } else {
+          cardBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public communication.protos.DataProtos.Card.Builder getCardBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getCardFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      public communication.protos.DataProtos.CardOrBuilder getCardOrBuilder() {
+        if (cardBuilder_ != null) {
+          return cardBuilder_.getMessageOrBuilder();
+        } else {
+          return card_;
+        }
+      }
+      /**
+       * <code>required .communication.protos.Card card = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> 
+          getCardFieldBuilder() {
+        if (cardBuilder_ == null) {
+          cardBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder>(
+                  card_,
+                  getParentForChildren(),
+                  isClean());
+          card_ = null;
+        }
+        return cardBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.CardAwardedNotification)
+    }
+
+    static {
+      defaultInstance = new CardAwardedNotification(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.CardAwardedNotification)
+  }
+
+  public interface PlayerCardCountNotificationOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 gameId = 1;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    long getGameId();
+
+    // required int32 playerId = 2;
+    /**
+     * <code>required int32 playerId = 2;</code>
+     */
+    boolean hasPlayerId();
+    /**
+     * <code>required int32 playerId = 2;</code>
+     */
+    int getPlayerId();
+
+    // required int32 cardCount = 3;
+    /**
+     * <code>required int32 cardCount = 3;</code>
+     */
+    boolean hasCardCount();
+    /**
+     * <code>required int32 cardCount = 3;</code>
+     */
+    int getCardCount();
+  }
+  /**
+   * Protobuf type {@code communication.protos.PlayerCardCountNotification}
+   */
+  public static final class PlayerCardCountNotification extends
+      com.google.protobuf.GeneratedMessage
+      implements PlayerCardCountNotificationOrBuilder {
+    // Use PlayerCardCountNotification.newBuilder() to construct.
+    private PlayerCardCountNotification(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private PlayerCardCountNotification(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final PlayerCardCountNotification defaultInstance;
+    public static PlayerCardCountNotification getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public PlayerCardCountNotification getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PlayerCardCountNotification(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              gameId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              playerId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              cardCount_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_PlayerCardCountNotification_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_PlayerCardCountNotification_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.CommunicationProtos.PlayerCardCountNotification.class, communication.protos.CommunicationProtos.PlayerCardCountNotification.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<PlayerCardCountNotification> PARSER =
+        new com.google.protobuf.AbstractParser<PlayerCardCountNotification>() {
+      public PlayerCardCountNotification parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PlayerCardCountNotification(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PlayerCardCountNotification> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 gameId = 1;
+    public static final int GAMEID_FIELD_NUMBER = 1;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
+    // required int32 playerId = 2;
+    public static final int PLAYERID_FIELD_NUMBER = 2;
+    private int playerId_;
+    /**
+     * <code>required int32 playerId = 2;</code>
+     */
+    public boolean hasPlayerId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 playerId = 2;</code>
+     */
+    public int getPlayerId() {
+      return playerId_;
+    }
+
+    // required int32 cardCount = 3;
+    public static final int CARDCOUNT_FIELD_NUMBER = 3;
+    private int cardCount_;
+    /**
+     * <code>required int32 cardCount = 3;</code>
+     */
+    public boolean hasCardCount() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 cardCount = 3;</code>
+     */
+    public int getCardCount() {
+      return cardCount_;
+    }
+
+    private void initFields() {
+      gameId_ = 0L;
+      playerId_ = 0;
+      cardCount_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlayerId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCardCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, gameId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, playerId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, cardCount_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, gameId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, playerId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, cardCount_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.PlayerCardCountNotification parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.CommunicationProtos.PlayerCardCountNotification prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.PlayerCardCountNotification}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.CommunicationProtos.PlayerCardCountNotificationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_PlayerCardCountNotification_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_PlayerCardCountNotification_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.CommunicationProtos.PlayerCardCountNotification.class, communication.protos.CommunicationProtos.PlayerCardCountNotification.Builder.class);
+      }
+
+      // Construct using communication.protos.CommunicationProtos.PlayerCardCountNotification.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        playerId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cardCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_PlayerCardCountNotification_descriptor;
+      }
+
+      public communication.protos.CommunicationProtos.PlayerCardCountNotification getDefaultInstanceForType() {
+        return communication.protos.CommunicationProtos.PlayerCardCountNotification.getDefaultInstance();
+      }
+
+      public communication.protos.CommunicationProtos.PlayerCardCountNotification build() {
+        communication.protos.CommunicationProtos.PlayerCardCountNotification result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.CommunicationProtos.PlayerCardCountNotification buildPartial() {
+        communication.protos.CommunicationProtos.PlayerCardCountNotification result = new communication.protos.CommunicationProtos.PlayerCardCountNotification(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.gameId_ = gameId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.playerId_ = playerId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.cardCount_ = cardCount_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.CommunicationProtos.PlayerCardCountNotification) {
+          return mergeFrom((communication.protos.CommunicationProtos.PlayerCardCountNotification)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.CommunicationProtos.PlayerCardCountNotification other) {
+        if (other == communication.protos.CommunicationProtos.PlayerCardCountNotification.getDefaultInstance()) return this;
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
+        if (other.hasPlayerId()) {
+          setPlayerId(other.getPlayerId());
+        }
+        if (other.hasCardCount()) {
+          setCardCount(other.getCardCount());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasGameId()) {
+          
+          return false;
+        }
+        if (!hasPlayerId()) {
+          
+          return false;
+        }
+        if (!hasCardCount()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.CommunicationProtos.PlayerCardCountNotification parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.CommunicationProtos.PlayerCardCountNotification) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 gameId = 1;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000001;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int32 playerId = 2;
+      private int playerId_ ;
+      /**
+       * <code>required int32 playerId = 2;</code>
+       */
+      public boolean hasPlayerId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 playerId = 2;</code>
+       */
+      public int getPlayerId() {
+        return playerId_;
+      }
+      /**
+       * <code>required int32 playerId = 2;</code>
+       */
+      public Builder setPlayerId(int value) {
+        bitField0_ |= 0x00000002;
+        playerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 playerId = 2;</code>
+       */
+      public Builder clearPlayerId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        playerId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 cardCount = 3;
+      private int cardCount_ ;
+      /**
+       * <code>required int32 cardCount = 3;</code>
+       */
+      public boolean hasCardCount() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 cardCount = 3;</code>
+       */
+      public int getCardCount() {
+        return cardCount_;
+      }
+      /**
+       * <code>required int32 cardCount = 3;</code>
+       */
+      public Builder setCardCount(int value) {
+        bitField0_ |= 0x00000004;
+        cardCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 cardCount = 3;</code>
+       */
+      public Builder clearCardCount() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        cardCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.PlayerCardCountNotification)
+    }
+
+    static {
+      defaultInstance = new PlayerCardCountNotification(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.PlayerCardCountNotification)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_communication_protos_RegisterRequest_descriptor;
   private static
@@ -23112,6 +24663,16 @@ public final class CommunicationProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_communication_protos_PlayerRolledDice_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_CardAwardedNotification_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_CardAwardedNotification_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_PlayerCardCountNotification_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_PlayerCardCountNotification_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -23152,43 +24713,50 @@ public final class CommunicationProtos {
       "AllianceRequest\022\016\n\006userId\030\001 \002(\005\022\022\n\nisAcc" +
       "epted\030\002 \002(\010\"\030\n\026AnswerAllianceResponse\"H\n",
       "\024AllianceNotification\0220\n\010alliance\030\001 \002(\0132" +
-      "\036.communication.protos.Alliance\"V\n\021Trade" +
-      "CardsRequest\022\017\n\007cardId1\030\001 \002(\005\022\017\n\007cardId2" +
-      "\030\002 \002(\005\022\017\n\007cardId3\030\003 \002(\005\022\016\n\006gameId\030\004 \002(\003\"" +
-      "4\n\022TradeCardsResponse\022\036\n\026numberOfReinfor" +
-      "cements\030\001 \002(\005\"5\n\016AddUnitRequest\022\023\n\013terri" +
-      "toryId\030\001 \002(\005\022\016\n\006gameId\030\002 \002(\003\"(\n\017AddUnitR" +
-      "esponse\022\025\n\risSuccessfull\030\001 \002(\010\"R\n\020MoveUn" +
-      "itsRequest\022.\n\007command\030\001 \002(\0132\035.communicat" +
-      "ion.protos.Command\022\016\n\006gameId\030\002 \002(\003\"\023\n\021Mo",
-      "veUnitsResponse\"O\n\rAttackRequest\022.\n\007comm" +
-      "and\030\001 \002(\0132\035.communication.protos.Command" +
-      "\022\016\n\006gameId\030\002 \002(\003\"\020\n\016AttackResponse\"`\n\030Ad" +
-      "vancePhaseNotification\022\016\n\006gameId\030\001 \002(\003\0224" +
-      "\n\013territories\030\002 \003(\0132\037.communication.prot" +
-      "os.Territory\"T\n\024JoinGameNotification\022\016\n\006" +
-      "gameId\030\001 \002(\003\022,\n\006player\030\002 \002(\0132\034.communica" +
-      "tion.protos.Player\"*\n\030CommandsSubmittedR" +
-      "equest\022\016\n\006gameId\030\001 \002(\003\"\033\n\031CommandsSubmit" +
-      "tedResponse\"N\n\013AllCommands\022\016\n\006gameId\030\001 \002",
-      "(\003\022/\n\010commands\030\002 \003(\0132\035.communication.pro" +
-      "tos.Command\"U\n\rBorderClashes\022\016\n\006gameId\030\001" +
-      " \002(\003\0224\n\nbattleInfo\030\002 \003(\0132 .communication" +
-      ".protos.BattleInfo\"W\n\017MultipleAttacks\022\016\n" +
-      "\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030\002 \003(\0132 .comm" +
-      "unication.protos.BattleInfo\"U\n\rSingleAtt" +
-      "acks\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030\002 \003(\013" +
-      "2 .communication.protos.BattleInfo\"S\n\013Sp" +
-      "oilsOfWar\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030" +
+      "\036.communication.protos.Alliance\"\252\001\n\021Trad" +
+      "eCardsRequest\022\016\n\006gameId\030\001 \002(\003\022+\n\007cardId1" +
+      "\030\002 \002(\0132\032.communication.protos.Card\022+\n\007ca" +
+      "rdId2\030\003 \002(\0132\032.communication.protos.Card\022" +
+      "+\n\007cardId3\030\004 \002(\0132\032.communication.protos." +
+      "Card\"4\n\022TradeCardsResponse\022\036\n\026numberOfRe" +
+      "inforcements\030\001 \002(\005\"5\n\016AddUnitRequest\022\023\n\013" +
+      "territoryId\030\001 \002(\005\022\016\n\006gameId\030\002 \002(\003\"(\n\017Add" +
+      "UnitResponse\022\025\n\risSuccessfull\030\001 \002(\010\"R\n\020M",
+      "oveUnitsRequest\022.\n\007command\030\001 \002(\0132\035.commu" +
+      "nication.protos.Command\022\016\n\006gameId\030\002 \002(\003\"" +
+      "\023\n\021MoveUnitsResponse\"O\n\rAttackRequest\022.\n" +
+      "\007command\030\001 \002(\0132\035.communication.protos.Co" +
+      "mmand\022\016\n\006gameId\030\002 \002(\003\"\020\n\016AttackResponse\"" +
+      "`\n\030AdvancePhaseNotification\022\016\n\006gameId\030\001 " +
+      "\002(\003\0224\n\013territories\030\002 \003(\0132\037.communication" +
+      ".protos.Territory\"T\n\024JoinGameNotificatio" +
+      "n\022\016\n\006gameId\030\001 \002(\003\022,\n\006player\030\002 \002(\0132\034.comm" +
+      "unication.protos.Player\"*\n\030CommandsSubmi",
+      "ttedRequest\022\016\n\006gameId\030\001 \002(\003\"\033\n\031CommandsS" +
+      "ubmittedResponse\"N\n\013AllCommands\022\016\n\006gameI" +
+      "d\030\001 \002(\003\022/\n\010commands\030\002 \003(\0132\035.communicatio" +
+      "n.protos.Command\"U\n\rBorderClashes\022\016\n\006gam" +
+      "eId\030\001 \002(\003\0224\n\nbattleInfo\030\002 \003(\0132 .communic" +
+      "ation.protos.BattleInfo\"W\n\017MultipleAttac" +
+      "ks\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030\002 \003(\0132 " +
+      ".communication.protos.BattleInfo\"U\n\rSing" +
+      "leAttacks\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattleInfo\030" +
       "\002 \003(\0132 .communication.protos.BattleInfo\"",
-      "[\n\023AdvanceToNextBattle\022\016\n\006gameId\030\001 \002(\003\0224" +
-      "\n\nbattleInfo\030\002 \002(\0132 .communication.proto" +
-      "s.BattleInfo\"J\n\020BattleResolution\0226\n\013troo" +
-      "pNumber\030\001 \003(\0132!.communication.protos.Tro" +
-      "opNumber\"6\n\017RollDiceClicked\022\016\n\006gameId\030\001 " +
-      "\002(\003\022\023\n\013territoryId\030\002 \002(\005\"\031\n\027RollDiceClic" +
-      "kedResponse\"7\n\020PlayerRolledDice\022\016\n\006gameI" +
-      "d\030\001 \002(\003\022\023\n\013territoryId\030\002 \002(\005P\000"
+      "S\n\013SpoilsOfWar\022\016\n\006gameId\030\001 \002(\003\0224\n\nbattle" +
+      "Info\030\002 \003(\0132 .communication.protos.Battle" +
+      "Info\"[\n\023AdvanceToNextBattle\022\016\n\006gameId\030\001 " +
+      "\002(\003\0224\n\nbattleInfo\030\002 \002(\0132 .communication." +
+      "protos.BattleInfo\"J\n\020BattleResolution\0226\n" +
+      "\013troopNumber\030\001 \003(\0132!.communication.proto" +
+      "s.TroopNumber\"6\n\017RollDiceClicked\022\016\n\006game" +
+      "Id\030\001 \002(\003\022\023\n\013territoryId\030\002 \002(\005\"\031\n\027RollDic" +
+      "eClickedResponse\"7\n\020PlayerRolledDice\022\016\n\006" +
+      "gameId\030\001 \002(\003\022\023\n\013territoryId\030\002 \002(\005\"S\n\027Car",
+      "dAwardedNotification\022\016\n\006gameId\030\001 \002(\003\022(\n\004" +
+      "card\030\002 \002(\0132\032.communication.protos.Card\"R" +
+      "\n\033PlayerCardCountNotification\022\016\n\006gameId\030" +
+      "\001 \002(\003\022\020\n\010playerId\030\002 \002(\005\022\021\n\tcardCount\030\003 \002" +
+      "(\005P\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -23326,7 +24894,7 @@ public final class CommunicationProtos {
           internal_static_communication_protos_TradeCardsRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_TradeCardsRequest_descriptor,
-              new java.lang.String[] { "CardId1", "CardId2", "CardId3", "GameId", });
+              new java.lang.String[] { "GameId", "CardId1", "CardId2", "CardId3", });
           internal_static_communication_protos_TradeCardsResponse_descriptor =
             getDescriptor().getMessageTypes().get(22);
           internal_static_communication_protos_TradeCardsResponse_fieldAccessorTable = new
@@ -23453,6 +25021,18 @@ public final class CommunicationProtos {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_PlayerRolledDice_descriptor,
               new java.lang.String[] { "GameId", "TerritoryId", });
+          internal_static_communication_protos_CardAwardedNotification_descriptor =
+            getDescriptor().getMessageTypes().get(43);
+          internal_static_communication_protos_CardAwardedNotification_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_CardAwardedNotification_descriptor,
+              new java.lang.String[] { "GameId", "Card", });
+          internal_static_communication_protos_PlayerCardCountNotification_descriptor =
+            getDescriptor().getMessageTypes().get(44);
+          internal_static_communication_protos_PlayerCardCountNotification_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_PlayerCardCountNotification_descriptor,
+              new java.lang.String[] { "GameId", "PlayerId", "CardCount", });
           return null;
         }
       };

@@ -93,16 +93,16 @@ message AllianceNotification {
 }
 
 message TradeCardsRequest {
-	required int32 cardId1 = 1;
-	required int32 cardId2 = 2;
-	required int32 cardId3 = 3;
-	required int64 gameId = 4;
+	required int64 gameId = 1;
+	required Card cardId1 = 2;
+	required Card cardId2 = 3;
+	required Card cardId3 = 4;
 }
 
 message TradeCardsResponse {
 	required int32 numberOfReinforcements = 1;
 }
-
+	
 message AddUnitRequest {
 	required int32 territoryId = 1;
 	required int64 gameId = 2;
@@ -190,4 +190,15 @@ message RollDiceClickedResponse {
 message PlayerRolledDice {
 	required int64 gameId = 1;
 	required int32 territoryId = 2;
+}
+
+message CardAwardedNotification {
+	required int64 gameId = 1;
+	required Card card = 2;
+}
+
+message PlayerCardCountNotification {
+	required int64 gameId = 1;
+	required int32 playerId = 2;
+	required int32 cardCount = 3;
 }

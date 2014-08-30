@@ -2015,19 +2015,15 @@ public final class DataProtos {
      */
     boolean getIsPlayedMove();
 
-    // repeated int32 cards = 5;
+    // required int32 cardCount = 5;
     /**
-     * <code>repeated int32 cards = 5;</code>
+     * <code>required int32 cardCount = 5;</code>
      */
-    java.util.List<java.lang.Integer> getCardsList();
+    boolean hasCardCount();
     /**
-     * <code>repeated int32 cards = 5;</code>
+     * <code>required int32 cardCount = 5;</code>
      */
-    int getCardsCount();
-    /**
-     * <code>repeated int32 cards = 5;</code>
-     */
-    int getCards(int index);
+    int getCardCount();
 
     // optional int32 numberOfReinforcments = 6;
     /**
@@ -2119,28 +2115,12 @@ public final class DataProtos {
               break;
             }
             case 40: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              cards_.add(input.readInt32());
-              break;
-            }
-            case 42: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                cards_.add(input.readInt32());
-              }
-              input.popLimit(limit);
+              bitField0_ |= 0x00000010;
+              cardCount_ = input.readInt32();
               break;
             }
             case 48: {
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               numberOfReinforcments_ = input.readInt32();
               break;
             }
@@ -2152,9 +2132,6 @@ public final class DataProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          cards_ = java.util.Collections.unmodifiableList(cards_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2257,27 +2234,20 @@ public final class DataProtos {
       return isPlayedMove_;
     }
 
-    // repeated int32 cards = 5;
-    public static final int CARDS_FIELD_NUMBER = 5;
-    private java.util.List<java.lang.Integer> cards_;
+    // required int32 cardCount = 5;
+    public static final int CARDCOUNT_FIELD_NUMBER = 5;
+    private int cardCount_;
     /**
-     * <code>repeated int32 cards = 5;</code>
+     * <code>required int32 cardCount = 5;</code>
      */
-    public java.util.List<java.lang.Integer>
-        getCardsList() {
-      return cards_;
+    public boolean hasCardCount() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>repeated int32 cards = 5;</code>
+     * <code>required int32 cardCount = 5;</code>
      */
-    public int getCardsCount() {
-      return cards_.size();
-    }
-    /**
-     * <code>repeated int32 cards = 5;</code>
-     */
-    public int getCards(int index) {
-      return cards_.get(index);
+    public int getCardCount() {
+      return cardCount_;
     }
 
     // optional int32 numberOfReinforcments = 6;
@@ -2287,7 +2257,7 @@ public final class DataProtos {
      * <code>optional int32 numberOfReinforcments = 6;</code>
      */
     public boolean hasNumberOfReinforcments() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional int32 numberOfReinforcments = 6;</code>
@@ -2301,7 +2271,7 @@ public final class DataProtos {
       user_ = communication.protos.DataProtos.User.getDefaultInstance();
       color_ = 0;
       isPlayedMove_ = false;
-      cards_ = java.util.Collections.emptyList();
+      cardCount_ = 0;
       numberOfReinforcments_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -2318,6 +2288,10 @@ public final class DataProtos {
         return false;
       }
       if (!hasIsPlayedMove()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCardCount()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -2346,10 +2320,10 @@ public final class DataProtos {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBool(4, isPlayedMove_);
       }
-      for (int i = 0; i < cards_.size(); i++) {
-        output.writeInt32(5, cards_.get(i));
-      }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, cardCount_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeInt32(6, numberOfReinforcments_);
       }
       getUnknownFields().writeTo(output);
@@ -2377,16 +2351,11 @@ public final class DataProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, isPlayedMove_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < cards_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(cards_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getCardsList().size();
-      }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, cardCount_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, numberOfReinforcments_);
       }
@@ -2519,7 +2488,7 @@ public final class DataProtos {
         bitField0_ = (bitField0_ & ~0x00000004);
         isPlayedMove_ = false;
         bitField0_ = (bitField0_ & ~0x00000008);
-        cards_ = java.util.Collections.emptyList();
+        cardCount_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
         numberOfReinforcments_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -2571,13 +2540,12 @@ public final class DataProtos {
           to_bitField0_ |= 0x00000008;
         }
         result.isPlayedMove_ = isPlayedMove_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          cards_ = java.util.Collections.unmodifiableList(cards_);
-          bitField0_ = (bitField0_ & ~0x00000010);
-        }
-        result.cards_ = cards_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.cardCount_ = cardCount_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         result.numberOfReinforcments_ = numberOfReinforcments_;
         result.bitField0_ = to_bitField0_;
@@ -2608,15 +2576,8 @@ public final class DataProtos {
         if (other.hasIsPlayedMove()) {
           setIsPlayedMove(other.getIsPlayedMove());
         }
-        if (!other.cards_.isEmpty()) {
-          if (cards_.isEmpty()) {
-            cards_ = other.cards_;
-            bitField0_ = (bitField0_ & ~0x00000010);
-          } else {
-            ensureCardsIsMutable();
-            cards_.addAll(other.cards_);
-          }
-          onChanged();
+        if (other.hasCardCount()) {
+          setCardCount(other.getCardCount());
         }
         if (other.hasNumberOfReinforcments()) {
           setNumberOfReinforcments(other.getNumberOfReinforcments());
@@ -2635,6 +2596,10 @@ public final class DataProtos {
           return false;
         }
         if (!hasIsPlayedMove()) {
+          
+          return false;
+        }
+        if (!hasCardCount()) {
           
           return false;
         }
@@ -2882,68 +2847,35 @@ public final class DataProtos {
         return this;
       }
 
-      // repeated int32 cards = 5;
-      private java.util.List<java.lang.Integer> cards_ = java.util.Collections.emptyList();
-      private void ensureCardsIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          cards_ = new java.util.ArrayList<java.lang.Integer>(cards_);
-          bitField0_ |= 0x00000010;
-         }
+      // required int32 cardCount = 5;
+      private int cardCount_ ;
+      /**
+       * <code>required int32 cardCount = 5;</code>
+       */
+      public boolean hasCardCount() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>repeated int32 cards = 5;</code>
+       * <code>required int32 cardCount = 5;</code>
        */
-      public java.util.List<java.lang.Integer>
-          getCardsList() {
-        return java.util.Collections.unmodifiableList(cards_);
+      public int getCardCount() {
+        return cardCount_;
       }
       /**
-       * <code>repeated int32 cards = 5;</code>
+       * <code>required int32 cardCount = 5;</code>
        */
-      public int getCardsCount() {
-        return cards_.size();
-      }
-      /**
-       * <code>repeated int32 cards = 5;</code>
-       */
-      public int getCards(int index) {
-        return cards_.get(index);
-      }
-      /**
-       * <code>repeated int32 cards = 5;</code>
-       */
-      public Builder setCards(
-          int index, int value) {
-        ensureCardsIsMutable();
-        cards_.set(index, value);
+      public Builder setCardCount(int value) {
+        bitField0_ |= 0x00000010;
+        cardCount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 cards = 5;</code>
+       * <code>required int32 cardCount = 5;</code>
        */
-      public Builder addCards(int value) {
-        ensureCardsIsMutable();
-        cards_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 cards = 5;</code>
-       */
-      public Builder addAllCards(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureCardsIsMutable();
-        super.addAll(values, cards_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 cards = 5;</code>
-       */
-      public Builder clearCards() {
-        cards_ = java.util.Collections.emptyList();
+      public Builder clearCardCount() {
         bitField0_ = (bitField0_ & ~0x00000010);
+        cardCount_ = 0;
         onChanged();
         return this;
       }
@@ -3488,19 +3420,29 @@ public final class DataProtos {
   public interface GameContextOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .communication.protos.LightGameContext lightGameContext = 2;
+    // required .communication.protos.LightGameContext lightGameContext = 1;
     /**
-     * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+     * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
      */
     boolean hasLightGameContext();
     /**
-     * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+     * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
      */
     communication.protos.DataProtos.LightGameContext getLightGameContext();
     /**
-     * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+     * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
      */
     communication.protos.DataProtos.LightGameContextOrBuilder getLightGameContextOrBuilder();
+
+    // required bool isPhaseCommited = 2;
+    /**
+     * <code>required bool isPhaseCommited = 2;</code>
+     */
+    boolean hasIsPhaseCommited();
+    /**
+     * <code>required bool isPhaseCommited = 2;</code>
+     */
+    boolean getIsPhaseCommited();
 
     // repeated .communication.protos.Territory territories = 3;
     /**
@@ -3576,6 +3518,31 @@ public final class DataProtos {
      */
     communication.protos.DataProtos.CommandOrBuilder getPendingComandsOrBuilder(
         int index);
+
+    // repeated .communication.protos.Card myCards = 6;
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    java.util.List<communication.protos.DataProtos.Card> 
+        getMyCardsList();
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    communication.protos.DataProtos.Card getMyCards(int index);
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    int getMyCardsCount();
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    java.util.List<? extends communication.protos.DataProtos.CardOrBuilder> 
+        getMyCardsOrBuilderList();
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    communication.protos.DataProtos.CardOrBuilder getMyCardsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code communication.protos.GameContext}
@@ -3628,7 +3595,7 @@ public final class DataProtos {
               }
               break;
             }
-            case 18: {
+            case 10: {
               communication.protos.DataProtos.LightGameContext.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = lightGameContext_.toBuilder();
@@ -3641,28 +3608,41 @@ public final class DataProtos {
               bitField0_ |= 0x00000001;
               break;
             }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              isPhaseCommited_ = input.readBool();
+              break;
+            }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 territories_ = new java.util.ArrayList<communication.protos.DataProtos.Territory>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000004;
               }
               territories_.add(input.readMessage(communication.protos.DataProtos.Territory.PARSER, extensionRegistry));
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 alliances_ = new java.util.ArrayList<communication.protos.DataProtos.Alliance>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000008;
               }
               alliances_.add(input.readMessage(communication.protos.DataProtos.Alliance.PARSER, extensionRegistry));
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 pendingComands_ = new java.util.ArrayList<communication.protos.DataProtos.Command>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               pendingComands_.add(input.readMessage(communication.protos.DataProtos.Command.PARSER, extensionRegistry));
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                myCards_ = new java.util.ArrayList<communication.protos.DataProtos.Card>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              myCards_.add(input.readMessage(communication.protos.DataProtos.Card.PARSER, extensionRegistry));
               break;
             }
           }
@@ -3673,14 +3653,17 @@ public final class DataProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           territories_ = java.util.Collections.unmodifiableList(territories_);
         }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           alliances_ = java.util.Collections.unmodifiableList(alliances_);
         }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           pendingComands_ = java.util.Collections.unmodifiableList(pendingComands_);
+        }
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          myCards_ = java.util.Collections.unmodifiableList(myCards_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3714,26 +3697,42 @@ public final class DataProtos {
     }
 
     private int bitField0_;
-    // required .communication.protos.LightGameContext lightGameContext = 2;
-    public static final int LIGHTGAMECONTEXT_FIELD_NUMBER = 2;
+    // required .communication.protos.LightGameContext lightGameContext = 1;
+    public static final int LIGHTGAMECONTEXT_FIELD_NUMBER = 1;
     private communication.protos.DataProtos.LightGameContext lightGameContext_;
     /**
-     * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+     * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
      */
     public boolean hasLightGameContext() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+     * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
      */
     public communication.protos.DataProtos.LightGameContext getLightGameContext() {
       return lightGameContext_;
     }
     /**
-     * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+     * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
      */
     public communication.protos.DataProtos.LightGameContextOrBuilder getLightGameContextOrBuilder() {
       return lightGameContext_;
+    }
+
+    // required bool isPhaseCommited = 2;
+    public static final int ISPHASECOMMITED_FIELD_NUMBER = 2;
+    private boolean isPhaseCommited_;
+    /**
+     * <code>required bool isPhaseCommited = 2;</code>
+     */
+    public boolean hasIsPhaseCommited() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required bool isPhaseCommited = 2;</code>
+     */
+    public boolean getIsPhaseCommited() {
+      return isPhaseCommited_;
     }
 
     // repeated .communication.protos.Territory territories = 3;
@@ -3844,11 +3843,49 @@ public final class DataProtos {
       return pendingComands_.get(index);
     }
 
+    // repeated .communication.protos.Card myCards = 6;
+    public static final int MYCARDS_FIELD_NUMBER = 6;
+    private java.util.List<communication.protos.DataProtos.Card> myCards_;
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    public java.util.List<communication.protos.DataProtos.Card> getMyCardsList() {
+      return myCards_;
+    }
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    public java.util.List<? extends communication.protos.DataProtos.CardOrBuilder> 
+        getMyCardsOrBuilderList() {
+      return myCards_;
+    }
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    public int getMyCardsCount() {
+      return myCards_.size();
+    }
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    public communication.protos.DataProtos.Card getMyCards(int index) {
+      return myCards_.get(index);
+    }
+    /**
+     * <code>repeated .communication.protos.Card myCards = 6;</code>
+     */
+    public communication.protos.DataProtos.CardOrBuilder getMyCardsOrBuilder(
+        int index) {
+      return myCards_.get(index);
+    }
+
     private void initFields() {
       lightGameContext_ = communication.protos.DataProtos.LightGameContext.getDefaultInstance();
+      isPhaseCommited_ = false;
       territories_ = java.util.Collections.emptyList();
       alliances_ = java.util.Collections.emptyList();
       pendingComands_ = java.util.Collections.emptyList();
+      myCards_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3856,6 +3893,10 @@ public final class DataProtos {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasLightGameContext()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasIsPhaseCommited()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3881,6 +3922,12 @@ public final class DataProtos {
           return false;
         }
       }
+      for (int i = 0; i < getMyCardsCount(); i++) {
+        if (!getMyCards(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -3889,7 +3936,10 @@ public final class DataProtos {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(2, lightGameContext_);
+        output.writeMessage(1, lightGameContext_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, isPhaseCommited_);
       }
       for (int i = 0; i < territories_.size(); i++) {
         output.writeMessage(3, territories_.get(i));
@@ -3899,6 +3949,9 @@ public final class DataProtos {
       }
       for (int i = 0; i < pendingComands_.size(); i++) {
         output.writeMessage(5, pendingComands_.get(i));
+      }
+      for (int i = 0; i < myCards_.size(); i++) {
+        output.writeMessage(6, myCards_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -3911,7 +3964,11 @@ public final class DataProtos {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, lightGameContext_);
+          .computeMessageSize(1, lightGameContext_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, isPhaseCommited_);
       }
       for (int i = 0; i < territories_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -3924,6 +3981,10 @@ public final class DataProtos {
       for (int i = 0; i < pendingComands_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, pendingComands_.get(i));
+      }
+      for (int i = 0; i < myCards_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, myCards_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4037,6 +4098,7 @@ public final class DataProtos {
           getTerritoriesFieldBuilder();
           getAlliancesFieldBuilder();
           getPendingComandsFieldBuilder();
+          getMyCardsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -4051,23 +4113,31 @@ public final class DataProtos {
           lightGameContextBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
+        isPhaseCommited_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (territoriesBuilder_ == null) {
           territories_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           territoriesBuilder_.clear();
         }
         if (alliancesBuilder_ == null) {
           alliances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           alliancesBuilder_.clear();
         }
         if (pendingComandsBuilder_ == null) {
           pendingComands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           pendingComandsBuilder_.clear();
+        }
+        if (myCardsBuilder_ == null) {
+          myCards_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          myCardsBuilder_.clear();
         }
         return this;
       }
@@ -4105,32 +4175,45 @@ public final class DataProtos {
         } else {
           result.lightGameContext_ = lightGameContextBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.isPhaseCommited_ = isPhaseCommited_;
         if (territoriesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             territories_ = java.util.Collections.unmodifiableList(territories_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.territories_ = territories_;
         } else {
           result.territories_ = territoriesBuilder_.build();
         }
         if (alliancesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
             alliances_ = java.util.Collections.unmodifiableList(alliances_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.alliances_ = alliances_;
         } else {
           result.alliances_ = alliancesBuilder_.build();
         }
         if (pendingComandsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
             pendingComands_ = java.util.Collections.unmodifiableList(pendingComands_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.pendingComands_ = pendingComands_;
         } else {
           result.pendingComands_ = pendingComandsBuilder_.build();
+        }
+        if (myCardsBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            myCards_ = java.util.Collections.unmodifiableList(myCards_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.myCards_ = myCards_;
+        } else {
+          result.myCards_ = myCardsBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -4151,11 +4234,14 @@ public final class DataProtos {
         if (other.hasLightGameContext()) {
           mergeLightGameContext(other.getLightGameContext());
         }
+        if (other.hasIsPhaseCommited()) {
+          setIsPhaseCommited(other.getIsPhaseCommited());
+        }
         if (territoriesBuilder_ == null) {
           if (!other.territories_.isEmpty()) {
             if (territories_.isEmpty()) {
               territories_ = other.territories_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureTerritoriesIsMutable();
               territories_.addAll(other.territories_);
@@ -4168,7 +4254,7 @@ public final class DataProtos {
               territoriesBuilder_.dispose();
               territoriesBuilder_ = null;
               territories_ = other.territories_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
               territoriesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getTerritoriesFieldBuilder() : null;
@@ -4181,7 +4267,7 @@ public final class DataProtos {
           if (!other.alliances_.isEmpty()) {
             if (alliances_.isEmpty()) {
               alliances_ = other.alliances_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureAlliancesIsMutable();
               alliances_.addAll(other.alliances_);
@@ -4194,7 +4280,7 @@ public final class DataProtos {
               alliancesBuilder_.dispose();
               alliancesBuilder_ = null;
               alliances_ = other.alliances_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               alliancesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getAlliancesFieldBuilder() : null;
@@ -4207,7 +4293,7 @@ public final class DataProtos {
           if (!other.pendingComands_.isEmpty()) {
             if (pendingComands_.isEmpty()) {
               pendingComands_ = other.pendingComands_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensurePendingComandsIsMutable();
               pendingComands_.addAll(other.pendingComands_);
@@ -4220,12 +4306,38 @@ public final class DataProtos {
               pendingComandsBuilder_.dispose();
               pendingComandsBuilder_ = null;
               pendingComands_ = other.pendingComands_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000010);
               pendingComandsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getPendingComandsFieldBuilder() : null;
             } else {
               pendingComandsBuilder_.addAllMessages(other.pendingComands_);
+            }
+          }
+        }
+        if (myCardsBuilder_ == null) {
+          if (!other.myCards_.isEmpty()) {
+            if (myCards_.isEmpty()) {
+              myCards_ = other.myCards_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureMyCardsIsMutable();
+              myCards_.addAll(other.myCards_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.myCards_.isEmpty()) {
+            if (myCardsBuilder_.isEmpty()) {
+              myCardsBuilder_.dispose();
+              myCardsBuilder_ = null;
+              myCards_ = other.myCards_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              myCardsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getMyCardsFieldBuilder() : null;
+            } else {
+              myCardsBuilder_.addAllMessages(other.myCards_);
             }
           }
         }
@@ -4235,6 +4347,10 @@ public final class DataProtos {
 
       public final boolean isInitialized() {
         if (!hasLightGameContext()) {
+          
+          return false;
+        }
+        if (!hasIsPhaseCommited()) {
           
           return false;
         }
@@ -4256,6 +4372,12 @@ public final class DataProtos {
         }
         for (int i = 0; i < getPendingComandsCount(); i++) {
           if (!getPendingComands(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getMyCardsCount(); i++) {
+          if (!getMyCards(i).isInitialized()) {
             
             return false;
           }
@@ -4282,18 +4404,18 @@ public final class DataProtos {
       }
       private int bitField0_;
 
-      // required .communication.protos.LightGameContext lightGameContext = 2;
+      // required .communication.protos.LightGameContext lightGameContext = 1;
       private communication.protos.DataProtos.LightGameContext lightGameContext_ = communication.protos.DataProtos.LightGameContext.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           communication.protos.DataProtos.LightGameContext, communication.protos.DataProtos.LightGameContext.Builder, communication.protos.DataProtos.LightGameContextOrBuilder> lightGameContextBuilder_;
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public boolean hasLightGameContext() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public communication.protos.DataProtos.LightGameContext getLightGameContext() {
         if (lightGameContextBuilder_ == null) {
@@ -4303,7 +4425,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public Builder setLightGameContext(communication.protos.DataProtos.LightGameContext value) {
         if (lightGameContextBuilder_ == null) {
@@ -4319,7 +4441,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public Builder setLightGameContext(
           communication.protos.DataProtos.LightGameContext.Builder builderForValue) {
@@ -4333,7 +4455,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public Builder mergeLightGameContext(communication.protos.DataProtos.LightGameContext value) {
         if (lightGameContextBuilder_ == null) {
@@ -4352,7 +4474,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public Builder clearLightGameContext() {
         if (lightGameContextBuilder_ == null) {
@@ -4365,7 +4487,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public communication.protos.DataProtos.LightGameContext.Builder getLightGameContextBuilder() {
         bitField0_ |= 0x00000001;
@@ -4373,7 +4495,7 @@ public final class DataProtos {
         return getLightGameContextFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       public communication.protos.DataProtos.LightGameContextOrBuilder getLightGameContextOrBuilder() {
         if (lightGameContextBuilder_ != null) {
@@ -4383,7 +4505,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>required .communication.protos.LightGameContext lightGameContext = 2;</code>
+       * <code>required .communication.protos.LightGameContext lightGameContext = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           communication.protos.DataProtos.LightGameContext, communication.protos.DataProtos.LightGameContext.Builder, communication.protos.DataProtos.LightGameContextOrBuilder> 
@@ -4399,13 +4521,46 @@ public final class DataProtos {
         return lightGameContextBuilder_;
       }
 
+      // required bool isPhaseCommited = 2;
+      private boolean isPhaseCommited_ ;
+      /**
+       * <code>required bool isPhaseCommited = 2;</code>
+       */
+      public boolean hasIsPhaseCommited() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required bool isPhaseCommited = 2;</code>
+       */
+      public boolean getIsPhaseCommited() {
+        return isPhaseCommited_;
+      }
+      /**
+       * <code>required bool isPhaseCommited = 2;</code>
+       */
+      public Builder setIsPhaseCommited(boolean value) {
+        bitField0_ |= 0x00000002;
+        isPhaseCommited_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool isPhaseCommited = 2;</code>
+       */
+      public Builder clearIsPhaseCommited() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        isPhaseCommited_ = false;
+        onChanged();
+        return this;
+      }
+
       // repeated .communication.protos.Territory territories = 3;
       private java.util.List<communication.protos.DataProtos.Territory> territories_ =
         java.util.Collections.emptyList();
       private void ensureTerritoriesIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           territories_ = new java.util.ArrayList<communication.protos.DataProtos.Territory>(territories_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -4554,7 +4709,7 @@ public final class DataProtos {
       public Builder clearTerritories() {
         if (territoriesBuilder_ == null) {
           territories_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           territoriesBuilder_.clear();
@@ -4631,7 +4786,7 @@ public final class DataProtos {
           territoriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               communication.protos.DataProtos.Territory, communication.protos.DataProtos.Territory.Builder, communication.protos.DataProtos.TerritoryOrBuilder>(
                   territories_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           territories_ = null;
@@ -4643,9 +4798,9 @@ public final class DataProtos {
       private java.util.List<communication.protos.DataProtos.Alliance> alliances_ =
         java.util.Collections.emptyList();
       private void ensureAlliancesIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           alliances_ = new java.util.ArrayList<communication.protos.DataProtos.Alliance>(alliances_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -4794,7 +4949,7 @@ public final class DataProtos {
       public Builder clearAlliances() {
         if (alliancesBuilder_ == null) {
           alliances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           alliancesBuilder_.clear();
@@ -4871,7 +5026,7 @@ public final class DataProtos {
           alliancesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               communication.protos.DataProtos.Alliance, communication.protos.DataProtos.Alliance.Builder, communication.protos.DataProtos.AllianceOrBuilder>(
                   alliances_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           alliances_ = null;
@@ -4883,9 +5038,9 @@ public final class DataProtos {
       private java.util.List<communication.protos.DataProtos.Command> pendingComands_ =
         java.util.Collections.emptyList();
       private void ensurePendingComandsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           pendingComands_ = new java.util.ArrayList<communication.protos.DataProtos.Command>(pendingComands_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -5034,7 +5189,7 @@ public final class DataProtos {
       public Builder clearPendingComands() {
         if (pendingComandsBuilder_ == null) {
           pendingComands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           pendingComandsBuilder_.clear();
@@ -5111,12 +5266,252 @@ public final class DataProtos {
           pendingComandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder>(
                   pendingComands_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
                   isClean());
           pendingComands_ = null;
         }
         return pendingComandsBuilder_;
+      }
+
+      // repeated .communication.protos.Card myCards = 6;
+      private java.util.List<communication.protos.DataProtos.Card> myCards_ =
+        java.util.Collections.emptyList();
+      private void ensureMyCardsIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          myCards_ = new java.util.ArrayList<communication.protos.DataProtos.Card>(myCards_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> myCardsBuilder_;
+
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public java.util.List<communication.protos.DataProtos.Card> getMyCardsList() {
+        if (myCardsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(myCards_);
+        } else {
+          return myCardsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public int getMyCardsCount() {
+        if (myCardsBuilder_ == null) {
+          return myCards_.size();
+        } else {
+          return myCardsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public communication.protos.DataProtos.Card getMyCards(int index) {
+        if (myCardsBuilder_ == null) {
+          return myCards_.get(index);
+        } else {
+          return myCardsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder setMyCards(
+          int index, communication.protos.DataProtos.Card value) {
+        if (myCardsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyCardsIsMutable();
+          myCards_.set(index, value);
+          onChanged();
+        } else {
+          myCardsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder setMyCards(
+          int index, communication.protos.DataProtos.Card.Builder builderForValue) {
+        if (myCardsBuilder_ == null) {
+          ensureMyCardsIsMutable();
+          myCards_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          myCardsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder addMyCards(communication.protos.DataProtos.Card value) {
+        if (myCardsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyCardsIsMutable();
+          myCards_.add(value);
+          onChanged();
+        } else {
+          myCardsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder addMyCards(
+          int index, communication.protos.DataProtos.Card value) {
+        if (myCardsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyCardsIsMutable();
+          myCards_.add(index, value);
+          onChanged();
+        } else {
+          myCardsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder addMyCards(
+          communication.protos.DataProtos.Card.Builder builderForValue) {
+        if (myCardsBuilder_ == null) {
+          ensureMyCardsIsMutable();
+          myCards_.add(builderForValue.build());
+          onChanged();
+        } else {
+          myCardsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder addMyCards(
+          int index, communication.protos.DataProtos.Card.Builder builderForValue) {
+        if (myCardsBuilder_ == null) {
+          ensureMyCardsIsMutable();
+          myCards_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          myCardsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder addAllMyCards(
+          java.lang.Iterable<? extends communication.protos.DataProtos.Card> values) {
+        if (myCardsBuilder_ == null) {
+          ensureMyCardsIsMutable();
+          super.addAll(values, myCards_);
+          onChanged();
+        } else {
+          myCardsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder clearMyCards() {
+        if (myCardsBuilder_ == null) {
+          myCards_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          myCardsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public Builder removeMyCards(int index) {
+        if (myCardsBuilder_ == null) {
+          ensureMyCardsIsMutable();
+          myCards_.remove(index);
+          onChanged();
+        } else {
+          myCardsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public communication.protos.DataProtos.Card.Builder getMyCardsBuilder(
+          int index) {
+        return getMyCardsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public communication.protos.DataProtos.CardOrBuilder getMyCardsOrBuilder(
+          int index) {
+        if (myCardsBuilder_ == null) {
+          return myCards_.get(index);  } else {
+          return myCardsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public java.util.List<? extends communication.protos.DataProtos.CardOrBuilder> 
+           getMyCardsOrBuilderList() {
+        if (myCardsBuilder_ != null) {
+          return myCardsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(myCards_);
+        }
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public communication.protos.DataProtos.Card.Builder addMyCardsBuilder() {
+        return getMyCardsFieldBuilder().addBuilder(
+            communication.protos.DataProtos.Card.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public communication.protos.DataProtos.Card.Builder addMyCardsBuilder(
+          int index) {
+        return getMyCardsFieldBuilder().addBuilder(
+            index, communication.protos.DataProtos.Card.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .communication.protos.Card myCards = 6;</code>
+       */
+      public java.util.List<communication.protos.DataProtos.Card.Builder> 
+           getMyCardsBuilderList() {
+        return getMyCardsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder> 
+          getMyCardsFieldBuilder() {
+        if (myCardsBuilder_ == null) {
+          myCardsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              communication.protos.DataProtos.Card, communication.protos.DataProtos.Card.Builder, communication.protos.DataProtos.CardOrBuilder>(
+                  myCards_,
+                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  getParentForChildren(),
+                  isClean());
+          myCards_ = null;
+        }
+        return myCardsBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:communication.protos.GameContext)
@@ -10018,52 +10413,52 @@ public final class DataProtos {
   public interface BattleInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .communication.protos.Command oneSide = 2;
+    // repeated .communication.protos.Command oneSide = 1;
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     java.util.List<communication.protos.DataProtos.Command> 
         getOneSideList();
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     communication.protos.DataProtos.Command getOneSide(int index);
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     int getOneSideCount();
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
         getOneSideOrBuilderList();
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     communication.protos.DataProtos.CommandOrBuilder getOneSideOrBuilder(
         int index);
 
-    // repeated .communication.protos.Command otherSide = 3;
+    // repeated .communication.protos.Command otherSide = 2;
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     java.util.List<communication.protos.DataProtos.Command> 
         getOtherSideList();
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     communication.protos.DataProtos.Command getOtherSide(int index);
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     int getOtherSideCount();
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
         getOtherSideOrBuilderList();
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     communication.protos.DataProtos.CommandOrBuilder getOtherSideOrBuilder(
         int index);
@@ -10119,7 +10514,7 @@ public final class DataProtos {
               }
               break;
             }
-            case 18: {
+            case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 oneSide_ = new java.util.ArrayList<communication.protos.DataProtos.Command>();
                 mutable_bitField0_ |= 0x00000001;
@@ -10127,7 +10522,7 @@ public final class DataProtos {
               oneSide_.add(input.readMessage(communication.protos.DataProtos.Command.PARSER, extensionRegistry));
               break;
             }
-            case 26: {
+            case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 otherSide_ = new java.util.ArrayList<communication.protos.DataProtos.Command>();
                 mutable_bitField0_ |= 0x00000002;
@@ -10180,72 +10575,72 @@ public final class DataProtos {
       return PARSER;
     }
 
-    // repeated .communication.protos.Command oneSide = 2;
-    public static final int ONESIDE_FIELD_NUMBER = 2;
+    // repeated .communication.protos.Command oneSide = 1;
+    public static final int ONESIDE_FIELD_NUMBER = 1;
     private java.util.List<communication.protos.DataProtos.Command> oneSide_;
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     public java.util.List<communication.protos.DataProtos.Command> getOneSideList() {
       return oneSide_;
     }
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
         getOneSideOrBuilderList() {
       return oneSide_;
     }
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     public int getOneSideCount() {
       return oneSide_.size();
     }
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     public communication.protos.DataProtos.Command getOneSide(int index) {
       return oneSide_.get(index);
     }
     /**
-     * <code>repeated .communication.protos.Command oneSide = 2;</code>
+     * <code>repeated .communication.protos.Command oneSide = 1;</code>
      */
     public communication.protos.DataProtos.CommandOrBuilder getOneSideOrBuilder(
         int index) {
       return oneSide_.get(index);
     }
 
-    // repeated .communication.protos.Command otherSide = 3;
-    public static final int OTHERSIDE_FIELD_NUMBER = 3;
+    // repeated .communication.protos.Command otherSide = 2;
+    public static final int OTHERSIDE_FIELD_NUMBER = 2;
     private java.util.List<communication.protos.DataProtos.Command> otherSide_;
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     public java.util.List<communication.protos.DataProtos.Command> getOtherSideList() {
       return otherSide_;
     }
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
         getOtherSideOrBuilderList() {
       return otherSide_;
     }
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     public int getOtherSideCount() {
       return otherSide_.size();
     }
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     public communication.protos.DataProtos.Command getOtherSide(int index) {
       return otherSide_.get(index);
     }
     /**
-     * <code>repeated .communication.protos.Command otherSide = 3;</code>
+     * <code>repeated .communication.protos.Command otherSide = 2;</code>
      */
     public communication.protos.DataProtos.CommandOrBuilder getOtherSideOrBuilder(
         int index) {
@@ -10281,10 +10676,10 @@ public final class DataProtos {
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < oneSide_.size(); i++) {
-        output.writeMessage(2, oneSide_.get(i));
+        output.writeMessage(1, oneSide_.get(i));
       }
       for (int i = 0; i < otherSide_.size(); i++) {
-        output.writeMessage(3, otherSide_.get(i));
+        output.writeMessage(2, otherSide_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -10297,11 +10692,11 @@ public final class DataProtos {
       size = 0;
       for (int i = 0; i < oneSide_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, oneSide_.get(i));
+          .computeMessageSize(1, oneSide_.get(i));
       }
       for (int i = 0; i < otherSide_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, otherSide_.get(i));
+          .computeMessageSize(2, otherSide_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -10584,7 +10979,7 @@ public final class DataProtos {
       }
       private int bitField0_;
 
-      // repeated .communication.protos.Command oneSide = 2;
+      // repeated .communication.protos.Command oneSide = 1;
       private java.util.List<communication.protos.DataProtos.Command> oneSide_ =
         java.util.Collections.emptyList();
       private void ensureOneSideIsMutable() {
@@ -10598,7 +10993,7 @@ public final class DataProtos {
           communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> oneSideBuilder_;
 
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public java.util.List<communication.protos.DataProtos.Command> getOneSideList() {
         if (oneSideBuilder_ == null) {
@@ -10608,7 +11003,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public int getOneSideCount() {
         if (oneSideBuilder_ == null) {
@@ -10618,7 +11013,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public communication.protos.DataProtos.Command getOneSide(int index) {
         if (oneSideBuilder_ == null) {
@@ -10628,7 +11023,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder setOneSide(
           int index, communication.protos.DataProtos.Command value) {
@@ -10645,7 +11040,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder setOneSide(
           int index, communication.protos.DataProtos.Command.Builder builderForValue) {
@@ -10659,7 +11054,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder addOneSide(communication.protos.DataProtos.Command value) {
         if (oneSideBuilder_ == null) {
@@ -10675,7 +11070,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder addOneSide(
           int index, communication.protos.DataProtos.Command value) {
@@ -10692,7 +11087,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder addOneSide(
           communication.protos.DataProtos.Command.Builder builderForValue) {
@@ -10706,7 +11101,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder addOneSide(
           int index, communication.protos.DataProtos.Command.Builder builderForValue) {
@@ -10720,7 +11115,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder addAllOneSide(
           java.lang.Iterable<? extends communication.protos.DataProtos.Command> values) {
@@ -10734,7 +11129,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder clearOneSide() {
         if (oneSideBuilder_ == null) {
@@ -10747,7 +11142,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public Builder removeOneSide(int index) {
         if (oneSideBuilder_ == null) {
@@ -10760,14 +11155,14 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public communication.protos.DataProtos.Command.Builder getOneSideBuilder(
           int index) {
         return getOneSideFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public communication.protos.DataProtos.CommandOrBuilder getOneSideOrBuilder(
           int index) {
@@ -10777,7 +11172,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
            getOneSideOrBuilderList() {
@@ -10788,14 +11183,14 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public communication.protos.DataProtos.Command.Builder addOneSideBuilder() {
         return getOneSideFieldBuilder().addBuilder(
             communication.protos.DataProtos.Command.getDefaultInstance());
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public communication.protos.DataProtos.Command.Builder addOneSideBuilder(
           int index) {
@@ -10803,7 +11198,7 @@ public final class DataProtos {
             index, communication.protos.DataProtos.Command.getDefaultInstance());
       }
       /**
-       * <code>repeated .communication.protos.Command oneSide = 2;</code>
+       * <code>repeated .communication.protos.Command oneSide = 1;</code>
        */
       public java.util.List<communication.protos.DataProtos.Command.Builder> 
            getOneSideBuilderList() {
@@ -10824,7 +11219,7 @@ public final class DataProtos {
         return oneSideBuilder_;
       }
 
-      // repeated .communication.protos.Command otherSide = 3;
+      // repeated .communication.protos.Command otherSide = 2;
       private java.util.List<communication.protos.DataProtos.Command> otherSide_ =
         java.util.Collections.emptyList();
       private void ensureOtherSideIsMutable() {
@@ -10838,7 +11233,7 @@ public final class DataProtos {
           communication.protos.DataProtos.Command, communication.protos.DataProtos.Command.Builder, communication.protos.DataProtos.CommandOrBuilder> otherSideBuilder_;
 
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public java.util.List<communication.protos.DataProtos.Command> getOtherSideList() {
         if (otherSideBuilder_ == null) {
@@ -10848,7 +11243,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public int getOtherSideCount() {
         if (otherSideBuilder_ == null) {
@@ -10858,7 +11253,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public communication.protos.DataProtos.Command getOtherSide(int index) {
         if (otherSideBuilder_ == null) {
@@ -10868,7 +11263,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder setOtherSide(
           int index, communication.protos.DataProtos.Command value) {
@@ -10885,7 +11280,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder setOtherSide(
           int index, communication.protos.DataProtos.Command.Builder builderForValue) {
@@ -10899,7 +11294,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder addOtherSide(communication.protos.DataProtos.Command value) {
         if (otherSideBuilder_ == null) {
@@ -10915,7 +11310,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder addOtherSide(
           int index, communication.protos.DataProtos.Command value) {
@@ -10932,7 +11327,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder addOtherSide(
           communication.protos.DataProtos.Command.Builder builderForValue) {
@@ -10946,7 +11341,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder addOtherSide(
           int index, communication.protos.DataProtos.Command.Builder builderForValue) {
@@ -10960,7 +11355,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder addAllOtherSide(
           java.lang.Iterable<? extends communication.protos.DataProtos.Command> values) {
@@ -10974,7 +11369,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder clearOtherSide() {
         if (otherSideBuilder_ == null) {
@@ -10987,7 +11382,7 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public Builder removeOtherSide(int index) {
         if (otherSideBuilder_ == null) {
@@ -11000,14 +11395,14 @@ public final class DataProtos {
         return this;
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public communication.protos.DataProtos.Command.Builder getOtherSideBuilder(
           int index) {
         return getOtherSideFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public communication.protos.DataProtos.CommandOrBuilder getOtherSideOrBuilder(
           int index) {
@@ -11017,7 +11412,7 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public java.util.List<? extends communication.protos.DataProtos.CommandOrBuilder> 
            getOtherSideOrBuilderList() {
@@ -11028,14 +11423,14 @@ public final class DataProtos {
         }
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public communication.protos.DataProtos.Command.Builder addOtherSideBuilder() {
         return getOtherSideFieldBuilder().addBuilder(
             communication.protos.DataProtos.Command.getDefaultInstance());
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public communication.protos.DataProtos.Command.Builder addOtherSideBuilder(
           int index) {
@@ -11043,7 +11438,7 @@ public final class DataProtos {
             index, communication.protos.DataProtos.Command.getDefaultInstance());
       }
       /**
-       * <code>repeated .communication.protos.Command otherSide = 3;</code>
+       * <code>repeated .communication.protos.Command otherSide = 2;</code>
        */
       public java.util.List<communication.protos.DataProtos.Command.Builder> 
            getOtherSideBuilderList() {
@@ -11073,6 +11468,499 @@ public final class DataProtos {
     }
 
     // @@protoc_insertion_point(class_scope:communication.protos.BattleInfo)
+  }
+
+  public interface CardOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 territoryId = 1;
+    /**
+     * <code>required int32 territoryId = 1;</code>
+     */
+    boolean hasTerritoryId();
+    /**
+     * <code>required int32 territoryId = 1;</code>
+     */
+    int getTerritoryId();
+
+    // required int32 type = 2;
+    /**
+     * <code>required int32 type = 2;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required int32 type = 2;</code>
+     */
+    int getType();
+  }
+  /**
+   * Protobuf type {@code communication.protos.Card}
+   */
+  public static final class Card extends
+      com.google.protobuf.GeneratedMessage
+      implements CardOrBuilder {
+    // Use Card.newBuilder() to construct.
+    private Card(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Card(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Card defaultInstance;
+    public static Card getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Card getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Card(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              territoryId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              type_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.DataProtos.internal_static_communication_protos_Card_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.DataProtos.internal_static_communication_protos_Card_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.DataProtos.Card.class, communication.protos.DataProtos.Card.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Card> PARSER =
+        new com.google.protobuf.AbstractParser<Card>() {
+      public Card parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Card(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Card> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 territoryId = 1;
+    public static final int TERRITORYID_FIELD_NUMBER = 1;
+    private int territoryId_;
+    /**
+     * <code>required int32 territoryId = 1;</code>
+     */
+    public boolean hasTerritoryId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 territoryId = 1;</code>
+     */
+    public int getTerritoryId() {
+      return territoryId_;
+    }
+
+    // required int32 type = 2;
+    public static final int TYPE_FIELD_NUMBER = 2;
+    private int type_;
+    /**
+     * <code>required int32 type = 2;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 type = 2;</code>
+     */
+    public int getType() {
+      return type_;
+    }
+
+    private void initFields() {
+      territoryId_ = 0;
+      type_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasTerritoryId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, territoryId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, type_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, territoryId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, type_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.DataProtos.Card parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.Card parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Card parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.DataProtos.Card parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Card parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.Card parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Card parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.DataProtos.Card parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.DataProtos.Card parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.DataProtos.Card parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.DataProtos.Card prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.Card}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.DataProtos.CardOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.DataProtos.internal_static_communication_protos_Card_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.DataProtos.internal_static_communication_protos_Card_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.DataProtos.Card.class, communication.protos.DataProtos.Card.Builder.class);
+      }
+
+      // Construct using communication.protos.DataProtos.Card.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        territoryId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.DataProtos.internal_static_communication_protos_Card_descriptor;
+      }
+
+      public communication.protos.DataProtos.Card getDefaultInstanceForType() {
+        return communication.protos.DataProtos.Card.getDefaultInstance();
+      }
+
+      public communication.protos.DataProtos.Card build() {
+        communication.protos.DataProtos.Card result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.DataProtos.Card buildPartial() {
+        communication.protos.DataProtos.Card result = new communication.protos.DataProtos.Card(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.territoryId_ = territoryId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.type_ = type_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.DataProtos.Card) {
+          return mergeFrom((communication.protos.DataProtos.Card)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.DataProtos.Card other) {
+        if (other == communication.protos.DataProtos.Card.getDefaultInstance()) return this;
+        if (other.hasTerritoryId()) {
+          setTerritoryId(other.getTerritoryId());
+        }
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasTerritoryId()) {
+          
+          return false;
+        }
+        if (!hasType()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.DataProtos.Card parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.DataProtos.Card) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 territoryId = 1;
+      private int territoryId_ ;
+      /**
+       * <code>required int32 territoryId = 1;</code>
+       */
+      public boolean hasTerritoryId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 territoryId = 1;</code>
+       */
+      public int getTerritoryId() {
+        return territoryId_;
+      }
+      /**
+       * <code>required int32 territoryId = 1;</code>
+       */
+      public Builder setTerritoryId(int value) {
+        bitField0_ |= 0x00000001;
+        territoryId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 territoryId = 1;</code>
+       */
+      public Builder clearTerritoryId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        territoryId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 type = 2;
+      private int type_ ;
+      /**
+       * <code>required int32 type = 2;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 type = 2;</code>
+       */
+      public int getType() {
+        return type_;
+      }
+      /**
+       * <code>required int32 type = 2;</code>
+       */
+      public Builder setType(int value) {
+        bitField0_ |= 0x00000002;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 type = 2;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.Card)
+    }
+
+    static {
+      defaultInstance = new Card(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.Card)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -11140,6 +12028,11 @@ public final class DataProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_communication_protos_BattleInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_Card_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_Card_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11156,38 +12049,41 @@ public final class DataProtos {
       "es\030\003 \003(\0132%.communication.protos.GameDesc" +
       "ription\0226\n\013joinedGames\030\004 \003(\0132!.communica" +
       "tion.protos.GameContext\"*\n\004User\022\016\n\006userI" +
-      "d\030\001 \002(\003\022\022\n\nfacebookId\030\002 \001(\003\"\227\001\n\006Player\022\020" +
+      "d\030\001 \002(\003\022\022\n\nfacebookId\030\002 \001(\003\"\233\001\n\006Player\022\020" +
       "\n\010playerId\030\001 \002(\005\022(\n\004user\030\002 \001(\0132\032.communi" +
       "cation.protos.User\022\r\n\005color\030\003 \002(\005\022\024\n\014isP",
-      "layedMove\030\004 \002(\010\022\r\n\005cards\030\005 \003(\005\022\035\n\025number" +
-      "OfReinforcments\030\006 \001(\005\"=\n\016UserStatistics\022" +
-      "\025\n\rnumberOfGames\030\001 \002(\005\022\024\n\014numberOfWins\030\002" +
-      " \002(\005\"\357\001\n\013GameContext\022@\n\020lightGameContext" +
-      "\030\002 \002(\0132&.communication.protos.LightGameC" +
-      "ontext\0224\n\013territories\030\003 \003(\0132\037.communicat" +
-      "ion.protos.Territory\0221\n\talliances\030\004 \003(\0132" +
-      "\036.communication.protos.Alliance\0225\n\016pendi" +
-      "ngComands\030\005 \003(\0132\035.communication.protos.C" +
-      "ommand\"\245\001\n\020LightGameContext\022>\n\017gameDescr",
-      "iption\030\001 \002(\0132%.communication.protos.Game" +
-      "Description\022\r\n\005round\030\002 \002(\005\022\r\n\005phase\030\003 \002(" +
-      "\005\0223\n\rplayersInGame\030\004 \003(\0132\034.communication" +
-      ".protos.Player\"~\n\017GameDescription\022\016\n\006gam" +
-      "eId\030\001 \001(\003\022\020\n\010gameName\030\002 \002(\t\022\027\n\017numberOfP" +
-      "layers\030\003 \002(\005\022\035\n\025numberOfJoinedPlayers\030\004 " +
-      "\002(\005\022\021\n\tobjective\030\005 \002(\005\"=\n\tTerritory\022\n\n\002i" +
-      "d\030\001 \002(\005\022\022\n\ntroopsOnIt\030\002 \002(\005\022\020\n\010playerId\030" +
-      "\003 \002(\005\":\n\010Alliance\022\017\n\007userId1\030\001 \002(\003\022\017\n\007us" +
-      "erId2\030\002 \002(\003\022\014\n\004type\030\003 \002(\005\"4\n\005Dices\022\r\n\005di",
-      "ce1\030\001 \002(\005\022\r\n\005dice2\030\002 \002(\005\022\r\n\005dice3\030\003 \002(\005\"" +
-      "x\n\007Command\022\021\n\tcommandId\030\001 \001(\005\022\027\n\017sourceT" +
-      "erritory\030\002 \002(\005\022\034\n\024destinationTerritory\030\003" +
-      " \002(\005\022\025\n\rnumberOfUnits\030\004 \002(\005\022\014\n\004seed\030\005 \001(" +
-      "\005\"3\n\013TroopNumber\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013tro" +
-      "opNumber\030\002 \002(\005\"n\n\nBattleInfo\022.\n\007oneSide\030" +
-      "\002 \003(\0132\035.communication.protos.Command\0220\n\t" +
-      "otherSide\030\003 \003(\0132\035.communication.protos.C" +
-      "ommand"
+      "layedMove\030\004 \002(\010\022\021\n\tcardCount\030\005 \002(\005\022\035\n\025nu" +
+      "mberOfReinforcments\030\006 \001(\005\"=\n\016UserStatist" +
+      "ics\022\025\n\rnumberOfGames\030\001 \002(\005\022\024\n\014numberOfWi" +
+      "ns\030\002 \002(\005\"\265\002\n\013GameContext\022@\n\020lightGameCon" +
+      "text\030\001 \002(\0132&.communication.protos.LightG" +
+      "ameContext\022\027\n\017isPhaseCommited\030\002 \002(\010\0224\n\013t" +
+      "erritories\030\003 \003(\0132\037.communication.protos." +
+      "Territory\0221\n\talliances\030\004 \003(\0132\036.communica" +
+      "tion.protos.Alliance\0225\n\016pendingComands\030\005" +
+      " \003(\0132\035.communication.protos.Command\022+\n\007m",
+      "yCards\030\006 \003(\0132\032.communication.protos.Card" +
+      "\"\245\001\n\020LightGameContext\022>\n\017gameDescription" +
+      "\030\001 \002(\0132%.communication.protos.GameDescri" +
+      "ption\022\r\n\005round\030\002 \002(\005\022\r\n\005phase\030\003 \002(\005\0223\n\rp" +
+      "layersInGame\030\004 \003(\0132\034.communication.proto" +
+      "s.Player\"~\n\017GameDescription\022\016\n\006gameId\030\001 " +
+      "\001(\003\022\020\n\010gameName\030\002 \002(\t\022\027\n\017numberOfPlayers" +
+      "\030\003 \002(\005\022\035\n\025numberOfJoinedPlayers\030\004 \002(\005\022\021\n" +
+      "\tobjective\030\005 \002(\005\"=\n\tTerritory\022\n\n\002id\030\001 \002(" +
+      "\005\022\022\n\ntroopsOnIt\030\002 \002(\005\022\020\n\010playerId\030\003 \002(\005\"",
+      ":\n\010Alliance\022\017\n\007userId1\030\001 \002(\003\022\017\n\007userId2\030" +
+      "\002 \002(\003\022\014\n\004type\030\003 \002(\005\"4\n\005Dices\022\r\n\005dice1\030\001 " +
+      "\002(\005\022\r\n\005dice2\030\002 \002(\005\022\r\n\005dice3\030\003 \002(\005\"x\n\007Com" +
+      "mand\022\021\n\tcommandId\030\001 \001(\005\022\027\n\017sourceTerrito" +
+      "ry\030\002 \002(\005\022\034\n\024destinationTerritory\030\003 \002(\005\022\025" +
+      "\n\rnumberOfUnits\030\004 \002(\005\022\014\n\004seed\030\005 \001(\005\"3\n\013T" +
+      "roopNumber\022\017\n\007fieldId\030\001 \002(\005\022\023\n\013troopNumb" +
+      "er\030\002 \002(\005\"n\n\nBattleInfo\022.\n\007oneSide\030\001 \003(\0132" +
+      "\035.communication.protos.Command\0220\n\totherS" +
+      "ide\030\002 \003(\0132\035.communication.protos.Command",
+      "\")\n\004Card\022\023\n\013territoryId\030\001 \002(\005\022\014\n\004type\030\002 " +
+      "\002(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11211,7 +12107,7 @@ public final class DataProtos {
           internal_static_communication_protos_Player_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_Player_descriptor,
-              new java.lang.String[] { "PlayerId", "User", "Color", "IsPlayedMove", "Cards", "NumberOfReinforcments", });
+              new java.lang.String[] { "PlayerId", "User", "Color", "IsPlayedMove", "CardCount", "NumberOfReinforcments", });
           internal_static_communication_protos_UserStatistics_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_communication_protos_UserStatistics_fieldAccessorTable = new
@@ -11223,7 +12119,7 @@ public final class DataProtos {
           internal_static_communication_protos_GameContext_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_GameContext_descriptor,
-              new java.lang.String[] { "LightGameContext", "Territories", "Alliances", "PendingComands", });
+              new java.lang.String[] { "LightGameContext", "IsPhaseCommited", "Territories", "Alliances", "PendingComands", "MyCards", });
           internal_static_communication_protos_LightGameContext_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_communication_protos_LightGameContext_fieldAccessorTable = new
@@ -11272,6 +12168,12 @@ public final class DataProtos {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_BattleInfo_descriptor,
               new java.lang.String[] { "OneSide", "OtherSide", });
+          internal_static_communication_protos_Card_descriptor =
+            getDescriptor().getMessageTypes().get(13);
+          internal_static_communication_protos_Card_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_Card_descriptor,
+              new java.lang.String[] { "TerritoryId", "Type", });
           return null;
         }
       };
