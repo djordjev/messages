@@ -202,3 +202,8 @@ message PlayerCardCountNotification {
 	required int32 playerId = 2;
 	required int32 cardCount = 3;
 }
+
+message ReinforcementsNotification {
+	required int64 gameId = 1;
+	required int32 numberOfReinforcements = 2;
+}

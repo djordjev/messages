@@ -24448,6 +24448,499 @@ public final class CommunicationProtos {
     // @@protoc_insertion_point(class_scope:communication.protos.PlayerCardCountNotification)
   }
 
+  public interface ReinforcementsNotificationOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 gameId = 1;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    long getGameId();
+
+    // required int32 numberOfReinforcements = 2;
+    /**
+     * <code>required int32 numberOfReinforcements = 2;</code>
+     */
+    boolean hasNumberOfReinforcements();
+    /**
+     * <code>required int32 numberOfReinforcements = 2;</code>
+     */
+    int getNumberOfReinforcements();
+  }
+  /**
+   * Protobuf type {@code communication.protos.ReinforcementsNotification}
+   */
+  public static final class ReinforcementsNotification extends
+      com.google.protobuf.GeneratedMessage
+      implements ReinforcementsNotificationOrBuilder {
+    // Use ReinforcementsNotification.newBuilder() to construct.
+    private ReinforcementsNotification(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ReinforcementsNotification(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ReinforcementsNotification defaultInstance;
+    public static ReinforcementsNotification getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ReinforcementsNotification getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReinforcementsNotification(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              gameId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              numberOfReinforcements_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_ReinforcementsNotification_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return communication.protos.CommunicationProtos.internal_static_communication_protos_ReinforcementsNotification_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              communication.protos.CommunicationProtos.ReinforcementsNotification.class, communication.protos.CommunicationProtos.ReinforcementsNotification.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ReinforcementsNotification> PARSER =
+        new com.google.protobuf.AbstractParser<ReinforcementsNotification>() {
+      public ReinforcementsNotification parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReinforcementsNotification(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReinforcementsNotification> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 gameId = 1;
+    public static final int GAMEID_FIELD_NUMBER = 1;
+    private long gameId_;
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 gameId = 1;</code>
+     */
+    public long getGameId() {
+      return gameId_;
+    }
+
+    // required int32 numberOfReinforcements = 2;
+    public static final int NUMBEROFREINFORCEMENTS_FIELD_NUMBER = 2;
+    private int numberOfReinforcements_;
+    /**
+     * <code>required int32 numberOfReinforcements = 2;</code>
+     */
+    public boolean hasNumberOfReinforcements() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 numberOfReinforcements = 2;</code>
+     */
+    public int getNumberOfReinforcements() {
+      return numberOfReinforcements_;
+    }
+
+    private void initFields() {
+      gameId_ = 0L;
+      numberOfReinforcements_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasNumberOfReinforcements()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, gameId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, numberOfReinforcements_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, gameId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, numberOfReinforcements_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static communication.protos.CommunicationProtos.ReinforcementsNotification parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(communication.protos.CommunicationProtos.ReinforcementsNotification prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code communication.protos.ReinforcementsNotification}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements communication.protos.CommunicationProtos.ReinforcementsNotificationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_ReinforcementsNotification_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_ReinforcementsNotification_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                communication.protos.CommunicationProtos.ReinforcementsNotification.class, communication.protos.CommunicationProtos.ReinforcementsNotification.Builder.class);
+      }
+
+      // Construct using communication.protos.CommunicationProtos.ReinforcementsNotification.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        gameId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        numberOfReinforcements_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return communication.protos.CommunicationProtos.internal_static_communication_protos_ReinforcementsNotification_descriptor;
+      }
+
+      public communication.protos.CommunicationProtos.ReinforcementsNotification getDefaultInstanceForType() {
+        return communication.protos.CommunicationProtos.ReinforcementsNotification.getDefaultInstance();
+      }
+
+      public communication.protos.CommunicationProtos.ReinforcementsNotification build() {
+        communication.protos.CommunicationProtos.ReinforcementsNotification result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public communication.protos.CommunicationProtos.ReinforcementsNotification buildPartial() {
+        communication.protos.CommunicationProtos.ReinforcementsNotification result = new communication.protos.CommunicationProtos.ReinforcementsNotification(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.gameId_ = gameId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.numberOfReinforcements_ = numberOfReinforcements_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof communication.protos.CommunicationProtos.ReinforcementsNotification) {
+          return mergeFrom((communication.protos.CommunicationProtos.ReinforcementsNotification)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(communication.protos.CommunicationProtos.ReinforcementsNotification other) {
+        if (other == communication.protos.CommunicationProtos.ReinforcementsNotification.getDefaultInstance()) return this;
+        if (other.hasGameId()) {
+          setGameId(other.getGameId());
+        }
+        if (other.hasNumberOfReinforcements()) {
+          setNumberOfReinforcements(other.getNumberOfReinforcements());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasGameId()) {
+          
+          return false;
+        }
+        if (!hasNumberOfReinforcements()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        communication.protos.CommunicationProtos.ReinforcementsNotification parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (communication.protos.CommunicationProtos.ReinforcementsNotification) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 gameId = 1;
+      private long gameId_ ;
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public long getGameId() {
+        return gameId_;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder setGameId(long value) {
+        bitField0_ |= 0x00000001;
+        gameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 gameId = 1;</code>
+       */
+      public Builder clearGameId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gameId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int32 numberOfReinforcements = 2;
+      private int numberOfReinforcements_ ;
+      /**
+       * <code>required int32 numberOfReinforcements = 2;</code>
+       */
+      public boolean hasNumberOfReinforcements() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 numberOfReinforcements = 2;</code>
+       */
+      public int getNumberOfReinforcements() {
+        return numberOfReinforcements_;
+      }
+      /**
+       * <code>required int32 numberOfReinforcements = 2;</code>
+       */
+      public Builder setNumberOfReinforcements(int value) {
+        bitField0_ |= 0x00000002;
+        numberOfReinforcements_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 numberOfReinforcements = 2;</code>
+       */
+      public Builder clearNumberOfReinforcements() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        numberOfReinforcements_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:communication.protos.ReinforcementsNotification)
+    }
+
+    static {
+      defaultInstance = new ReinforcementsNotification(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:communication.protos.ReinforcementsNotification)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_communication_protos_RegisterRequest_descriptor;
   private static
@@ -24673,6 +25166,11 @@ public final class CommunicationProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_communication_protos_PlayerCardCountNotification_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_communication_protos_ReinforcementsNotification_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_communication_protos_ReinforcementsNotification_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -24756,7 +25254,9 @@ public final class CommunicationProtos {
       "card\030\002 \002(\0132\032.communication.protos.Card\"R" +
       "\n\033PlayerCardCountNotification\022\016\n\006gameId\030" +
       "\001 \002(\003\022\020\n\010playerId\030\002 \002(\005\022\021\n\tcardCount\030\003 \002" +
-      "(\005P\000"
+      "(\005\"L\n\032ReinforcementsNotification\022\016\n\006game" +
+      "Id\030\001 \002(\003\022\036\n\026numberOfReinforcements\030\002 \002(\005" +
+      "P\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -25033,6 +25533,12 @@ public final class CommunicationProtos {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_communication_protos_PlayerCardCountNotification_descriptor,
               new java.lang.String[] { "GameId", "PlayerId", "CardCount", });
+          internal_static_communication_protos_ReinforcementsNotification_descriptor =
+            getDescriptor().getMessageTypes().get(45);
+          internal_static_communication_protos_ReinforcementsNotification_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_communication_protos_ReinforcementsNotification_descriptor,
+              new java.lang.String[] { "GameId", "NumberOfReinforcements", });
           return null;
         }
       };
